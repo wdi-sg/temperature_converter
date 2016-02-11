@@ -1,73 +1,43 @@
 # Exercise: Temperature Converter
 
-Goal: create a program that can convert a temperature in Fahrenheit, Celsius or Kelvin to the other two units.
-- Try the bonus goal if you have extra time!
+Goal: Create a program that can convert a temperature in Fahrenheit, Celsius or Kelvin to the other two units.
 
 ## Setup
 
-- Create an `index.html` file
-- Create a `script.js` file
-- make sure to link the script file in the `index.html`
+* Create an `index.html` file.
+* Create a `script.js` file.
+* Make sure to link the script file in the `index.html`.
 
-## PART 1
+## Rules
 
-### Instructions
+Your application should...
+* Prompt the user for a starting `temperature`. This should be a numerical value that represents degrees.
+* Prompt the user for a starting `temperature_unit`. This will represent either Fahrenheit, Celsius or Kelvin.
+* The application should print out the user-submitted temperature in the two remaining units.
+  * So, if the user submitted `32` and `fahrenheit`, the program should output something like the below. Feel free to customize this however you'd like.
+    ```text
+    32° F = 0°C = 273.15K
+    ```
 
-1. Set the `fahrenheit` variable to temperature that you get from the user
-2. Below that, write Javascript code that converts `fahrenheit` to its equivalent Celsius and Kelvin values.
-  - Conversion formulae: [http://www.csgnetwork.com/temp2conv.html](http://www.csgnetwork.com/temp2conv.html)
-  - Sample temperatures: 32F = 0C = 273.15K
-3. Below that, `console.log` the starting and converted temperatures.
-4. Repeat steps 1-3 for starting `celsius` and `kelvin` temperatures.
-5. Test your program by opening `index.html` in the browser
-
-
-Your program will look something like this for each starting temperature...
-
-  ```javascript
-  // Starting temperature
-  var fahrenheit = //some code here to get user input;
-
-  // Conversion code
-  var fahrenheitToCelsius = ...;
-  var fahrenheitToKelvin = ...;
-
-  // Print to console
-  console.log( "Fahrenheit: " + ... );
-  console.log( "Celsius: " + ... );
-  console.log( "Kelvin: " + ... );
-  ```
-
-Your command line output will look something like this...
-
-  ```
-  Fahrenheit: STARTING_TEMP F
-  Celsius: CONVERTED_TEMP C
-  Kelvin: CONVERTED_TEMP K
-  ```
-
-Feel free to turn to your tablemates for help!  
-
-### Bonus
-
-Use conditionals (e.g., `if-else` statement, `switch` statement) so that your program only prints out the converted temperatures for one starting value.  
-
-The starting temperature should be determined by a 'whichTemp' variable that you instantiate at the beginning of the program, and will contain a value of either "f" (Fahrenheit), "c" (Celsius) or "k" (Kelvin).
-
-## PART 2
-Using Conditionals, have your code accept either fahrenheit, celsius or kelvin, and out put the other two temp types.
+Using Conditionals, have your code accept either fahrenheit, celsius or kelvin, and output the other two temp types.
 
 Restructure your program from PART 1 so that when you convert a temperature, that new values are stored in an array. Your array will end up looking something like this...
 
   `var fahrenheitTemps = [ STARTING_TEMP, CONVERTED_TEMP_1, CONVERTED_TEMP_2 ];`
 
+### Bonus I
 
-When you `console.log` the temperatures, make sure you do that by accessing the values stored in the array.  
+Use an array to store and access the user-submitted and converted temperatures. An example...
+```js
+`var temps = [ STARTING_TEMP, CONVERTED_TEMP_1, CONVERTED_TEMP_2 ];`
+```
 
-### Bonus 1
+When you `console.log` the temperatures, make sure you do that by accessing the values stored in the array.
+
+### Bonus II
 
 Use a for or while loop to print out the conversion results for each temperature. It's OK if you need to simplify your `console.log` statements and remove strings.  
 
-### Bonus 2
+### Bonus III
 
 Using loops, create an interface that continues to ask the user for temp conversions until the user requests to stop.
