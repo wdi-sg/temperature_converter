@@ -29,7 +29,7 @@ Restructure your program from PART 1 so that when you convert a temperature, tha
 
 Use an array to store and access the user-submitted and converted temperatures. An example...
 ```js
-`var temps = [ STARTING_TEMP, CONVERTED_TEMP_1, CONVERTED_TEMP_2 ];`
+var temps = [ STARTING_TEMP, CONVERTED_TEMP_1, CONVERTED_TEMP_2 ];
 ```
 
 When you `console.log` the temperatures, make sure you do that by accessing the values stored in the array.
