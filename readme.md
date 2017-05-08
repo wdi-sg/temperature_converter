@@ -12,7 +12,7 @@ Goal: Create a program that can convert a temperature in Fahrenheit, Celsius or 
 
 ### Part 1
 
->Your application should...
+> Your application should...
 
 * Prompt the user for a starting `temperatureInFahr`. This should be a numerical value that represents degrees in fahrenheit.
 * After receiving input it should log that same temperature in both kelvin and celsius.
