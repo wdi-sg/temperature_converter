@@ -15,14 +15,14 @@ Goal: Create a program that can convert a temperature in Fahrenheit, Celsius or 
 > Your application should...
 
 * Prompt the user for a starting `temperatureInFahr`. This should be a numerical value that represents degrees in fahrenheit.
-* After receiving input it should log that same temperature in both kelvin and celsius.
+* After receiving input it should log that same temperature in both Kelvin and Celsius.
 
 ### Part 2
 
 > Your application should...
 
 * Prompt the user for a starting `temperature`. This should be a numerical value that represents degrees.
-* Prompt the user for a starting `temperatureUnit`. This will represent either Fahrenheit, Celsius or Kelvin.
+* Prompt the user for a starting `temperatureUnit`. This will represent either Fahrenheit, Celsius, or Kelvin.
 * The application should print out the user-submitted temperature in the two remaining units.
   * So, if the user submitted `32` and `fahrenheit`, the program should output something like the below. Feel free to customize this however you'd like.
     ```text
