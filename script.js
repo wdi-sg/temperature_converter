@@ -1,8 +1,17 @@
+while (true) {
+
 var temperature = prompt("What is the temperature??");
+
+if (temperature == "Stop") {
+	console.log ("Stop liao.")
+	break;
+}
 
 var temperatureUnit = prompt("What is the temperature Unit??");
 
 var temperature = parseInt(temperature);
+
+
 
 if (temperatureUnit == "Fahrenheit") {
 	temperatureFahr = temperature;
@@ -23,4 +32,4 @@ if (temperatureUnit == "Fahrenheit") {
 	console.log ("No such Unit!!");
 }
 
-
+}
