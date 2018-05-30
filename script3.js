@@ -6,12 +6,12 @@ if (temperatureUnit === "fahrenheit") {
 	var CONVERTED_TEMP_2 = ((STARTING_TEMP - 32) * 5/9) + 273.15;
 
 } else if (temperatureUnit === "celsius") {
-	var CONVERTED_TEMP_1 = (temperature * 9/5) + 32;
-	var CONVERTED_TEMP_2 = temperature + 273.15;
+	var CONVERTED_TEMP_1 = (STARTING_TEMP * 9/5) + 32;
+	var CONVERTED_TEMP_2 = STARTING_TEMP + 273.15;
 
 } else if (temperatureUnit === "kelvin") {
-	var CONVERTED_TEMP_1 = ((temperature-273.15)*9/5)+32;
-	var CONVERTED_TEMP_2 = temperature - 273.15;
+	var CONVERTED_TEMP_1 = ((STARTING_TEMP-273.15)*9/5)+32;
+	var CONVERTED_TEMP_2 = STARTING_TEMP - 273.15;
 
 } else {
 	console.log("Unit is invalid")
@@ -34,14 +34,14 @@ if (temperatureUnit === "fahrenheit") {
 	temps.push(CONVERTED_TEMP_1, CONVERTED_TEMP_2);
 
 } else if (temperatureUnit === "celsius") {
-	var CONVERTED_TEMP_1 = (temperature * 9/5) + 32;
-	var CONVERTED_TEMP_2 = temperature + 273.15;
+	var CONVERTED_TEMP_1 = (STARTING_TEMP * 9/5) + 32;
+	var CONVERTED_TEMP_2 = STARTING_TEMP + 273.15;
 	temps.push(CONVERTED_TEMP_1, CONVERTED_TEMP_2);
 
 
 } else if (temperatureUnit === "kelvin") {
-	var CONVERTED_TEMP_1 = ((temperature-273.15)*9/5)+32;
-	var CONVERTED_TEMP_2 = temperature - 273.15;
+	var CONVERTED_TEMP_1 = ((STARTING_TEMP-273.15)*9/5)+32;
+	var CONVERTED_TEMP_2 = STARTING_TEMP - 273.15;
 	temps.push(CONVERTED_TEMP_1, CONVERTED_TEMP_2);
 
 } else {
