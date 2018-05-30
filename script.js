@@ -3,33 +3,44 @@ var temperatureInCelcius;
 var temperatureInFahr;
 
 
-var temperature = prompt("What is the temperature?");
-temperature = parseInt(temperature)
-var temperatureUnit = prompt("What is the temperature Unit?", "F, Deg C or K");
+var STARTING_TEMP = prompt("What is the temperature?");
+STARTING_TEMP = parseInt(STARTING_TEMP)
+var temperatureUnit = prompt("What is the temperature Unit?", "F, Deg C or K") 
  	
-	if (temperatureUnit != ('F' || 'Deg C' || 'K')) {
+ 	
+	if (temperatureUnit !== 'F' && temperatureUnit !==  'Deg C' && temperatureUnit !==  'K') {
  		prompt("Answer using the following Inputs ", "F, Deg C or K")
  	}
 
- 	else if (temperatureUnit == "F") {
- 		temperatureInKelvin = temperature + 255.372 + "K" ;
+ 	if (temperatureUnit == "F") {
+ 		temperatureInKelvin = (STARTING_TEMP + 459.67) * (5 / 9) + "K" ;
  			console.log(temperatureInKelvin);
- 		temperatureInCelcius =  temperature - 17.7778  + " Deg C" ;
+ 		temperatureInCelcius =  (STARTING_TEMP - 32) *(5/9)  + " Deg C" ;
  			console.log(temperatureInCelcius);
+ 			CONVERTED_TEMP_1 = temperatureInKelvin;
+ 			CONVERTED_TEMP_2 = temperatureInCelcius;
  	}
 
- 	else if (temperatureUnit == "Deg C") {
- 		temperatureInKelvin = temperature + 273.15 + "K" ;
+ 	 if (temperatureUnit == "Deg C") {
+ 		temperatureInKelvin = STARTING_TEMP + 273.15 + "K" ;
  			console.log(temperatureInKelvin);
- 		temperatureInFahr =  temperature + 32  + "F" ;
+ 		temperatureInFahr =  (STARTING_TEMP * 1.8) + 32  + "F" ;
  			console.log(temperatureInFahr);
+ 			CONVERTED_TEMP_1 = temperatureInKelvin;
+ 			CONVERTED_TEMP_2 = temperatureInFahr;
  	}
 
- 	 else if (temperatureUnit == "K") {
- 		temperatureInCelcius = temperature - 273.15 + " Deg C" ;
- 			console.log(temperatureInKelvin);
- 		temperatureInFahr =  temperature - 459.67  + "F" ;
+ 	 if (temperatureUnit == "K") {
+ 		temperatureInCelcius = STARTING_TEMP - 273.15 + " Deg C" ;
+ 			console.log(temperatureInCelcius);
+ 		temperatureInFahr =  (STARTING_TEMP * 1.8) - 459.67  + "F" ;
  			console.log(temperatureInFahr);
+ 			CONVERTED_TEMP_1 = temperatureInCelcius;
+ 			CONVERTED_TEMP_2 = temperatureInFahr;
  	}
 
- 
+var temps = [ STARTING_TEMP, CONVERTED_TEMP_1, CONVERTED_TEMP_2 ]
+
+
+
+
