@@ -1,7 +1,7 @@
-var temperatureInFahr = prompt("Please enter a temperature in Fahrenheit: ");
+var temperatureInFahr = parseFloat(prompt("Please enter a temperature in Fahrenheit: "));
 
-if(temperatureInFahr == NaN){
-	alert("Please enter a temperature in Fahrenheit");
+if (isNaN(temperatureInFahr)) {
+ alert("ERROR: INVALID VALUE");
 } else {
 	document.getElementById("Fahrenheit").innerHTML = "You entered " + temperatureInFahr + "°F";
 }
