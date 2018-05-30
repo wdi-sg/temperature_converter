@@ -1,30 +1,39 @@
 // define each conversion in a function
+function FtoC(temp) {
+    return (temp - 32) * 1.8;
+}
+function FtoK(temp) {
+    return ((temp - 32) * 5/9) + 273.15;
+}
+function CtoF(temp) {
+    return (temp / 1.8) + 32;
+}
+function CtoK(temp) {
+    return temp + 273.15;
+}
+function KtoC(temp) {
+    return temp - 273.15;
+}
+function KtoF(temp) {
+    return (temp - 273.15) * 1.8 + 32;
+}
+
 function convert(temp, unit) {
     // Use object key-value to store and access the user-submitted and converted temperatures.
     var temperaturesList = {};
 
-    var celsius = "";
-    var kelvin = "";
-    var fahrenheit = "";
-
     if (unit === "Fahrenheit") {
-        celsius = (temp - 32) * 1.8;
-        kelvin = ((temp - 32) * 5/9) + 273.15;
         temperaturesList[unit] = temp;
-        temperaturesList["Celsius"] = celsius;
-        temperaturesList["Kelvin"] = kelvin;
+        temperaturesList["Celsius"] = FtoC(temp);
+        temperaturesList["Kelvin"] = FtoK(temp);
     } else if (unit === "Celsius") {
-        fahrenheit = (temp / 1.8) + 32;
-        kelvin = temp + 273.15;
         temperaturesList[unit] = temp;
-        temperaturesList["Kelvin"] = kelvin;
-        temperaturesList["Fahrenheit"] = fahrenheit;
+        temperaturesList["Kelvin"] = CtoK(temp);
+        temperaturesList["Fahrenheit"] = CtoF(temp);
     } else if (unit === "Kelvin") {
-        fahrenheit = (temp - 273.15) * 1.8 + 32;
-        celsius = temp - 273.15;
         temperaturesList[unit] = temp;
-        temperaturesList["Celsius"] = celsius;
-        temperaturesList["Fahrenheit"] = fahrenheit;
+        temperaturesList["Celsius"] = KtoC(temp);
+        temperaturesList["Fahrenheit"] = KtoF(temp);
     } else {
         alert("Invalid Unit!");
         return;
@@ -43,14 +52,12 @@ do {
 
     var keys = Object.keys(temperatures);
 
-    console.log(Object.keys(temperatures));
-
     if (temperatures) {
         alert(temperatures[keys[0]].toFixed(2) + " " + keys[0] + " is " + temperatures[keys[1]].toFixed(2) + " " + keys[1] + " or " + temperatures[keys[2]].toFixed(2) + " " + keys[2] + ".");
     }
 
 // Using loops, create an interface that continues to ask the user for temp conversions until the user requests to stop.
-} while (prompt("Continue? Input Y for Yes or N for No.") === "Y");
+} while (confirm("Continue to convert?"));
 
 
 
