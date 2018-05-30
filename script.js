@@ -5,23 +5,24 @@ var tempUnit = prompt("Please state temperature unit. (C=Celcius/F=Fahrenheit/K=
 var tempFahr; 
 var tempKelvin; 
 var tempCelcius; 
-
+var temps = [];
 
 if (tempUnit === "C") {
     tempFahr = Math.round((temp * 1.8) * 32);
     tempKelvin = Math.round(temp + 273.15);
-    console.log(temp + tempUnit + " = " + tempFahr + "F = " + tempKelvin + "K");
+    temps = [temp, tempFahr, tempKelvin];
+    console.log(temps[0] + "C = " + temps[1] + "F = " + temps[2] + "K");
 } 
 else if (tempUnit === "F") {
     tempCelcius = Math.round((temp - 32) / 1.8);
     tempKelvin = Math.round((temp + 459.67) * (5/9));
-    console.log(temp + tempUnit + " = " + tempCelcius + "C = " + tempKelvin + "K");
+    temps = [temp, tempCelcius, tempKelvin];
+    console.log(temps[0] + "F = " + temps[1] + "C = " + temps[2] + "K");
 }  
 else { 
     tempCelcius = Math.round(temp - 273.15);
     tempFahr = Math.round((temp * (9/5))-459.67);
-    console.log(temp + tempUnit + " = " + tempCelcius + "C = " + tempFahr + "F");
+    temps = [temp, tempCelcius, tempFahr];
+    console.log(temps[0] + "K = " + temps[1] + "C = " + temps[2] + "F");
 }
-
-
 
