@@ -16,8 +16,8 @@ var temperatureUnit = prompt("What is the temperature Unit?", "F, Deg C or K")
  			console.log(temperatureInKelvin);
  		temperatureInCelcius =  (STARTING_TEMP - 32) *(5/9)  + " Deg C" ;
  			console.log(temperatureInCelcius);
- 			CONVERTED_TEMP_1 = temperatureInKelvin;
- 			CONVERTED_TEMP_2 = temperatureInCelcius;
+ 			var CONVERTED_TEMP_1 = temperatureInKelvin;
+ 			var CONVERTED_TEMP_2 = temperatureInCelcius;
  	}
 
  	if (temperatureUnit == "Deg C") {
