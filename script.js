@@ -7,46 +7,35 @@ console.log(kelvin.toFixed(3))
 
 var input2 = prompt(" Key in the value of Temperature(Eg.28)");
 var input3 = prompt(" Key in the Temperature Unit (fahr,celsius or kelvin.)");
+function FahrToCelsius(x){
+	return (x - 32) * (5/9)
+}
+function FahrToKelvin(x){
+	return (x - 32) * (5/9) + 273.15
+}
+function CelsiusToFahr(x){
+	return (x * 9/5) + 32
+}
+function CelsiusToKelvin(x){
+	return x + 273.15
+}
+function KelvinToFahr(x){
+	return (x - 273.15) * 9/5 +32
+}
+function KelvinToCelsius(x){
+	return x - 273.15
+}
 if (input3 === "fahr"){
-	var temperatureInFahr = parseInt(input2)
-	var celsius = (temperatureInFahr - 32) * (5/9)
-	var kelvin = ((temperatureInFahr -32) * (5/9) + 273.15)
-	console.log(input2 + "F = " + celsius.toFixed(3) + "C = " + kelvin.toFixed(3) + "K")
+	var x = parseInt(input2)
+	var results = console.log(x + "F = " + FahrToCelsius(x).toFixed(3) + "C = " + FahrToKelvin(x).toFixed(3) + "K")
 }else if(input3 === "celsius"){
-	var temperatureInCelsius = parseInt(input2)
-	var fahr = ((temperatureInCelsius * 9/5) + 32)
-	var kelvin = (temperatureInCelsius + 273.15)
-	console.log(fahr + "F = " + input2 + "C = " + kelvin.toFixed(3) + "K")
+	var x = parseInt(input2)
+	var results = console.log(CelsiusToFahr(x) + "F = " + x + "C = " + CelsiusToKelvin(x).toFixed(3) + "K")
 }else if(input3 === "kelvin"){
-	var temperatureInKelvin = parseInt(input2)
-	var fahr = ((temperatureInKelvin - 273.15) * 9/5 +32)
-	var celsius = (temperatureInKelvin - 273.15)
-	console.log(fahr.toFixed(3) + "F = " + celsius.toFixed(3) + "C = " + input2 + "K")
+	var x = parseInt(input2)
+	var results = console.log(KelvinToFahr(x).toFixed(3) + "F = " + KelvinToCelsius(x).toFixed(3) + "C = " + x + "K")
 }else{
 	console.log("Invalid input. Please try again.")
 }
 
-/*
-var temperatureInCelsius = parseInt(input2)
-var fahr = ((temperatureInCelsius * 9/5) + 32)
-var kelvin = (temperatureInCelsius + 273.15)
-function Fahrinput(){
-	console.log(input2 + "F = " + celsius.toFixed(3) + "C = " + kelvin.toFixed(3) + "K")
-}
-function Celsiusinput(){
-	console.log(fahr + "F = " + input2 + "C = " + kelvin.toFixed(3) + "K")
-}
-function Kelvininput(){
-	console.log(fahr + "F = " + celsius.toFixed(3) + "C = " + input2 + "K")
-}
 
-if (input3 === "fahr"){
-	Fahrinput(input2, input3);
-}else if(input3 === "celsius"){
-	Celsiusinput(input2, input3);
-}else if(input3 === "kelvin"){
-	Kelvininput(input2, input3);
-}else{
-	console.log("Invalid input. Please try again.")
-}
-*/
