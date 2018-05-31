@@ -14,6 +14,7 @@ if(temperatureUnit == "K")
 	temps[i];
 	console.log(temps[i])
 	}
+
 }
 
 else if (temperatureUnit == "F")
