@@ -22,6 +22,7 @@ console.log(temps);
 
 
 
+
 /* --- another method
 
 var STARTING_TEMP = parseInt(prompt("Enter a temperature"));
