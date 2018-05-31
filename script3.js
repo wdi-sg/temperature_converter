@@ -37,6 +37,8 @@ if (temperatureUnit == "fahrenheit") {
 	console.log(fah);
 }
 
+//.toFixed(2) --> to round to 2 dp
+
 document.getElementById('fah').innerHTML = fah;
 document.getElementById('deg').innerHTML = deg;
 document.getElementById('kel').innerHTML = kel;
