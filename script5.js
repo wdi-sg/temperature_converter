@@ -1,3 +1,9 @@
+/*
+
+use while (typeof temperatureUnit === "number") {
+
+} 
+
 var starting_temp = parseInt(prompt("Enter a temperature"));
 var temperatureUnit = prompt("What is the unit of the temperature? (fahrenheit, celsius or kelvin)")
 
@@ -20,8 +26,4 @@ if (temperatureUnit === "fahrenheit") {
 var temps = [ starting_temp, converted_temp_1, converted_temp_2 ];
 console.log(temps);
 
- /*
-
- while (typeof temperatureUnit === "number") {
-
-} 
+*/
