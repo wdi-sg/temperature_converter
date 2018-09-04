@@ -20,7 +20,7 @@ console.log("temperature in Kelvin is = " + temperatureinKelv) ;
 
 */
 
-/////////part 2/////////
+/////////part 2 & part 3/////////
 
 //define and initialise working storage
  var celcius = "celcius" ;
