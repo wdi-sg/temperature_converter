@@ -17,7 +17,7 @@ var temperature = prompt('Enter temperature');
 var temperatureUnit = prompt('Enter unit of temperature');
 var fahrenheit = "F";
 var celcius = "C";
-var kelvin = "K";
+var kelvin = "K":
 
 // converting Celsius
 if (temperatureUnit == " C") {
