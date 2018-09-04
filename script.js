@@ -40,7 +40,41 @@ if (temps[1] < 0){
     console.log("you're literally boiling");
 };
 
+var name = prompt("What's your name?");
 
+var clothes = [
+ 'nothing',
+ 'swimsuit',
+ 'shorts and shirt',
+ 'sweater',
+ 'sweater + jacket',
+ 'heavy jacket',
+ 'heavy jacket and toe warmers',
+ 'dont go outside if you want to live'
+];
 
+if (temps[1] < 12.5){
+    wear = clothes[0];
+}else if (temps[1] < 25){
+    wear = clothes[1];
+}else if (temps[1] < 37.5){
+    wear = clothes[2];
+}else if (temps[1] < 50){
+    wear = clothes[3];
+}else if (temps[1] < 62.5){
+    wear = clothes[4];
+}else if (temps[1] < 75){
+    wear = clothes[5];
+}else if (temps[1] < 87.5){
+    wear = clothes[6];
+}else if (temps[1] >= 87.5){
+    wear = clothes[7];
+}
+
+if (temps[1] < 87.5){
+    console.log("Hey " + name + " you should wear " + wear);
+}else if(temps[1] > 87.5){
+    console.log(name + " " + wear);
+}
 
 
