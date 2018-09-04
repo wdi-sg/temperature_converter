@@ -6,15 +6,25 @@ temperatureInFahr = (9*(temperatureInKelv - 273))/5 + 32; //kel to fahr
 temperatureInKelv = temperature + 273; //deg to kel
 temperature = temperatureInKelv - 273; //kel to deg */
 
-//Part 4
-var temperatureInFahr;
-var temperatureInDeg;
-var temperatureInKelv;
-var temperatureRead;
+//Part 5
+var temperatureInFahr, temperatureInDeg, temperatureInKelv, temperatureRead;
+var name;
+
+var clothes = [
+ 'nothing',
+ 'swimsuit',
+ 'shorts and shirt',
+ 'sweater',
+ 'sweater + jacket',
+ 'heavy jacket',
+ 'heavy jacket and toe warmers',
+ 'dont go outside if you want to live'
+];
 
 var temps = []; //F C K
 temperatureRead = prompt("Please enter a temperature:");
-temperatureUnit = prompt("Please enter a temperature unit","Fahrenheit, Celsius, or Kelvin");
+temperatureUnit = prompt("Please enter a temperature unit:","Fahrenheit, Celsius, or Kelvin");
+name = prompt("Please enter your name:");
 
 if (temperatureUnit === "Fahrenheit"){
   // F to C
@@ -56,14 +66,17 @@ else{
   alert("Incorrect Unit");
 }
 
-function printMessage() {
+function printMessage(){
   if (temperatureInDeg < 0){
     console.log("ooh it's cold out");
+    console.log(name + ", You are advised to wear " + clothes[6]);
   }
   else if (temperatureInDeg > 40 && temperatureInDeg <= 100){
     console.log("ooh it's hot out");
+    console.log(name + ", You are advised to wear " + clothes[0]);
   }
   else if (temperatureInDeg > 100){
     console.log("your literally boiling");
+    console.log(name + ", You are advised to wear " + clothes[7]);
   }
 }
