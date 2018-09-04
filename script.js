@@ -128,5 +128,45 @@ commentTemperature();
 //exercise 5
 console.log("exercise 5")
 
+var name = prompt("What is your name?")
+
+var clothes = [
+ 'nothing',
+ 'swimsuit',
+ 'shorts and shirt',
+ 'sweater',
+ 'sweater + jacket',
+ 'heavy jacket',
+ 'heavy jacket and toe warmers',
+ 'dont go outside if you want to live'
+];
+
+function commentClothing(){
+   if (temps[1] < 0 ){
+        console.log(name + " , you should wear " + clothes[6]);
+    }
+    else if (temps[1] >= 40 && temps[1] <100){
+        console.log(name + " , you should wear " + clothes[1]);
+    }
+
+    else if (temps[1] >= 100){
+        console.log(name + " , you should wear " + clothes[7]);
+    }
+
+    else{
+        console.log(name + " , you should wear a " + clothes[2]);
+    };
+    };
+
+commentClothing();
+
+//exercise 6
+console.log("exercise 6")
+
+
+
+
+
+
 
 
