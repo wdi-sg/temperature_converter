@@ -9,8 +9,8 @@ if (temperatureUnit === "Fahrenheit") {
     var temperatureInK = temperatureInC + 273;
 } else if (temperatureUnit === "Celsius") {
     var temperatureInC = temperature;
-    var temperautreInK = temperature + 273;
-    var tempetatureInFahr = (9/5) * (temperature + 32);
+    var temperatureInK = temperature + 273;
+    var temperatureInFahr = (9/5) * (temperature + 32);
 } else if (temperatureUnit === "Kelvin") {
     var temperatureInK = temperature;
     var temperatureInC = temperature - 273;
