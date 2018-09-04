@@ -1,6 +1,7 @@
 
 //exercise 1, enter temperature in fahrenheit and return celsius and kelvin
 console.log("hello!");
+console.log("exercise 1")
 
 var temperatureInFahr;
 var temperatureInCelsius;
@@ -21,41 +22,111 @@ var kelvinToFahrenheit = function(temperatureInKelvin){
     return temperatureInFahr
 }
 
-var temperatureInFahr = prompt("Please enter your temperature in Farenheit");
+/*var temperatureInFahr = prompt("Please enter your temperature in Farenheit");
 
 console.log("Your temperature in Celsius is " + fahrToCelsius(temperatureInFahr));
 console.log("Your temperature in Kelvin is " + celsiusToKelvin(fahrToCelsius(temperatureInFahr)));
+*/
+
+console.log(kelvinToFahrenheit(celsiusToKelvin(32)));
+
+/*exercise part 2, enter temperature in either fahrenheit, kelvin or celsius and reuturn the remaining
+using the functions that was defined in exercise part 1
+*/
+console.log("exercise 2")
+
+function tempConverter(temperature, temperatureUnit)
+//this function prints to console and returns an array in the form of [fahrenheit, celsius, kelvin]
+{
+    if (temperatureUnit === "fahrenheit"){
+
+        var celsius = fahrToCelsius(temperature);
+        var kelvin = celsiusToKelvin(fahrToCelsius(temperature));
+
+        var array = [temperature, celsius, kelvin];
+
+        console.log("Your temperature is\nFahrenheit: " + array[0] + "\nCelsius: " + array[1] + "\nKelvin: " + array[2]);
+
+        return array;
+    }
 
 
-//exercise part 2, enter temperature in either fahrenheit, kelvin or celsius and reuturn the remaining
+    else if (temperatureUnit === "kelvin"){
 
+        var fahrenheit = kelvinToFahrenheit(temperature);
+        var celsius = fahrToCelsius(kelvinToFahrenheit(temperature));
 
+        var array = [fahrenheit, celsius, temperature];
+
+        console.log("Your temperature is\nFahrenheit: " + array[0] + "\nCelsius: " + array[1] + "\nKelvin: " + array[2]);
+        return array;
+    }
+
+    else if (temperatureUnit === "celsius") {
+
+        var kelvin = celsiusToKelvin(temperature);
+
+        var fahrenheit = kelvinToFahrenheit(celsiusToKelvin(temperature));
+
+        //not sure why this does not produce the values when both values should be the same
+        console.log(kelvinToFahrenheit(celsiusToKelvin(temperature)));
+        console.log(kelvinToFahrenheit(celsiusToKelvin(32)));
+
+        var array = [fahrenheit, temperature, kelvin];
+
+        console.log("Your temperature is\nFahrenheit: " + array[0] + "\nCelsius: " + array[1] + "\nKelvin: " + array[2]);
+        return array;
+    }
+
+    else {
+        console.log("You have entered the wrong unit");
+
+    };
+};
 
 var temperature = prompt("Please enter your temperature");
 var temperatureUnit = prompt("Please enter your unit, e.g. fahrenheit, kelvin, celsius");
 
-//using the functions that was defined in exercise part 1
-if (temperatureUnit === "fahrenheit"){
-    console.log("Your temperature in Celsius is " + fahrToCelsius(temperature));
-    console.log("Your temperature in Kelvin is " + celsiusToKelvin(fahrToCelsius(temperature)));
-}
+
+tempConverter(temperature, temperatureUnit);
+
+//exercise 3
+
+console.log("exercise 3")
+
+var temps =[]
+var convertedTemps = tempConverter(temperature, temperatureUnit);//this function returns an array
+
+var temps = convertedTemps;
+console.log(temps); //array of converted temperatures
 
 
-else if (temperatureUnit === "kelvin"){
-    console.log("Your temperature in Fahrenheit is " + kelvinToFahrenheit(temperature));
-    console.log("Your temperature in Celsius is " + fahrToCelsius(kelvinToFahrenheit(temperature)));
+//exercise 4
+console.log("exercise 4")
 
-}
+console.log("The temperature is " + temps[1] + " celsius");
 
-else if (temperatureUnit === "celsius") {
-    console.log("your temperature in Kelvin is " + celsiusToKelvin(temperature));
-    console.log("your temperature in Fahrenheit is " + kelvinToFahrenheit(celsiusToKelvin(temperature)));
-}
+function commentTemperature(){
+   if (temps[1] < 0 ){
+        console.log("oh it's cold out");
+    }
+    else if (temps[1] >= 40 && temps[1] <100){
+        console.log("ooh it's hot out");
+    }
 
-else {
-    console.log("You have entered the wrong unit, please re-enter");
-    prompt("Please enter your unit, e.g. fahrenheit, kelvin, celsius");
+    else if (temps[1] >= 100){
+        console.log("your literally boiling hot");
+    }
 
-};
+    else{
+        console.log("The weather is nice");
+    };
+    };
+
+commentTemperature();
+
+//exercise 5
+console.log("exercise 5")
+
 
 
