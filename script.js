@@ -42,7 +42,7 @@ while (true) {
 /**
  * Calculate temperatures in the other two units based on a given unit.
  * @param {number} temp     The temperature entered by user.
- * @param {[type]} tempUnit The temperature unit entered by user.
+ * @param {string} tempUnit The temperature unit entered by user.
  */
 function setTemperaturesFromUnit(temp, tempUnit) {
   var tempFahr;
