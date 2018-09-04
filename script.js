@@ -85,6 +85,7 @@ function tempConverter(temperature, temperatureUnit)
 };
 
 var temperature = prompt("Please enter your temperature");
+
 var temperatureUnit = prompt("Please enter your unit, e.g. fahrenheit, kelvin, celsius");
 
 
@@ -160,8 +161,20 @@ function commentClothing(){
 
 commentClothing();
 
-//exercise 6
-console.log("exercise 6")
+//exercise 6 and 7
+console.log("exercise 6 and 7")
+
+do{
+
+    var temperature = prompt("Please enter your temperature \nnote:type stop to discontinue");
+
+    var temperatureUnit = prompt("Please enter your unit, e.g. fahrenheit, kelvin, celsius \nnote:type stop to discontinue");
+
+    tempConverter(temperature, temperatureUnit);}
+
+while (temperature !== "stop" || temperatureUnit !== "stop")
+
+
 
 
 
