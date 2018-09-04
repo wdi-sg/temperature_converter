@@ -20,22 +20,30 @@ console.log('Starting temperature is ' + twoDecimalPlaces(temperature) + ' ' + t
 var c = 0;
 var f = 0;
 var k = 0;
+var temps = [temperature]
 
 //conditionals to do convertion based on temperature unit
 if (temperatureUnit === 'farenheit') {
-    c = 5/9 * (temperature - 32);
     f = temperature;
+    c = 5/9 * (temperature - 32);
     k = c + 273;
+    temps.push(c);
+    temps.push(k);
 } else if (temperatureUnit === 'celsius') {
     c = temperature;
     f = 9/5 * temperature + 32;
     k = c + 273;
+    temps.push(f);
+    temps.push(k);
 } else if (temperatureUnit === 'kelvin') {
+    k = temperature;
     c = temperature - 273;
     f = 9/5 * c + 32;
-    k = temperature;
+    temps.push(c);
+    temps.push(f);
 } else {
     console.log('ERROR! Please enter farenheit, celsius or kelvin for the temperature unit.');;
 }
 
+console.log(temps);
 console.log(twoDecimalPlaces(c) +'°C = ' + twoDecimalPlaces(f) + '°F = '+ twoDecimalPlaces(k) + 'K');
