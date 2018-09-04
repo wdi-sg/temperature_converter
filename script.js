@@ -105,18 +105,20 @@ if (temps.length > 0){
 var condition;
 
 while (true) {
+    temps.length = 0;
+
     condition = prompt('Enter a temperature to convert (or type stop to end): ');
 
-    if (condition.trim() == 'stop')
+    if (condition == 'stop' || condition == null)
         break;
     temperatureUnit = prompt('What unit are you using? (or type stop to end)', 'farenheit or celsius or kelvin');
 
-    if (temperatureUnit.trim() == 'stop')
+    if (temperatureUnit == 'stop' || temperatureUnit == null)
         break;
 
-    console.log('Entered temperature is ' + twoDecimalPlaces(temperature) + ' ' + temperatureUnit) + '.';
-
     temperature = parseInt(condition);
+
+    console.log('Entered temperature is ' + twoDecimalPlaces(temperature) + ' ' + temperatureUnit) + '.';
 
     if (temperatureUnit === 'farenheit') {
         f = twoDecimalPlaces(temperature);
@@ -151,5 +153,4 @@ while (true) {
         }
     }
 
-    temps.length = 0;
 }
