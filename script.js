@@ -22,23 +22,13 @@ var temperatureUnit = prompt('What unit are you using? (delete where necessary)'
 console.log('Starting temperature is ' + twoDecimalPlaces(temperature) + ' ' + temperatureUnit) + '.';
 
 
-//part 4
-function checkTemperature(celsius) {
-    if (celsius < 0)
-        console.log("ooh it's cold out")
-    else if (celsius > 40)
-        console.log("ooh it's hot out")
-    else if (celsius > 100)
-        console.log('your literally boiling')
-}
 
-
+//part 3
 //conditionals to do convertion based on temperature unit
 if (temperatureUnit === 'farenheit') {
     f = twoDecimalPlaces(temperature);
     c = twoDecimalPlaces(5/9 * (temperature - 32));
     k = twoDecimalPlaces(5/9 * (temperature - 32));
-    checkTemperature(c);
     temps.push(f + '°F');
     temps.push(c + '°C');
     temps.push(k + 'K');
@@ -46,7 +36,6 @@ if (temperatureUnit === 'farenheit') {
     c = twoDecimalPlaces(temperature);
     f = twoDecimalPlaces(9/5 * (temperature + 32));
     k = twoDecimalPlaces(temperature + 273);
-    checkTemperature(c);
     temps.push(c + '°C');
     temps.push(f + '°F');
     temps.push(k + 'K');
@@ -54,7 +43,6 @@ if (temperatureUnit === 'farenheit') {
     k = twoDecimalPlaces(temperature);
     c = twoDecimalPlaces(temperature - 273);
     f = twoDecimalPlaces(9/5 * (temperature - 273));
-    checkTemperature(c);
     temps.push(k + 'K');
     temps.push(c + '°C');
     temps.push(f + '°F');
@@ -64,6 +52,13 @@ if (temperatureUnit === 'farenheit') {
 if (temps.length === 3)
     console.log(`${temps[0]} = ${temps[1]} = ${temps[2]}`);
 
+//part 4
+if (c < 0)
+    console.log("ooh it's cold out")
+else if (c > 40)
+    console.log("ooh it's hot out")
+else if (c > 100)
+    console.log('your literally boiling')
 
 var clothes = [
  'nothing',
