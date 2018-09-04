@@ -14,6 +14,21 @@
 var temperatureInFahr;
 var temperatureInKelvin;
 var temperatureInCelsius;
+var name = prompt("What is your name?");
+var clothes = [
+ 'nothing',
+ 'swimsuit',
+ 'shorts and shirt',
+ 'sweater',
+ 'sweater + jacket',
+ 'heavy jacket',
+ 'heavy jacket and toe warmers',
+ 'dont go outside if you want to live'
+];
+
+var hotClothes = [clothes[0],clothes[1],clothes[2]];
+var normalClothes = [clothes[3],clothes[4]];
+var coldClothes = [clothes[5], clothes[6], clothes[7]];
 
 // if (temperatureUnit === "Fahrenheit"){
 //   temperatureInKelvin = ( (5/9) * (temperature - 32) )+ 273;
@@ -56,16 +71,16 @@ function KelIn(){
   temperatureInFahr = temps[1];
 }
 
-// Part 4
+// Part 4 & 5
 function exclaimation(){
   if (temperatureInFahr < 0){
-    console.log("Ooh it's cold out");
+    console.log("Ooh it's cold out, " + name + ". Consider wearing " + coldClothes[Math.floor(Math.random()*3)]);
   }
   else if (temperatureInFahr > 100){
-    console.log("You're literally boiling");
+    console.log("You're literally boiling, " + name + ". Consider wearing " + hotClothes[Math.floor(Math.random()*3)]);
   }
   else if (temperatureInFahr > 40){
-    console.log("Ooh it's hot out");
+    console.log("Ooh it's hot out, " + name + ". Consider wearing " + normalClothes[Math.floor(Math.random()*2)]);
   }
 }
 
