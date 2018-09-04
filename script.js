@@ -54,32 +54,38 @@ var temperatureInKelvin;
 var temperatureInCelsius;
 
 function FahrIn(){
-  var temps = [ STARTING_TEMP + "\xB0F",  (5/9) * (STARTING_TEMP - 32) + 273, (5/9) * (STARTING_TEMP - 32) + "\xB0C"];
-  console.log(temps[0] + " = " + temps[2] + " = " + temps[1] + "K");
+  var temps = [ STARTING_TEMP,  (5/9) * (STARTING_TEMP - 32) + 273, (5/9) * (STARTING_TEMP - 32) ];
+  var tempUnits = ["\xB0F", "K", "\xB0C"]
+
+  console.log(temps[0] + tempUnits[0] + " = " + temps[2] + tempUnits[2]+ " = " + temps[1] + tempUnits[1]);
   temperatureInKelvin = temps[1];
 
   for (var i = 0; i < temps.length; i++) {
-  console.log("The temperature is " + temps[i]);
+  console.log("The temperature is " + temps[i] + tempUnits[i]);
   }
 }
 
 function CelIn(){
-  var temps = [ STARTING_TEMP + "C",  STARTING_TEMP + 273 , ((9/5) * STARTING_TEMP) + 32 + "\xB0F"];
-  console.log(temps[0] + " = " + temps[2] + " = " + temps[1] + "K");
+  var temps = [ STARTING_TEMP,  STARTING_TEMP + 273 , ((9/5) * STARTING_TEMP) + 32 ];
+  var tempUnits = ["\xB0C", "K", "\xB0F"]
+
+  console.log(temps[0] + tempUnits[0] + " = " + temps[2] + tempUnits[2] + " = " + temps[1] + tempUnits[1]);
   temperatureInKelvin = temps[1];
 
   for (var i = 0; i < temps.length; i++) {
-  console.log("The temperature is " + temps[i]);
+  console.log("The temperature is " + temps[i] + tempUnits[i]);
   }
 }
 
 function KelIn(){
-  var temps = [ STARTING_TEMP + "K",  (9/5) * (STARTING_TEMP - 273) + 32, STARTING_TEMP - 273 + "\xB0C"];
-  console.log(temps[0] + " = " + temps[2] + " = " + temps[1] + "\xB0F");
+  var temps = [ STARTING_TEMP ,  (9/5) * (STARTING_TEMP - 273) + 32, STARTING_TEMP - 273 ];
+  var tempUnits = [ "K",  "\xB0F", "\xB0C"];
+
+  console.log(temps[0] + tempUnits[0] + " = " + temps[2] + tempUnits[2]+ " = " + temps[1] + tempUnits[1]);
   temperatureInKelvin = temps[1];
 
   for (var i = 0; i < temps.length; i++) {
-  console.log("The temperature is " + temps[i]);
+  console.log("The temperature is " + temps[i] + tempUnits[i]);
   }
 }
 
