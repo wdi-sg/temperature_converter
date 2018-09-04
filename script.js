@@ -17,28 +17,32 @@ var temperatureUnit = prompt('What unit are you using? (farenheit/celsius/kelvin
 
 console.log('Starting temperature is ' + twoDecimalPlaces(temperature) + ' ' + temperatureUnit) + '.';
 
-var c = 0;
-var f = 0;
-var k = 0;
-var temps = [temperature]
+var c;
+var f;
+var k;
+var temps = []
+var symbol;
 
 //conditionals to do convertion based on temperature unit
 if (temperatureUnit === 'farenheit') {
-    f = temperature;
-    c = 5/9 * (temperature - 32);
-    k = c + 273;
+    f = temperature + '°F';
+    c = twoDecimalPlaces(5/9 * (temperature - 32)) + '°C';
+    k = twoDecimalPlaces(5/9 * (temperature - 32)) + 'K';
+    temps.push(f);
     temps.push(c);
     temps.push(k);
 } else if (temperatureUnit === 'celsius') {
-    c = temperature;
-    f = 9/5 * temperature + 32;
-    k = c + 273;
+    c = temperature + '°C';
+    f = twoDecimalPlaces(9/5 * (temperature + 32)) + '°F';
+    k = twoDecimalPlaces(temperature + 273) + 'K';
+    temps.push(c);
     temps.push(f);
     temps.push(k);
 } else if (temperatureUnit === 'kelvin') {
-    k = temperature;
-    c = temperature - 273;
-    f = 9/5 * c + 32;
+    k = temperature + 'K';
+    c = twoDecimalPlaces(temperature - 273) + '°C';
+    f = twoDecimalPlaces(9/5 * (temperature - 273)) + '°F';
+    temps.push(k);
     temps.push(c);
     temps.push(f);
 } else {
@@ -46,4 +50,5 @@ if (temperatureUnit === 'farenheit') {
 }
 
 console.log(temps);
+console.log(`${temps[0]} = ${temps[1]} = ${temps[2]}`);
 console.log(twoDecimalPlaces(c) +'°C = ' + twoDecimalPlaces(f) + '°F = '+ twoDecimalPlaces(k) + 'K');
