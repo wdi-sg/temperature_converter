@@ -1,6 +1,7 @@
 console.log("it works")
 
-var temperatureInFahrenheit = prompt("What is the temperature in fahrenheit?");
+var temperature = parseInt(prompt("What is the temperature?"));
+var temperatureUnit = prompt("What is the temperature unit? Type C for Celsius, F for Farenheit and K for Kelvin.")
 
 /**
 
@@ -11,15 +12,27 @@ temperatureInKelvin = temperatureInCelsius + 273
 
 */
 
-// defining temp in Celsius
-var temperatureInCelsius = (temperatureInFahrenheit - 32) / 1.8;
+if (temperatureUnit === "C"){
+    temperatureInCelsius = temperature;
+    temperatureInFahrenheit = (temperatureInCelsius)*(9/5) + 32;
+    temperatureInKelvin = temperatureInCelsius + 273;
 
-// defining temp in Kelvin
-var temperatureInKelvin = temperatureInCelsius + 273;
+}else if (temperatureUnit === "F"){
+    temperatureInFahrenheit = temperature;
+    temperatureInCelsius = (5/9)*(temperatureInFahrenheit - 32);
+    temperatureInKelvin = (5/9)*(temperatureInFahrenheit -32) +273;
 
-console.log(temperatureInFahrenheit);
+}else if (temperatureUnit === "K"){
+    temperatureInKelvin = temperature;
+    temperatureInCelsius = temperatureInKelvin - 273;
+    temperatureInFahrenheit = (9/5)*(temperatureInKelvin - 273) + 32;
+}
 
-console.log(temperatureInCelsius);
+console.log(temperatureInFahrenheit + " F = " + temperatureInCelsius + " C = " + temperatureInKelvin + " K");
 
-console.log(temperatureInKelvin);
+
+
+
+
+
 
