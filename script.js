@@ -4,6 +4,11 @@
 // Prompts user to enter temperature
 let temperatureInFahr = prompt("Enter temperature in Fahrenheit");
 
+// Checks if user enters a string
+while (isNaN(temperatureInFahr)){
+    temperatureInFahr = prompt("Error! Please enter a number");
+}
+
 // converts user-input from Fahrenheit to Celsius
 let temperatureCelsius = Math.round(5/9*(temperatureInFahr-32));
 
