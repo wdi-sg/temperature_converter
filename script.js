@@ -28,9 +28,17 @@ if (temperatureUnit === "C"){
     temperatureInFahrenheit = (9/5)*(temperatureInKelvin - 273) + 32;
 }
 
-console.log(temperatureInFahrenheit + " F = " + temperatureInCelsius + " C = " + temperatureInKelvin + " K");
+var temps = [ temperatureInFahrenheit, temperatureInCelsius, temperatureInKelvin ];
 
+console.log(temps[0] + " F = " + temps[1] + " C = " + temps[2] + " K");
 
+if (temps[1] < 0){
+    console.log("ooh it's cold out");
+}else if (temps[1] < 100 && temps[1] > 40){
+    console.log("ooh it's hot out");
+}else if (temps[1] > 100){
+    console.log("you're literally boiling");
+};
 
 
 
