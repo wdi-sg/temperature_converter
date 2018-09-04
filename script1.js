@@ -4,7 +4,7 @@ var temperatureCelsius;
 var temperatureKelvin;
 var temperatureInFahr;
 
-temperature = prompt("Please enter a temperature");
+temperature = parseInt(prompt("Please enter a temperature"));
 temperatureUnit = prompt("please enter the temperature unit");
 
 if (temperatureUnit == "celsius"){
