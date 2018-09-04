@@ -67,3 +67,20 @@ if(temperatureUnit == "C"){
 		console.log("you're literally boiling");
 	}
 }
+
+var name = prompt("input your name");
+
+var clothes = [
+ 'nothing',
+ 'swimsuit',
+ 'shorts and shirt',
+ 'sweater',
+ 'sweater + jacket',
+ 'heavy jacket',
+ 'heavy jacket and toe warmers',
+ 'dont go outside if you want to live'
+];
+
+var ran = Math.floor((Math.random(clothes.length)*8)+1);
+
+console.log(name+" should wear "+clothes[ran]);
