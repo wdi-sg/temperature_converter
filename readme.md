@@ -44,11 +44,11 @@ var temps = [ STARTING_TEMP, CONVERTED_TEMP_1, CONVERTED_TEMP_2 ];
 When you `console.log` the temperatures, make sure you do that by accessing the values stored in the array.
 
 ### Part 4
-If the temperature is below 0 also print out a message.
+If the temperature is below 0 also print out a message like "ooh it's cold out".
 
-If the temperature is above 40 also print out a message.
+If the temperature is above 40 also print out a message like "ooh it's hot out".
 
-If the temperature is above 100 print out a message.
+If the temperature is above 100 print out a message like "your literally boiling".
 
 ### Part 5
 Also prompt the user for their name. When you output the result, suggest the type of clothing they should wear from an array of values:
