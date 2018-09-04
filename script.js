@@ -1,24 +1,25 @@
-var temperature = prompt("Enter the temperature to convert?");
-var temperatureUnit = prompt
-("What unit of temperature are you measuring? Choose either Fahrenheit, Celsius, or Kelvin")
+var name = prompt("What is your name?")
+var temperature = prompt("What is the temperature")
+var clothes = [
+  'nothing',
+  'swimsuit',
+  'shorts and shirt',
+  'sweater',
+  'sweater + jacket',
+  'heavy jacket',
+  'heavy jacket and toe warmers',
+  'dont go outside if you want to live'
+ ];
 
-
-if (temperatureUnit === "celsius") {
-
-    console.log("The Temperature in Fahrenheit is " + (9/5 * (temperature - 32) + 32))
-    console.log("The Temperature in Kelvin is " + (temperature + 273))
-
-} else if (temperatureUnit === "kelvin") {
-    console.log("The Temperature in Fahrenheit is" + (9/5 * (temperature - 273) + 32))
-    console.log("The Temperature in Celsius is " + (temperature - 273))
-
- } else if (temperatureUnit === "fahrenheit") {
-    console.log("The Temperature in Kelvin is " + (5/9 * (temperature - 32) + 273))
-    console.log("The Temperature in Celsius is " + (5/9 * (temperature - 32)))
-
-} else {
-
-    console.log ("Please check your temperature entry")
-}
-
-
+ if (temperature <= 0) {
+     console.log("ooh its cold out");
+     console.log(name + " "  + "you should wear " + clothes[6]);
+ } else if (temperature > 40 && temperature < 100) {
+     console.log("ooh it's hot out");
+     console.log(name + " "  + "you should wear " + clothes[2]);
+ } else if (temperature > 100) {
+     console.log ("You are literally burning!");
+     console.log(name + " "  + "you should wear " + clothes[0]);
+ } else {
+     console.log("CRITICAL ERROR");
+ };
