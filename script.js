@@ -97,6 +97,7 @@ function exclaimation(){
   }
 }
 
+function run(){
 if (temperatureUnit === "Fahrenheit"){
   FahrIn();
   exclaimation();
@@ -112,5 +113,30 @@ else if (temperatureUnit === "Kelvin"){
 else{
   console.log("Error: Invalid temperature unit input");
 }
+}
 
+// part 7
+run();
+
+do{
+  STARTING_TEMP = parseInt(prompt("Please input temperature"));
+  temperatureUnit = prompt("Please input the temperature unit (Fahrenheit, Celsius, or Kelvin.)");
+
+  if (temperatureUnit === "Fahrenheit"){
+    FahrIn();
+    exclaimation();
+  }
+  else if (temperatureUnit === "Celsius"){
+    CelIn();
+    exclaimation();
+  }
+  else if (temperatureUnit === "Kelvin"){
+    KelIn();
+    exclaimation();
+  }
+  else{
+    console.log("Error: Invalid temperature unit input");
+  }
+}
+  while(STARTING_TEMP != null && temperatureUnit !=null);
 
