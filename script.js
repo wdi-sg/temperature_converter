@@ -34,37 +34,54 @@ var temperatureInCelsius;
 //   console.log("Error: Invalid temperature unit input");
 // }
 
-// Part three
+// Part 3
 var STARTING_TEMP = parseInt(prompt("Please input temperature"));
 var temperatureUnit = prompt("Please input the temperature unit (Fahrenheit, Celsius, or Kelvin.)");
 
 function FahrIn(){
   var temps = [ STARTING_TEMP,( (5/9) * (STARTING_TEMP - 32) )+ 273,(5/9) * (STARTING_TEMP - 32)  ];
   console.log(temps[0] + "\xB0F = " + temps[2] + "\xB0C = " + temps[1] + "K");
-  temperatureInKelvin = temps[1];
+  temperatureInFahr = temps[0];
 }
 
 function CelIn(){
   var temps = [ STARTING_TEMP, STARTING_TEMP + 273, ((9/5) * STARTING_TEMP) + 32 ];
   console.log(temps[0] + "\xB0C = " + temps[2] + "\xB0F = " + temps[1] + "K");
-  temperatureInKelvin = temps[1];
+  temperatureInFahr = temps[2];
 }
 
 function KelIn(){
   var temps = [ STARTING_TEMP, (9/5) * (STARTING_TEMP - 273) + 32, STARTING_TEMP - 273];
   console.log(temps[0] + "K = " + temps[2] + "\xB0C = " + temps[1] + "\xB0F" );
-  temperatureInKelvin = temps[0];
+  temperatureInFahr = temps[1];
+}
+
+// Part 4
+function exclaimation(){
+  if (temperatureInFahr < 0){
+    console.log("Ooh it's cold out");
+  }
+  else if (temperatureInFahr > 100){
+    console.log("You're literally boiling");
+  }
+  else if (temperatureInFahr > 40){
+    console.log("Ooh it's hot out");
+  }
 }
 
 if (temperatureUnit === "Fahrenheit"){
     FahrIn();
+    exclaimation();
   }
   else if (temperatureUnit === "Celsius"){
     CelIn();
+    exclaimation();
   }
   else if (temperatureUnit === "Kelvin"){
     KelIn();
+    exclaimation();
   }
   else{
     console.log("Error: Invalid temperature unit input");
   }
+
