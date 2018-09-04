@@ -15,6 +15,8 @@ if (temperatureUnit === "Fahrenheit") {
     var temperatureInK = temperature;
     var temperatureInC = temperature - 273;
     var temperatureInFahr = (9/5) * (temperature - 273) + 32;
+} else {
+    alert ("Invalid input, please try again.")
 }
 
 
