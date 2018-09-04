@@ -21,8 +21,6 @@ var temperatureUnit = prompt('What unit are you using? (delete where necessary)'
 
 console.log('Starting temperature is ' + twoDecimalPlaces(temperature) + ' ' + temperatureUnit) + '.';
 
-
-
 //part 3
 //conditionals to do convertion based on temperature unit
 if (temperatureUnit === 'farenheit') {
@@ -71,8 +69,6 @@ var clothes = [
  'dont go outside if you want to live'
 ];
 
-
-
 //part 5
 var name = prompt('Hi, whats is your name?');
 var statement = name + ', you should be wearing: ';
@@ -96,10 +92,64 @@ else if (c >= 33 && c <=55)
 
 //part 6
 var i = 0;
-console.log(temps.length);
+
 if (temps.length > 0){
     while (i < temps.length) {
         console.log(temps[i]);
         i++;
     }
+}
+
+//part 7
+
+var condition;
+
+while (true) {
+    condition = prompt('Enter a temperature to convert (or type stop to end): ');
+
+    if (condition.trim() == 'stop')
+        break;
+    temperatureUnit = prompt('What unit are you using? (or type stop to end)', 'farenheit or celsius or kelvin');
+
+    if (temperatureUnit.trim() == 'stop')
+        break;
+
+    console.log('Entered temperature is ' + twoDecimalPlaces(temperature) + ' ' + temperatureUnit) + '.';
+
+    temperature = parseInt(condition);
+
+    if (temperatureUnit === 'farenheit') {
+        f = twoDecimalPlaces(temperature);
+        c = twoDecimalPlaces(5/9 * (temperature - 32));
+        k = twoDecimalPlaces(5/9 * (temperature - 32));
+        temps.push(f + '°F');
+        temps.push(c + '°C');
+        temps.push(k + 'K');
+    } else if (temperatureUnit === 'celsius') {
+        c = twoDecimalPlaces(temperature);
+        f = twoDecimalPlaces(9/5 * (temperature + 32));
+        k = twoDecimalPlaces(temperature + 273);
+        temps.push(c + '°C');
+        temps.push(f + '°F');
+        temps.push(k + 'K');
+    } else if (temperatureUnit === 'kelvin') {
+        k = twoDecimalPlaces(temperature);
+        c = twoDecimalPlaces(temperature - 273);
+        f = twoDecimalPlaces(9/5 * (temperature - 273));
+        temps.push(k + 'K');
+        temps.push(c + '°C');
+        temps.push(f + '°F');
+    } else
+        console.log('ERROR! Please enter farenheit, celsius or kelvin for the temperature unit.');
+
+    i = 0;
+
+    if (temps.length > 0){
+        while (i < temps.length) {
+            console.log(temps[i]);
+            i++;
+        }
+    }
+
+    temps.length = 0;
 }
