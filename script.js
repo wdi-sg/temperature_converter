@@ -32,9 +32,10 @@ if (temperatureUnit === "Fahrenheit"){
   // F to K
   temperatureInKelv = (5*(parseInt(temperatureRead) - 32))/9  + 273;
 
-  temps = [parseInt(temperatureRead), temperatureInDeg, temperatureInKelv];
-  console.log(temps[1] + "°C ");
-  console.log(temps[2] + "K");
+  temps = [parseInt(temperatureRead) + "° F ", temperatureInDeg + "°C ", temperatureInKelv + "K"];
+  for (var i=0; i < temps.length; i++){
+    console.log(temps[i]);
+  }
   printMessage(temps[1])
 }
 
@@ -44,9 +45,10 @@ else if (temperatureUnit === "Celsius"){
   // C to K
   temperatureInKelv = parseInt(temperatureRead) + 273;
 
-  temps = [temperatureInFahr, parseInt(temperatureRead), temperatureInKelv];
-  console.log(temps[0] + "° F ");
-  console.log(temps[2] + "K");
+  temps = [temperatureInFahr + "° F ", parseInt(temperatureRead) + "°C ", temperatureInKelv + "K"];
+  for (var i=0; i < temps.length; i++){
+    console.log(temps[i]);
+  }
   printMessage(temps[1])
 }
 
@@ -56,9 +58,10 @@ else if (temperatureUnit === "Kelvin"){
   // K to C
   temperatureInDeg = parseInt(temperatureRead) - 273;
 
-  temps = [temperatureInFahr, temperatureInDeg, parseInt(temperatureRead)];
-  console.log(temps[0] + "° F ");
-  console.log(temps[1] + "°C ");
+  temps = [temperatureInFahr + "° F ", temperatureInDeg + "°C ", parseInt(temperatureRead)+ "K"];
+  for (var i=0; i < temps.length; i++){
+    console.log(temps[i]);
+  }
   printMessage(temps[1])
 }
 
