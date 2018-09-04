@@ -25,21 +25,21 @@ var symbol;
 
 //conditionals to do convertion based on temperature unit
 if (temperatureUnit === 'farenheit') {
-    f = temperature + '°F';
+    f = twoDecimalPlaces(temperature) + '°F';
     c = twoDecimalPlaces(5/9 * (temperature - 32)) + '°C';
     k = twoDecimalPlaces(5/9 * (temperature - 32)) + 'K';
     temps.push(f);
     temps.push(c);
     temps.push(k);
 } else if (temperatureUnit === 'celsius') {
-    c = temperature + '°C';
+    c = twoDecimalPlaces(temperature) + '°C';
     f = twoDecimalPlaces(9/5 * (temperature + 32)) + '°F';
     k = twoDecimalPlaces(temperature + 273) + 'K';
     temps.push(c);
     temps.push(f);
     temps.push(k);
 } else if (temperatureUnit === 'kelvin') {
-    k = temperature + 'K';
+    k = twoDecimalPlaces(temperature) + 'K';
     c = twoDecimalPlaces(temperature - 273) + '°C';
     f = twoDecimalPlaces(9/5 * (temperature - 273)) + '°F';
     temps.push(k);
@@ -48,7 +48,6 @@ if (temperatureUnit === 'farenheit') {
 } else {
     console.log('ERROR! Please enter farenheit, celsius or kelvin for the temperature unit.');;
 }
-
-console.log(temps);
-console.log(`${temps[0]} = ${temps[1]} = ${temps[2]}`);
-console.log(twoDecimalPlaces(c) +'°C = ' + twoDecimalPlaces(f) + '°F = '+ twoDecimalPlaces(k) + 'K');
+if (temps.length === 3) {
+    console.log(`${temps[0]} = ${temps[1]} = ${temps[2]}`);
+}
