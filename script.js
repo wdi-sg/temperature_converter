@@ -83,7 +83,7 @@ function addTemperatures(tempFahr, tempKelvin, tempCelsius) {
 
 /**
  * Display temperatures in Fahrenheit, Kelvin, and Celsius.
- * @param  {number[]} temperatures The temperatures in Fahrenheit, Kelvin, and Celsius.
+ * @param {number[]} temperatures The temperatures in Fahrenheit, Kelvin, and Celsius.
  */
 function displayTemperatures(temperatures) {
   var i;
@@ -97,7 +97,7 @@ function displayTemperatures(temperatures) {
 
 /**
  * Print a message based on the temperature in Celsius.
- * @param  {number} tempCelsius The temperature in Celsius.
+ * @param {number} tempCelsius The temperature in Celsius.
  */
 function printMessage(tempCelsius) {
   if (tempCelsius < 0) {
@@ -115,7 +115,7 @@ function printMessage(tempCelsius) {
 
 /**
  * Suggest user the type of clothing they should wear.
- * @param  {number} tempCelsius The temperature in Celsius.
+ * @param {number} tempCelsius The temperature in Celsius.
  */
 function printClothes(tempCelsius) {
   var clothes = [
