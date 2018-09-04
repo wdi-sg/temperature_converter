@@ -6,7 +6,7 @@ temperatureInFahr = (9*(temperatureInKelv - 273))/5 + 32; //kel to fahr
 temperatureInKelv = temperature + 273; //deg to kel
 temperature = temperatureInKelv - 273; //kel to deg */
 
-//Part 5
+//Part 6
 var temperatureInFahr, temperatureInDeg, temperatureInKelv, temperatureRead;
 var name;
 
