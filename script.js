@@ -1,4 +1,22 @@
-//Part 2, 3, 4, 5
+/*Part 1
+
+var temperatureInFahr = parseInt(prompt("Enter a temperature in degrees Fahrenheit"));
+
+while ( isNaN(temperatureInFahr) ) {
+
+    var temperatureInFahr = prompt("Please enter a number");
+
+}
+
+temperatureInKelvin = (5/9) *(temperatureInFahr - 32) + 273;
+temperatureInCelsius = (5/9) * (temperatureInFahr - 32);
+
+console.log(`The temperature that you enterd in Kelvin is: ${temperatureInKelvin}.`);
+console.log(`The temperature that you enterd in Celsius is: ${temperatureInCelsius}.`);
+*/
+
+
+//Part 2, 3, 4, 5, 6
 var clothes = [
  'nothing',
  'swimsuit',
@@ -11,6 +29,7 @@ var clothes = [
 ];
 
 var temps = [];
+var tempsUnits = ["°C","°F","K"];
 var celsiusTemp;
 
 var name = prompt("Enter your name:");
@@ -22,35 +41,53 @@ while ( isNaN(temperature) ) {
 
 }
 
-temps.push(temperature);
-
 var temperatureUnit = prompt("Please pick one of the 3 units: Fahrenheit/Celsius/Kelvin");
 
 if (temperatureUnit === "Fahrenheit") {
-    temperatureFromFToK = (5/9) *(temperature - 32) +273;
-    temps.push(temperatureFromFToK);
     temperatureFromFToC = (5/9) * (temperature - 32);
-    temps.push(temperatureFromFToC);
+    temperatureFromFToK = (5/9) * (temperature - 32) +273;
+
     celsiusTemp = temperatureFromFToC;
-    console.log (`${temps[0]}°F = ${temps[2]}°C = ${temps[1]}K `);
+
+    temps.push(temperatureFromFToC);
+    temps.push(temperature);
+    temps.push(temperatureFromFToK);
+
+    for (var i = 0; i < 3; i++){
+        console.log ( `temperature = ${temps[i]}${tempsUnits[i]}`);
+    }
 }
 
 else if (temperatureUnit === "Celsius") {
-    celsiusTemp = temperature;
-    temperatureFromCToK = temperature + 273;
-    temps.push(temperatureFromCToK);
+
     temperatureFromCToF = (9/5)*temperature + 32;
+    temperatureFromCToK = temperature + 273;
+
+    celsiusTemp = temperature;
+
+    temps.push(temperature);
     temps.push(temperatureFromCToF);
-    console.log (`${temps[0]}°C = ${temps[2]}°F = ${temps[1]}K `);
+    temps.push(temperatureFromCToK);
+
+    for (var i = 0; i < 3; i++){
+        console.log ( `temperature = ${temps[i]}${tempsUnits[i]}`);
+    }
 }
 
 else if (temperatureUnit === "Kelvin") {
-    temperatureFromKToC = temperature - 273;
-    temps.push(temperatureFromKToC);
-    celsiusTemp = temperatureFromKToC;
+
     temperatureFromKToF = (9/5)*(temperature - 273) + 32;
+    temperatureFromKToC = temperature - 273;
+
+    celsiusTemp = temperatureFromKToC;
+
+    temps.push(temperatureFromKToC);
     temps.push(temperatureFromKToF);
-    console.log (`${temps[0]}K = ${temps[2]}°F = ${temps[1]}°C `);
+    temps.push(temperature);
+
+    for (var i = 0; i < 3; i++){
+        console.log ( `temperature = ${temps[i]}${tempsUnits[i]}`);
+    }
 }
 
 else {
