@@ -93,3 +93,13 @@ else if (c >= 25 && c <33)
     console.log(statement + clothes[1]);
 else if (c >= 33 && c <=55)
     console.log(statement + clothes[0]);
+
+//part 6
+var i = 0;
+console.log(temps.length);
+if (temps.length > 0){
+    while (i < temps.length) {
+        console.log(temps[i]);
+        i++;
+    }
+}
