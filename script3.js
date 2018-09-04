@@ -55,3 +55,15 @@ if (temperatureUnit == "F"){
 	temps[2] = fToK(temps[0]);
 	console.log(temps[0]+"F "+temps[1]+" "+temps[2]);
 }
+
+if(temperatureUnit == "C"){
+	if(temps[0]<0){
+		console.log("ooh it's cold out");
+	}
+	else if(40<temps[0]<100){
+		console.log("ooh it's hot out");
+	}
+	else if(temps[0]>100){
+		console.log("you're literally boiling");
+	}
+}
