@@ -60,6 +60,15 @@ else if(temperatureUnit === kelvin){
     console.log("kelvin is = " + temperature + " " + " celcius is = " + temperatureinCelc + " " + "farenheit is " + temperatureInFahr) ;
     } ;
 
+//part 4
+if(temperatureinCelc < 0){
+    console.log("its cold") }
+else if(temperatureinCelc> 40 && temperatureinCelc<100){
+    console.log("its quite hot")}
+else if(temperatureinCelc>100){
+    console.log("its boiling!")} ;
+
+
 
 
 
