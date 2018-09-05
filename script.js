@@ -6,18 +6,14 @@ Purpose:Temperature Converter
 
 /*
 /////////Part 1//////////
-
 //insert temperature in farenheight
 var temperatureInFahr = prompt("Input temperature in Farenheit") ;
-
 //output temperature in Celcius
 var temperatureinCelc = (temperatureInFahr-32) / 1.8 ;
 console.log("temperature in Celcius is = " + temperatureinCelc) ;
-
 //output temperature in Kelvin
 var temperatureinKelv =((temperatureInFahr-32)/1.8)+273.15 ;
 console.log("temperature in Kelvin is = " + temperatureinKelv) ;
-
 */
 
 /////////part 2 & part 3/////////
@@ -29,6 +25,9 @@ console.log("temperature in Kelvin is = " + temperatureinKelv) ;
 
  //making array
  var temps = [] ;
+
+ //enter name
+ var name = prompt("Input Name") ;
 
 //enter temperature
  var temperature = parseInt(prompt("Input temperature")) ;
@@ -67,8 +66,6 @@ else if(temperatureinCelc> 40 && temperatureinCelc<100){
     console.log("its quite hot")}
 else if(temperatureinCelc>100){
     console.log("its boiling!")} ;
-
-
 
 
 
