@@ -108,6 +108,9 @@ for(var i=0; i<temps.length; i++){
     }
 
 
+//Part 7
+
+
 
 
 
