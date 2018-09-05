@@ -80,21 +80,32 @@ temps[2] = allUnits.temperatureIn[2].celsius;
 console.log(temps);
 }
 
-//Part 5
 
+//Part 5
 var clothesCold = ['a scarf', 'a coat', 'leg warmers', 'a sweater'];
+var arrCold = clothesCold[Math.floor(Math.random()*clothesCold.length)];
 var clothesHot = ['less', 'a cap', 'shorts', 'a singlet'];
+var arrHot = clothesHot[Math.floor(Math.random()*clothesHot.length)];
 var clothesMelt = ['nothing', 'swimwear', 'an ice pack'];
+var arrMelt = clothesMelt[Math.floor(Math.random()*clothesMelt.length)];
 
 
 //Part 4
 if ((temperatureUnit === "celsius" && temps[0]<0) || (temperatureUnit === "kelvin" && temps[2]<0 )|| (temperatureUnit ==="farenheit" && temps[2]<0)){
-    console.log(`Hello ${userName}! Brrr it's cold outside! Please wear ${clothesCold[0]}.`);
+    console.log(`Hello ${userName}! Brrr it's cold outside! Please wear ${arrCold}.`);
 } else if ((temperatureUnit === "kelvin" && temps[2]>40)||(temperatureUnit ==="celsius" && temps[0]>40)|| (temperatureUnit ==="farenheit" && temps[2]>40)) {
-    console.log(`Hello ${userName}! Woah it's hot, man! Please wear ${clothesHot[2]}.`);
+    console.log(`Hello ${userName}! Woah it's hot, man! Please wear ${arrHot}.`);
 }else if ((temperatureUnit === "farenheit" && temps[2]>100)||(temperatureUnit ==="celsius" && temps[0]>100)||(temperatureUnit === "kelvin" && temps[2]>100)){
-    console.log(`Hello ${userName}! You will melt! Please wear ${clothesMelt[1]}.`);
+    console.log(`Hello ${userName}! You will melt! Please wear ${arrMelt}.`);
 }
+
+
+//Part 6
+var arrUnits = ["°C", "K", "°F"];
+
+for(var i=0; i<temps.length; i++){
+        console.log("Temperature: " + temps[i] + " " + arrUnits[i]);
+    }
 
 
 
