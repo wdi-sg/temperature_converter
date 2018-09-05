@@ -4,14 +4,9 @@
 //Prompts user to enter temperature
 let temperatureInFahr = prompt("Enter temperature in Fahrenheit");
 
-// Checks if user enters a string
-while (isNaN(temperatureInFahr)){
-    temperatureInFahr = prompt("Error! Please enter a number");
-}
-
-// Checks for lower limit
-while (temperatureInFahr < -459.67){
-    temperatureInFahr = prompt ("Error! Temperature cannot be lower than this value");
+// Checks if user enters a string and checks for lower limit
+while (isNaN(temperatureInFahr && temperatureInFahr < -459.67)){
+    temperatureInFahr = prompt("Error! Please enter a valid number");
 }
 
 // converts user-input from Fahrenheit to Celsius
