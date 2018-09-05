@@ -5,6 +5,7 @@
 //var temperatureInFahr = temperatureInCelsius-17.7778;
 
 //Part 2
+var userName = prompt("Please enter your name.")
 var temperature = prompt("Please enter temperature.");
 /*if(typeof temperature !== 'number'){
     alert("Invalid input!");
@@ -63,17 +64,17 @@ var converted_temp_1;
 var converted_temp_2;
 var temps = [temperature, converted_temp_1, converted_temp_2];
 
-if (temperatureUnit = "celsius") {
+if (temperatureUnit === "celsius") {
 temps[1] = allUnits.temperatureIn[0].fahr;
 temps[2] = allUnits.temperatureIn[0].kelvin;
 console.log(temps);
 }
-else if (temperatureUnit = "kelvin") {
+else if (temperatureUnit === "kelvin") {
 temps[1] = allUnits.temperatureIn[1].fahr;
 temps[2] = allUnits.temperatureIn[1].celsius;
 console.log(temps);
 }
-else if (temperatureUnit = "farenheit") {
+else if (temperatureUnit === "farenheit") {
 temps[1] = allUnits.temperatureIn[2].kelvin;
 temps[2] = allUnits.temperatureIn[2].celsius;
 console.log(temps);
@@ -81,15 +82,16 @@ console.log(temps);
 
 
 //Part 4
-if (temperature<0){
+if ((temperatureUnit === "celsius" && temps[0]<0) || (temperatureUnit === "kelvin" && temps[2]<0 )|| (temperatureUnit ==="farenheit" && temps[2]<0)){
     console.log("Brrr it's cold outside!");
-} else if (temperature>40){
+} else if ((temperatureUnit === "kelvin" && temps[2]>40)||(temperatureUnit ==="celsius" && temps[0]>40)|| (temperatureUnit ==="farenheit" && temps[2]>40)) {
     console.log("Woah it's hot!");
-}else if (temperature>100){
+}else if ((temperatureUnit === "farenheit" && temps[2]>100)||(temperatureUnit ==="celsius" && temps[0]>100)||(temperatureUnit === "kelvin" && temps[2]>100)){
     console.log("You will melt!");
 }
 
 
+//Part 5
 
 
 
