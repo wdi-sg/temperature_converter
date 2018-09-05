@@ -2,10 +2,10 @@
 // Temperature Converter
 
 //Prompts user to enter temperature
-let temperatureInFahr = prompt("Enter temperature in Fahrenheit");
+let temperatureInFahr = parseInt(prompt("Enter temperature in Fahrenheit"));
 
 // Checks if user enters a string and checks for lower limit
-while (isNaN(temperatureInFahr && temperatureInFahr < -459.67)){
+while (isNaN(temperatureInFahr) || temperatureInFahr < -459.67){
     temperatureInFahr = prompt("Error! Please enter a valid number");
 }
 
