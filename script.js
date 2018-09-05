@@ -80,18 +80,23 @@ temps[2] = allUnits.temperatureIn[2].celsius;
 console.log(temps);
 }
 
+//Part 5
+
+var clothesCold = ['a scarf', 'a coat', 'leg warmers', 'a sweater'];
+var clothesHot = ['less', 'a cap', 'shorts', 'a singlet'];
+var clothesMelt = ['nothing', 'swimwear', 'an ice pack'];
+
 
 //Part 4
 if ((temperatureUnit === "celsius" && temps[0]<0) || (temperatureUnit === "kelvin" && temps[2]<0 )|| (temperatureUnit ==="farenheit" && temps[2]<0)){
-    console.log("Brrr it's cold outside!");
+    console.log(`Hello ${userName}! Brrr it's cold outside! Please wear ${clothesCold[0]}.`);
 } else if ((temperatureUnit === "kelvin" && temps[2]>40)||(temperatureUnit ==="celsius" && temps[0]>40)|| (temperatureUnit ==="farenheit" && temps[2]>40)) {
-    console.log("Woah it's hot!");
+    console.log(`Hello ${userName}! Woah it's hot, man! Please wear ${clothesHot[2]}.`);
 }else if ((temperatureUnit === "farenheit" && temps[2]>100)||(temperatureUnit ==="celsius" && temps[0]>100)||(temperatureUnit === "kelvin" && temps[2]>100)){
-    console.log("You will melt!");
+    console.log(`Hello ${userName}! You will melt! Please wear ${clothesMelt[1]}.`);
 }
 
 
-//Part 5
 
 
 
