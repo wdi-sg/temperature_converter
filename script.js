@@ -1,21 +1,21 @@
 
-
+var username = prompt ("What is your Name?")
 var temperature = parseInt ( prompt ("What is the numerical temperature value?") );
-var temperatureUnit = prompt ("Is that temperature in Fahrenheit, Celsius, or Kelvin?");
+var temperatureUnit = prompt ("Is that temperature in Fahrenheit, Celsius, or Kelvin?").toLowerCase();
 
 var temps = []; // [0]Starting temp, [1]Fahrenheit, [2]Celsius, [3]Kelvin
 
 temps[0] = temperature; // Starting temp
 
-if (temperatureUnit === "Fahrenheit") {
+if (temperatureUnit === "fahrenheit" || "f") {
     temps[1] = temps [0];
     temps[2] = (5/9) * (temps[0] - 32);
     temps[3] = temps[2] + 273;
-} else if (temperatureUnit === "Celsius") {
+} else if (temperatureUnit === "celsius" || "c") {
     temps[2] = temps[0];
     temps[3] = temps[0] + 273;
     temps[1] = (9/5) * (temps[0] + 32);
-} else if (temperatureUnit === "Kelvin") {
+} else if (temperatureUnit === "kelvin" || "k") {
     temps[3] = temps[0];
     temps[2] = temps[0] - 273;
     temps[1] = (9/5) * (temps[0] - 273) + 32;
@@ -31,9 +31,9 @@ if ( temps[2] < 0 ) {
     console.log ("Ooh it's hot out!");
 }
 
-console.log( "Temperature in Fahrenheit is " + temps[1] + " F");
-console.log( "Temperature in Celsius is " + temps[2] + " C");
-console.log( "Temperature in Kelvin is " + temps[3] + " K");
+console.log( "Temperature in Fahrenheit is " + temps[1] + "°F");
+console.log( "Temperature in Celsius is " + temps[2] + "°C");
+console.log( "Temperature in Kelvin is " + temps[3] + "K");
 
 
 
