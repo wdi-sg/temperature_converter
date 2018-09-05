@@ -3,18 +3,22 @@
 var temperature = parseInt ( prompt ("What is the numerical temperature value?") );
 var temperatureUnit = prompt ("Is that temperature in Fahrenheit, Celsius, or Kelvin?");
 
+var temps = []; // [0]Starting temp, [1]Fahrenheit, [2]Celsius, [3]Kelvin
+
+temps[0] = temperature; // Starting temp
+
 if (temperatureUnit === "Fahrenheit") {
-    var temperatureInFahr = temperature;
-    var temperatureInC = (5/9) * (temperature - 32);
-    var temperatureInK = temperatureInC + 273;
+    temps[1] = temps [0];
+    temps[2] = (5/9) * (temps[0] - 32);
+    temps[3] = temps[2] + 273;
 } else if (temperatureUnit === "Celsius") {
-    var temperatureInC = temperature;
-    var temperatureInK = temperature + 273;
-    var temperatureInFahr = (9/5) * (temperature + 32);
+    temps[2] = temps[0];
+    temps[3] = temps[0] + 273;
+    temps[1] = (9/5) * (temps[0] + 32);
 } else if (temperatureUnit === "Kelvin") {
-    var temperatureInK = temperature;
-    var temperatureInC = temperature - 273;
-    var temperatureInFahr = (9/5) * (temperature - 273) + 32;
+    temps[3] = temps[0];
+    temps[2] = temps[0] - 273;
+    temps[1] = (9/5) * (temps[0] - 273) + 32;
 } else {
     alert ("Invalid input, please try again.")
 }
@@ -26,10 +30,10 @@ if (temperatureUnit === "Fahrenheit") {
 // var temperatureInK = ( temperatureInFahr - 32 ) / 1.8 + 273.15;
 
 
-document.getElementById("fahr").innerHTML = "Temperature in Fahrenheit is " + temperatureInFahr + " F";
-document.getElementById("celsius").innerHTML = "Temperature in Celsius is " + temperatureInC + " C";
-document.getElementById("kelvin").innerHTML = "Temperature in Kelvin is " + temperatureInK + " K";
+document.getElementById("fahr").innerHTML = "Temperature in Fahrenheit is " + temps[1] + " F";
+document.getElementById("celsius").innerHTML = "Temperature in Celsius is " + temps[2] + " C";
+document.getElementById("kelvin").innerHTML = "Temperature in Kelvin is " + temps[3] + " K";
 
-console.log( "Temperature in Fahrenheit is " + temperatureInFahr + " F");
-console.log( "Temperature in Celsius is " + temperatureInC + " C");
-console.log( "Temperature in Kelvin is " + temperatureInK + " K");
+console.log( "Temperature in Fahrenheit is " + temps[1] + " F");
+console.log( "Temperature in Celsius is " + temps[2] + " C");
+console.log( "Temperature in Kelvin is " + temps[3] + " K");
