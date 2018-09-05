@@ -1,30 +1,42 @@
+//Part 1
 //var temperatureInFahr = prompt ("Please enter temperature in Farenheit.");
 //var temperatureInKelvin = temperatureInFahr-459.67;
 //var temperatureInCelsius = temperatureInFahr+32;
 //var temperatureInFahr = temperatureInCelsius-17.7778;
 
-
+//Part 2
 var temperature = prompt("Please enter temperature.");
+/*if(typeof temperature !== 'number'){
+    alert("Invalid input!");
+    prompt("Please enter temperature.");
+    temperature = userInput.nextInt();
+    }*/
+
+
 var question = "Please enter temperature unit (Kelvin, Celsius, Farenheit)."
 var temperatureUnit = prompt(question).toLowerCase();
 
+ //&& (temperatureUnit == "kelvin"|| temperatureUnit == "celsius"|| temperatureUnit =="farenheit")) {
 
-if (temperatureUnit = "celsius"){
+if (temperatureUnit === "celsius"){
     var temperatureInKelvin = temperature+273.15;
-    var temperatureInFahr = temperature+32;
+    var temperatureInFahr = (temperature*1.8)+32;
 alert(temperature + " degC = " + temperatureInKelvin + " K = " + temperatureInFahr + " degF");
-    } else if (temperature = "kelvin"){
+    } else if (temperatureUnit=== "kelvin"){
         var temperatureInCelsius = temperature-273.15;
-        var temperatureInFahr = temperature-459.67;
+        var temperatureInFahr = (temperature*1.8)-459.67;
         alert(temperature+" K = " + temperatureInCelsius + " degC = " + temperatureInFahr + " degF");
-    } else if (temperature ="farenheit"){
-        var temperatureInKelvin = temperature+255.372;
-        var temperatureInCelsius = temperature-17.7778;
+    } else if (temperatureUnit ==="farenheit"){
+        var temperatureInKelvin = (temperature+459.67)*5/9;
+        var temperatureInCelsius = (temperature-32)*5/9;
         alert(temperature + " degF = " + temperatureInKelvin + " K = " + temperatureInCelsius + " degC");
-    } else {alert("Invalid input");
-}
+    }
 
 
+
+
+//Part 3
+//Some additional tryout stuff
 //var tempCelsius = [temperature, allUnits.temperatureInFahr[0], allUnits.temperatureInKelvin[0]];
 //var tempKelvin = [temperature, temperatureInCelsius, temperatureInFahr];
 //var tempFahr = [temperature, temperatureInKelvin, temperatureInCelsius];
@@ -33,16 +45,16 @@ var allUnits =
     {
     temperatureIn: [{
         unit: "celsius",
-        fahr: temperature+32,
+        fahr: (temperature*1.8)+32,
         kelvin: temperature+273.15
     },
     {   unit: "kelvin",
-        fahr: temperature-459.67,
+        fahr: (temperature*1.8)-459.67,
         celsius: temperature-273.15
     },
     {unit: "farenheit",
-    kelvin: temperature+255.372,
-    celsius: temperature-17.7778
+    kelvin: (temperature+459.67)*5/9,
+    celsius: (temperature-32)*5/9
     }]
 };
 
@@ -66,6 +78,18 @@ temps[1] = allUnits.temperatureIn[2].kelvin;
 temps[2] = allUnits.temperatureIn[2].celsius;
 console.log(temps);
 }
+
+
+//Part 4
+if (temperature<0){
+    console.log("Brrr it's cold outside!");
+} else if (temperature>40){
+    console.log("Woah it's hot!");
+}else if (temperature>100){
+    console.log("You will melt!");
+}
+
+
 
 
 
