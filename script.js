@@ -23,17 +23,25 @@ if (temperatureUnit === "Fahrenheit") {
     alert ("Invalid input, please try again.")
 }
 
+if ( temps[2] < 0 ) {
+    console.log ("Ooh it's cold out!");
+} else if ( temps[2] >= 100 ) {
+    console.log ("You're literally boiling!");
+} else if ( temps[2] >= 40 ) {
+    console.log ("Ooh it's hot out!");
+}
+
+console.log( "Temperature in Fahrenheit is " + temps[1] + " F");
+console.log( "Temperature in Celsius is " + temps[2] + " C");
+console.log( "Temperature in Kelvin is " + temps[3] + " K");
+
+
 
 // var temperatureInFahr = prompt ("What is the temperature in Fahrenheit?");
 
 // var temperatureInC = ( temperatureInFahr - 32 ) / 1.8;
 // var temperatureInK = ( temperatureInFahr - 32 ) / 1.8 + 273.15;
 
-
-document.getElementById("fahr").innerHTML = "Temperature in Fahrenheit is " + temps[1] + " F";
-document.getElementById("celsius").innerHTML = "Temperature in Celsius is " + temps[2] + " C";
-document.getElementById("kelvin").innerHTML = "Temperature in Kelvin is " + temps[3] + " K";
-
-console.log( "Temperature in Fahrenheit is " + temps[1] + " F");
-console.log( "Temperature in Celsius is " + temps[2] + " C");
-console.log( "Temperature in Kelvin is " + temps[3] + " K");
+// document.getElementById("fahr").innerHTML = "Temperature in Fahrenheit is " + temps[1] + " F";
+// document.getElementById("celsius").innerHTML = "Temperature in Celsius is " + temps[2] + " C";
+// document.getElementById("kelvin").innerHTML = "Temperature in Kelvin is " + temps[3] + " K";
