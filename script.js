@@ -44,6 +44,6 @@ if (temps[0] < 0){
 else if (temps[0] > 40){
     console.log("ohh it's hot out");
 }
-else if (temps[0] > 100){
+if (temps[0] > 100){
     console.log("you're literally boiling");
 }
