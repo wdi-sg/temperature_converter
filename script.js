@@ -23,6 +23,18 @@ console.log("temperature in Kelvin is = " + temperatureinKelv) ;
  var farenheit = "farenheit" ;
  var kelvin = "kelvin" ;
 
+ //array for clothes
+ var clothes = [
+ 'nothing',
+ 'swimsuit',
+ 'shorts and shirt',
+ 'sweater',
+ 'sweater + jacket',
+ 'heavy jacket',
+ 'heavy jacket and toe warmers',
+ 'dont go outside if you want to live'
+];
+
  //making array
  var temps = [] ;
 
@@ -61,11 +73,13 @@ else if(temperatureUnit === kelvin){
 
 //part 4
 if(temperatureinCelc < 0){
-    console.log("its cold") }
+    console.log("its cold")}
 else if(temperatureinCelc> 40 && temperatureinCelc<100){
     console.log("its quite hot")}
 else if(temperatureinCelc>100){
     console.log("its boiling!")} ;
+
+
 
 
 
