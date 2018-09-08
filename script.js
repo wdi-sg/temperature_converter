@@ -5,20 +5,27 @@ var temperatureUnit = prompt ("Please enter fahrenheit, celsius or kelvin");
 // Ignore the case, so later we won't be confused inside function with === operator
 var temperatureUnit = temperatureUnit.toLowerCase();
 
-// Defining function, return for every User output, including weird stuff with ERROR message
+// Creating an array for current converted temperature
+var temps = [];
 
+// Defining function, return for every User output, including weird stuff with ERROR message
 var convertTemp = function() {
 if (temperatureUnit === "celsius") {
         var celsiusCels = "Celsius = " + temperature;
         var celsiusKelvin = "Kelvin = " + Math.floor(((temperature * 1) + 273.15));
         var celsiusFahr = "Fahrenheit = " + Math.floor(((temperature * 1.8) + 32));
 
+// Using push method to add data inside the array
+        temps.push(celsiusCels, celsiusKelvin, celsiusFahr);
+
 console.log(celsiusCels, celsiusKelvin, celsiusFahr);
 
     } else if (temperatureUnit === "fahrenheit") {
         var fahrenheitFahr = "Fahrenheit = " + temperature;
         var fahrenheitKelvin = "Kelvin = " + Math.floor((temperature - 32) / 1.8 + 273.15);
-        var fahrenheitCels = "Celsius = " + Math.floor((temperature - 32) / 1.8)
+        var fahrenheitCels = "Celsius = " + Math.floor((temperature - 32) / 1.8);
+
+        temps.push(fahrenheitCels, fahrenheitFahr, fahrenheitKelvin);
 
 console.log(fahrenheitFahr, fahrenheitCels, fahrenheitKelvin);
 
@@ -26,6 +33,8 @@ console.log(fahrenheitFahr, fahrenheitCels, fahrenheitKelvin);
             var kelvinKelv = "Kelvin = " + temperature;
             var kelvinFahr = "Fahrenheit = " + Math.floor((temperature - 273.15) * 1.8 + 32);
             var kelvinCels = " Celsius = " + Math.floor(temperature - 273.15);
+
+            temps.push(kelvinCels, kelvinKelv, kelvinFahr);
 
 console.log(kelvinKelv, kelvinFahr, kelvinCels);
 
@@ -37,57 +46,15 @@ console.log("Please, enter Fahrenheit, Celsius or Kelvin ")
 };
 
 convertTemp();
+console.log(temps);
 
-// Logging the function with rounding the result, because some formulas make it very long
+/* to avoid below code, every .push method always incert CELSIUS first, so we can access the celsius no matter
+what user typed in
+if (temperature <= 0 && temperatureUnit === "celsius" ||
+temperature <= 32 && temperatureUnit === "fahrenheit" ||
+temperature <= 273.15 && temperatureUnit = "kelvin")
+*/
 
-
-/*
-if (temperatureUnit === "celsius") {
-        console.log("Celsius = " + temperature + " Fahrenheit = " + (temperature * 1.8 + 32) + " Kelvin = " + ((temperature * 1) + 273.15))
-var getFahrenheit = function() {
-    if (temperatureUnit === "celsius") {
-        return temperature * 1.8 + 32
-    } else if (temperatureUnit === "kelvin") {
-        return (temperature - 32) / 1.8 + 273.15
-    } else if (temperatureUnit = "fahrenheit") {
-        return temperature;
-    } else {
-        console.log("ERROR");
-    }
-};
-var getKelvin = function() {
-    if (temperatureUnit === "celsius") {
-        return (temperature * 1) + 273.15;
-    } else if (temperatureUnit === "fahrenheit") {
-        return (temperature - 273.15) + 1.8 + 32
-    } else if (temperature === "kelvin") {
-        return temperature
-    } else
-        console.log("ERROR");
-};
-console.log("The temperature in Kelvin is " + Math.floor(getKelvin()));
-
-
-
-    } else if (temperatureUnit === "celsius") {
-        return temperature * 2
-if (temperatureUnit === "fahrenheit") {
-    console.log("Temperature in Fahrenheit is " + temperature);
-    console.log("Temperature in Celsius is " + (temperature - 32) / 1.8);
-    console.log("Temperature in Kelvin is " + temperature * 8.53);
-} else if (temperatureUnit === "celsius") {
-    console.log("Temperature in Celsius is " + temperature);
-    console.log("Temperature in Fahrenheit is " + (temperature * 1.8 + 32));
-    console.log("Temperature in Kelvin is " + 273.15);
-} else if (temperatureUnit === "kelvin") {
-    console.log("Temperature in Kelvin is " + temperature);
-    console.log("Temperature in Celsius is " + (temperature - 273.15));
-    console.log("Temperature in Fahrenheit " + ((temperature - 273.15) * 1.8 + 32));
-} else {
-    console.log("Please enter proper temperature type")
-};
-
-// Task 4 & 5
 var clothes = [
  'nothing',
  'swimsuit',
