@@ -1,5 +1,5 @@
-/* Task 1 (delete comment tags to run the code)
 
+/*
 var temperatureInFahr = prompt("Enter the temperature in Fahrenheit");
 
 var temperatureInCelsius = ((temperatureInFahr - 32) / 1.8);
@@ -13,17 +13,23 @@ console.log(temperatureInKelvin);
 
 var temperature = prompt ("Please enter the temperature value");
 var temperatureUnit = prompt ("Please enter fahrenheit, celsius or kelvin");
-var clothes = [
- 'nothing',
- 'swimsuit',
- 'shorts and shirt',
- 'sweater',
- 'sweater + jacket',
- 'heavy jacket',
- 'heavy jacket and toe warmers',
- 'dont go outside if you want to live'
-];
+var temperatureUnit = temperatureUnit.toLowerCase();
 
+var getFahrenheit = function() {
+    if (temperatureUnit === "celsius") {
+        return temperature * 1.8 + 32;
+    } else if (temperatureUnit === "kelvin") {
+        return ((temperature - 273.15) * 1.8 + 32)
+    } else if (temperatureUnit = "fahrenheit") {
+        return temperature;
+    } else {
+        console.log("ERROR");
+    }
+};
+
+console.log(Math.floor(getFahrenheit()));
+
+/*
 if (temperatureUnit === "fahrenheit") {
     console.log("Temperature in Fahrenheit is " + temperature);
     console.log("Temperature in Celsius is " + (temperature - 32) / 1.8);
@@ -41,6 +47,16 @@ if (temperatureUnit === "fahrenheit") {
 };
 
 // Task 4 & 5
+var clothes = [
+ 'nothing',
+ 'swimsuit',
+ 'shorts and shirt',
+ 'sweater',
+ 'sweater + jacket',
+ 'heavy jacket',
+ 'heavy jacket and toe warmers',
+ 'dont go outside if you want to live'
+];
 var name = prompt("What is your name?")
 if (temperature <= 0) {
     console.log("ooh its cold out");
@@ -54,7 +70,7 @@ if (temperature <= 0) {
 } else {
     console.log("CRITICAL ERROR");
 };
-
+*/
 
 
 
