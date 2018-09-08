@@ -3,6 +3,17 @@ var name = prompt("What is your name?")
 var temperature = prompt ("Please enter the temperature value");
 var temperatureUnit = prompt ("Please enter fahrenheit, celsius or kelvin");
 
+var clothes = [
+ 'nothing',
+ 'swimsuit',
+ 'shorts and shirt',
+ 'sweater',
+ 'sweater + jacket',
+ 'heavy jacket',
+ 'heavy jacket and toe warmers',
+ 'dont go outside if you want to live'
+];
+
 // Ignore the case, so later we won't be confused inside function with === operator
 var temperatureUnit = temperatureUnit.toLowerCase();
 
@@ -64,29 +75,30 @@ temperature <= 32 && temperatureUnit === "fahrenheit" ||
 temperature <= 273.15 && temperatureUnit = "kelvin")
 */
 console.log(temps[0]);
-/*
-var clothes = [
- 'nothing',
- 'swimsuit',
- 'shorts and shirt',
- 'sweater',
- 'sweater + jacket',
- 'heavy jacket',
- 'heavy jacket and toe warmers',
- 'dont go outside if you want to live'
-];
 
+var whatToWear = function() {
 if (temps[0] <= 0) {
     console.log("ooh its cold out");
-    console.log(name + " "  + "you should wear " + clothes[6]);
+    console.log(name + " "  + "you should wear " + clothes[4]);
 
-    } else if (temps[0] > 40 && temps[0] < 100) {
+}   else if (temps[0] > 40 && temps[0] < 100) {
     console.log("ooh it's hot out");
     console.log(name + " "  + "you should wear " + clothes[2]);
 
-    }else if (temps[0] > 100) {
+    } else if (temps[0] > 100) {
     console.log ("You are literally burning!");
     console.log(name + " "  + "you should wear " + clothes[0]);
+
+    } else {
+    console.log("Probably, you better not to leave home");
+    }
+}
+whatToWear();
+
+/*
+
+
+
 
 } else {
     console.log("Probably, you better not to leave home");
