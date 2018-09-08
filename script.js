@@ -1,35 +1,76 @@
-
-/*
-var temperatureInFahr = prompt("Enter the temperature in Fahrenheit");
-
-var temperatureInCelsius = ((temperatureInFahr - 32) / 1.8);
-console.log(temperatureInCelsius);
-
-var temperatureInKelvin = (temperatureInCelsius + 273.15);
-console.log(temperatureInKelvin);
-*/
-
-// Task 2 Define formula for all possible user input (var clothes define for Task 5)
-
+// Let User to enter desired temperature and it's value
 var temperature = prompt ("Please enter the temperature value");
 var temperatureUnit = prompt ("Please enter fahrenheit, celsius or kelvin");
+
+// Ignore the case, so later we won't be confused inside function with === operator
 var temperatureUnit = temperatureUnit.toLowerCase();
 
+// Defining function, return for every User output, including weird stuff with ERROR message
+
+var convertTemp = function() {
+if (temperatureUnit === "celsius") {
+        var celsiusCels = "Celsius = " + temperature;
+        var celsiusKelvin = "Kelvin = " + Math.floor(((temperature * 1) + 273.15));
+        var celsiusFahr = "Fahrenheit = " + Math.floor(((temperature * 1.8) + 32));
+
+console.log(celsiusCels, celsiusKelvin, celsiusFahr);
+
+    } else if (temperatureUnit === "fahrenheit") {
+        var fahrenheitFahr = "Fahrenheit = " + temperature;
+        var fahrenheitKelvin = "Kelvin = " + Math.floor((temperature - 32) / 1.8 + 273.15);
+        var fahrenheitCels = "Celsius = " + Math.floor((temperature - 32) / 1.8)
+
+console.log(fahrenheitFahr, fahrenheitCels, fahrenheitKelvin);
+
+        } else if (temperatureUnit === "kelvin") {
+            var kelvinKelv = "Kelvin = " + temperature;
+            var kelvinFahr = "Fahrenheit = " + Math.floor((temperature - 273.15) * 1.8 + 32);
+            var kelvinCels = " Celsius = " + Math.floor(temperature - 273.15);
+
+console.log(kelvinKelv, kelvinFahr, kelvinCels);
+
+        }else {
+
+console.log("Please, enter Fahrenheit, Celsius or Kelvin ")
+
+        }
+};
+
+convertTemp();
+
+// Logging the function with rounding the result, because some formulas make it very long
+
+
+/*
+if (temperatureUnit === "celsius") {
+        console.log("Celsius = " + temperature + " Fahrenheit = " + (temperature * 1.8 + 32) + " Kelvin = " + ((temperature * 1) + 273.15))
 var getFahrenheit = function() {
     if (temperatureUnit === "celsius") {
-        return temperature * 1.8 + 32;
+        return temperature * 1.8 + 32
     } else if (temperatureUnit === "kelvin") {
-        return ((temperature - 273.15) * 1.8 + 32)
+        return (temperature - 32) / 1.8 + 273.15
     } else if (temperatureUnit = "fahrenheit") {
         return temperature;
     } else {
         console.log("ERROR");
     }
 };
+var getKelvin = function() {
+    if (temperatureUnit === "celsius") {
+        return (temperature * 1) + 273.15;
+    } else if (temperatureUnit === "fahrenheit") {
+        return (temperature - 273.15) + 1.8 + 32
+    } else if (temperature === "kelvin") {
+        return temperature
+    } else
+        console.log("ERROR");
+};
+console.log("The temperature in Kelvin is " + Math.floor(getKelvin()));
 
-console.log(Math.floor(getFahrenheit()));
 
-/*
+
+    } else if (temperatureUnit === "celsius") {
+        return temperature * 2
 if (temperatureUnit === "fahrenheit") {
     console.log("Temperature in Fahrenheit is " + temperature);
     console.log("Temperature in Celsius is " + (temperature - 32) / 1.8);
