@@ -8,7 +8,7 @@ var clothes = [
  'swimsuit',
  'shorts and shirt',
  'sweater',
- 'sweater + jacket',
+ 'sweater and jacket',
  'heavy jacket',
  'heavy jacket and toe warmers',
  'dont go outside if you want to live'
@@ -76,6 +76,7 @@ temperature <= 273.15 && temperatureUnit = "kelvin")
 */
 console.log(temps[0]);
 
+// creating function for task 4,5
 var whatToWear = function() {
 if (temps[0] <= 0) {
     console.log("ooh its cold out");
@@ -93,17 +94,17 @@ if (temps[0] <= 0) {
     console.log("Probably, you better not to leave home");
     }
 }
+
 whatToWear();
 
-/*
+// task 6. Printed results of array using for loop.
+
+for (var i = 0; i < temps.length; i++) {
+    console.log(temps[i]);
+}
 
 
 
-
-} else {
-    console.log("Probably, you better not to leave home");
-};
-*/
 
 
 
