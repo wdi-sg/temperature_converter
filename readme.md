@@ -14,6 +14,11 @@ Goal: Create a program that can convert a temperature in Fahrenheit, Celsius or 
 var userInput = prompt('What's your name?');
 console.log( userInput );
 ```
+* After you have computed the answer, output it to the user using the `alert` method:
+
+```
+alert("I'm saying something");
+```
 
 ## Specifications
 
