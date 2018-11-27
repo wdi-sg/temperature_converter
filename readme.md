@@ -8,6 +8,13 @@ Goal: Create a program that can convert a temperature in Fahrenheit, Celsius or 
 * Create a `script.js` file.
 * Make sure to link the script file in the `index.html`.
 
+* Use the special `prompt` method to get input from the user:
+
+```
+var userInput = prompt('What's your name?');
+console.log( userInput );
+```
+
 ## Specifications
 
 ### Part 1
