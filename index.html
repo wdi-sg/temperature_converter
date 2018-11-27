@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Temperature Converter</title>
+    <script>
+        //PART 1
+        var userInputTemp = prompt("What's the Temperature in Fahrenheit?");
+        console.log( userInputTemp );
+
+        function farenheitToKelvin() {
+            return Math.round ((userInputTemp - 32) * (5/9) + 273.15 )
+        };
+
+        function farenheitToDegree() {
+            return Math.round ((userInputTemp - 32) * (5/9))
+        };
+
+        alert("I'm saying something!");
+        console.log (farenheitToKelvin() + " " + "Kelvin");
+        console.log (farenheitToDegree() + " " + "Degrees");
+
+        //PART 2/3/4
+        var userInputTemp = prompt("What's the Temperature ?");
+
+        var userInputUnit = prompt("What's the Unit (Enter C, F or K) ?");
+
+         var clothes = [
+         "nothing",
+         "swimsuit",
+         "shorts and shirt",
+         "sweater",
+         "sweater + jacket",
+         "heavy jacket",
+         "heavy jacket and toe warmers",
+         "don't go outside if you want to live"
+        ];
+
+        function degreesToFahrenheit(){
+            return Math.round ((userInputTemp-32)*5/9)
+        };
+
+        function degreesToKelvin(){
+            return Math.round (userInputTemp + 273.15)
+        };
+
+        function kelvinToFahrenheit(){
+            return Math.round ((userInputTemp - 273.15)*9/5+32)
+        };
+
+        function kelvinToDegree(){
+            return Math.round (userInputTemp - 273.15)
+        }
+
+        if (userInputUnit == "F"){
+            console.log(userInputTemp + " F = " + farenheitToKelvin() + " " + "K" + " = " + farenheitToDegree() + " " + "D");
+            var convertedTemp1 = farenheitToKelvin();
+            var convertedTemp2 = farenheitToDegree();
+        } else if (userInputUnit == "C"){
+             console.log(userInputTemp + " D = " + degreesToKelvin() + " " + "K" + " = " + degreesToFahrenheit() + " " + "F");
+             if (userInputTemp < 0) {alert("ooh its cold out");
+             var wearWhat = clothes[4];}
+             else if (userInputTemp > 40) {alert("ooh its hot out");
+             var wearWhat = clothes[1];}
+             else if (userInputTemp > 100){alert("your literally boiling");
+             var wearWhat = clothes[0];}
+             else {alert("weather is great!");
+             var wearWhat = clothes[2];}
+
+            var convertedTemp1 = degreesToKelvin();
+            var convertedTemp2 = degreesToFahrenheit();
+        } else if (userInputUnit == "K"){
+            console.log(userInputTemp + " K = " + kelvinToDegree() + " " + "D" + " = " + kelvinToFahrenheit() + " " + "F");
+            var convertedTemp1 = kelvinToDegree();
+            var convertedTemp2 = kelvinToFahrenheit();
+        } else alert ("Invalid Data Input!");
+
+        var temps = [userInputTemp,convertedTemp1,convertedTemp2];
+        console.log(temps);
+
+        //PART 5
+        var userName = prompt("What's your Name?");
+
+        alert("Hi! "+ userName + " " + "please wear " + wearWhat);
+
+        //PART 6
+        for (var i in temps) {
+            console.log(temps[i]);
+        }
+
+        //PART 7
+
+        while (Typeof(userInputTemp) === 'number');{
+            var userInputTemp = prompt("What's the Temperature in Fahrenheit? Enter N to stop");
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>
