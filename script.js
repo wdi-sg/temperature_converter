@@ -1,5 +1,5 @@
 var userInputNum = prompt("Input the temperature");
-var userInputUnit = prompt("Input the type of temperature unit")
+var userInputUnit = prompt("Input the type of temperature unit");
 var userInputName = prompt("Input your name");
 
 var temperatureInNum = userInputNum;
@@ -17,6 +17,18 @@ var clothes = [
 ];
 
 var tempArray = [];
+
+var userInputBoolean = prompt("Do you want to stop?");
+
+while(userInputBoolean == "no") {
+    userInputNum = prompt("Input the temperature");
+    userInputUnit = prompt("Input the type of temperature unit");
+    userInputName = prompt("Input your name");
+    userInputBoolean = prompt("Do you want to stop?");
+       if (userInputBoolean == "yes") {
+            break;
+        }
+  }
 
 if(temperatureInUnit == "fahrenheit"){
     var temperatureInfahr = userInputNum;
@@ -84,16 +96,35 @@ if(temperatureInUnit == "fahrenheit"){
 }
 else {
     alert("Error! Type in the right inputs!");
-    var userInputNum = prompt("Input the temperature");
-    var userInputUnit = prompt("Input the type of temperature unit")
 }
 
 for(var i = 0; tempArray.length > i; i++){
         console.log("Array using for loop: " + tempArray[i]);
     }
 
+//### Part 7
+
+// Using loops, create an interface that continues to ask the user for temp conversions until the user requests to stop.
+
+// var userInputBoolean = prompt("Do you want to stop?");
+
+// while(userInputBoolean == "no") {
+//     userInputNum = prompt("Input the temperature");
+//     userInputUnit = prompt("Input the type of temperature unit");
+//     userInputName = prompt("Input your name");
+//     userInputBoolean = prompt("Do you want to stop?");
+//        if (userInputBoolean == "yes") {
+//             break;
+//         }
+//   }
+
 // ### Part 6
 // Use a for or while loop to print out the conversion results for each temperature. It's OK if you need to simplify your `console.log` statements and remove strings.
+
+// var tempArray = [];
+// for(var i = 0; tempArray.length > i; i++){
+//         console.log("Array using for loop: " + tempArray[i]);
+//     }
 
 // ### Part 5
 // Also prompt the user for their name. When you output the result, suggest the type of clothing they should wear from an array of values:
