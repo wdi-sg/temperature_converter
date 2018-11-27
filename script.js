@@ -1,8 +1,20 @@
 var userInputNum = prompt("Input the temperature");
 var userInputUnit = prompt("Input the type of temperature unit")
+var userInputName = prompt("Input your name");
 
 var temperatureInNum = userInputNum;
 var temperatureInUnit = userInputUnit;
+
+var clothes = [
+ 'nothing',
+ 'swimsuit',
+ 'shorts and shirt',
+ 'sweater',
+ 'sweater + jacket',
+ 'heavy jacket',
+ 'heavy jacket and toe warmers',
+ 'Dont go outside if you want to live'
+];
 
 if(temperatureInUnit == "fahrenheit"){
     var temperatureInfahr = userInputNum;
@@ -16,13 +28,13 @@ if(temperatureInUnit == "fahrenheit"){
     console.log("Temperature converted into Kelvin" + " " + temp[2] + "K");
     console.log(temp);
     if(temp[1] < 0){
-        console.log("ooh it's cold out there");
-    } else if(temp[1] > 40){
-        console.log("ooh it's hot out there");
-    } else if(temp[1] > 100){
-        console.log("Your literally boiling");
+        console.log("ooh it's cold out there. " + "Wear a " + clothes[3] + " " + userInputName);
+    } else if(temp[1] > 40 && temp[1] < 100){
+        console.log("ooh it's hot out there. " + "Wear a " + clothes[1] + " " + userInputName);
+    } else if(temp[1] >= 100){
+        console.log("Your literally boiling. " + clothes[7] + " " + userInputName);
     } else {
-        console.log("Just the right temperature")
+        console.log("Just the right temperature. " + "Wear a " + clothes[2] + " " + userInputName)
     }
 } else if(temperatureInUnit == "kelvin"){
     var temperatureInKelvin = userInputNum;
@@ -36,13 +48,13 @@ if(temperatureInUnit == "fahrenheit"){
     console.log("Temperature converted into Celsius" + " " + temp[2] + "C");
     console.log(temp);
     if(temp[2] < 0){
-        console.log("ooh it's cold out there");
-    } else if(temp[2] > 40){
-        console.log("ooh it's hot out there");
-    } else if(temp[2] > 100){
-        console.log("Your literally boiling");
+        console.log("ooh it's cold out there. " + "Wear a " + clothes[3] + " " + userInputName);
+    } else if(temp[2] > 40 && temp[2] < 100){
+        console.log("ooh it's hot out there. " + "Wear a " + clothes[1] + " " + userInputName);
+    } else if(temp[2] >= 100){
+        console.log("Your literally boiling. " + clothes[7] + " " + userInputName);
     } else {
-        console.log("Just the right temperature")
+        console.log("Just the right temperature." + "Wear a " + clothes[2] + " " + userInputName)
     }
 } else if(temperatureInUnit == "celsius"){
     var temperatureInCelsius = userInputNum;
@@ -56,13 +68,13 @@ if(temperatureInUnit == "fahrenheit"){
     console.log("Temperature converted into Kelvin" + " " + temperatureInKelvin + "K");
     console.log(temp);
     if(temp[0] < 0){
-        console.log("ooh it's cold out there");
-    } else if(temp[0] > 40){
-        console.log("ooh it's hot out there");
-    } else if(temp[0] > 100){
-        console.log("Your literally boiling");
+        console.log("ooh it's cold out there. " + "Wear a " + clothes[3] + " " + userInputName);
+    } else if(temp[0] > 40 && temp[0] < 100){
+        console.log("ooh it's hot out there. " + "Wear a " + clothes[1] + " " + userInputName);
+    } else if(temp[0] >= 100){
+        console.log("Your literally boiling. " + clothes[7] + " " + userInputName);
     } else {
-        console.log("Just the right temperature")
+        console.log("Just the right temperature. " + "Wear a " + clothes[2] + " " + userInputName)
     }
 }
 else {
@@ -70,6 +82,21 @@ else {
     var userInputNum = prompt("Input the temperature");
     var userInputUnit = prompt("Input the type of temperature unit")
 }
+
+// ### Part 5
+// Also prompt the user for their name. When you output the result, suggest the type of clothing they should wear from an array of values:
+
+// ```
+// var clothes = [
+//  'nothing',
+//  'swimsuit',
+//  'shorts and shirt',
+//  'sweater',
+//  'sweater + jacket',
+//  'heavy jacket',
+//  'heavy jacket and toe warmers',
+//  'dont go outside if you want to live'
+// ];
 
 // ### Part 4
 // If the temperature is below 0 also print out a message like "ooh it's cold out".
