@@ -15,6 +15,15 @@ if(temperatureInUnit == "fahrenheit"){
     temp.push(temperatureInKelvin);
     console.log("Temperature converted into Kelvin" + " " + temp[2] + "K");
     console.log(temp);
+    if(temp[1] < 0){
+        console.log("ooh it's cold out there");
+    } else if(temp[1] > 40){
+        console.log("ooh it's hot out there");
+    } else if(temp[1] > 100){
+        console.log("Your literally boiling");
+    } else {
+        console.log("Just the right temperature")
+    }
 } else if(temperatureInUnit == "kelvin"){
     var temperatureInKelvin = userInputNum;
     var temp = [temperatureInKelvin];
@@ -26,6 +35,15 @@ if(temperatureInUnit == "fahrenheit"){
     temp.push(temperatureInCelsius);
     console.log("Temperature converted into Celsius" + " " + temp[2] + "C");
     console.log(temp);
+    if(temp[2] < 0){
+        console.log("ooh it's cold out there");
+    } else if(temp[2] > 40){
+        console.log("ooh it's hot out there");
+    } else if(temp[2] > 100){
+        console.log("Your literally boiling");
+    } else {
+        console.log("Just the right temperature")
+    }
 } else if(temperatureInUnit == "celsius"){
     var temperatureInCelsius = userInputNum;
     var temp = [temperatureInCelsius];
@@ -37,12 +55,28 @@ if(temperatureInUnit == "fahrenheit"){
     temp.push(temperatureInKelvin);
     console.log("Temperature converted into Kelvin" + " " + temperatureInKelvin + "K");
     console.log(temp);
+    if(temp[0] < 0){
+        console.log("ooh it's cold out there");
+    } else if(temp[0] > 40){
+        console.log("ooh it's hot out there");
+    } else if(temp[0] > 100){
+        console.log("Your literally boiling");
+    } else {
+        console.log("Just the right temperature")
+    }
 }
 else {
     alert("Error! Type in the right inputs!");
     var userInputNum = prompt("Input the temperature");
     var userInputUnit = prompt("Input the type of temperature unit")
 }
+
+// ### Part 4
+// If the temperature is below 0 also print out a message like "ooh it's cold out".
+
+// If the temperature is above 40 also print out a message like "ooh it's hot out".
+
+// If the temperature is above 100 print out a message like "your literally boiling".
 
 // ### Part 3
 
