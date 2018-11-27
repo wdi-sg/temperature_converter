@@ -9,7 +9,30 @@ alert("Hi " + userInput );
 //Part 1: Prompt the user for a starting `temperatureInFahr`. This should be a numerical value that represents degrees in fahrenheit.
 // After receiving input it should log that same temperature in both Kelvin and Celsius.
 
-var tempInFahr = prompt("What is the current temperature in fahrenheit?");
+
+var tempInFahr = prompt("What is the current temperature in fahrenheit?");//Part 1
+var temp = prompt("What is the current temperature?");//Part 2
+var tempUnit=prompt("Are you using Fahrenheit(F), Kelvin(K), or Celsius(C)?");
+var userName = prompt("What's your name?");//Part 5
+
+/** unsuccessful attempt at Part 7, unexpected token { at line 26}
+var tempInFahr//Part 1
+var temp //Part 2
+var tempUnit
+var userName//Part 5
+
+var proceed = prompt("Do you want to proceed? (Y/N)");//Part 7
+
+While (proceed==="Y") {
+    tempInFahr = prompt("What is the current temperature in fahrenheit?");//Part 1
+    temp = prompt("What is the current temperature?");//Part 2
+    tempUnit=prompt("Are you using Fahrenheit(F), Kelvin(K), or Celsius(C)?");
+    userName = prompt("What's your name?");//Part 5
+        if (proceed==="N"){
+            break;
+        }
+}
+**/
 
 var tempInKel = Math.round((tempInFahr - 32) * 5/9 + 273.15);
 
@@ -23,8 +46,6 @@ alert ("The current temperature in Celsius is "+ tempInCel + " degrees Celsius."
 //Prompt the user for a starting `temperatureUnit`. This will represent either Fahrenheit, Celsius, or Kelvin.
 //The application should print out the user-submitted temperature in the two remaining units.
 
-var temp = prompt("What is the current temperature?");
-var tempUnit=prompt("Are you using Fahrenheit(F), Kelvin(K), or Celsius(C)?");
 var tempSubmit=temp + " degrees " + tempUnit;
 
 alert ("You have stated that the current temperature is "+ tempSubmit+".");
@@ -120,15 +141,13 @@ if (temp<0) {
 };
 //too dependent on if else
 
-var userName = prompt("What's your name?");
-
 alert("Hi " + userName +", you should wear " + suggest +" today.");
 //How to customise above alert to take into account option 7?
 
 //Part 6: Use a for or while loop to print out the conversion results for each temperature. It's OK if you need to simplify your `console.log` statements and remove strings.
 
 for (var i = 0; i < temps.length; i++) {
-    alert("The temperature is"+ temps[i] + ".");
+    alert("The temperature is "+ temps[i] + ".");
 }
 
 //Part 7: Using loops, create an interface that continues to ask the user for temp conversions until the user requests to stop.
