@@ -26,4 +26,7 @@ switch (temperatureUnit.toLowerCase()) {
         var temperatureInK = Number(temperature) + 273.15;
         var temperatureInF = (Number(temperature)*(9/5))+32;
         alert("Temperature in Fahrenheits is: " + temperatureInF + "\n" + "Temperature in Kelvins is: " + temperatureInK);
+
+    default:
+        alert("Please check your inputs. Temperature should be numbers. Temperature units should be Kelvins, Fahrenheits or Celcius");
 }
