@@ -17,9 +17,6 @@ var clothes = [
 ];
 
 var tempArray = [];
-for(var i = 0; tempArray.length < 3; i++){
-        console.log(temp[i]);
-    }//part 6 for loop not working
 
 if(temperatureInUnit == "fahrenheit"){
     var temperatureInfahr = userInputNum;
@@ -90,6 +87,10 @@ else {
     var userInputNum = prompt("Input the temperature");
     var userInputUnit = prompt("Input the type of temperature unit")
 }
+
+for(var i = 0; tempArray.length > i; i++){
+        console.log("Array using for loop: " + tempArray[i]);
+    }
 
 // ### Part 6
 // Use a for or while loop to print out the conversion results for each temperature. It's OK if you need to simplify your `console.log` statements and remove strings.
