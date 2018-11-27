@@ -16,6 +16,11 @@ var clothes = [
  'Dont go outside if you want to live'
 ];
 
+var tempArray = [];
+for(var i = 0; tempArray.length < 3; i++){
+        console.log(temp[i]);
+    }//part 6 for loop not working
+
 if(temperatureInUnit == "fahrenheit"){
     var temperatureInfahr = userInputNum;
     var temp = [temperatureInfahr];
@@ -27,6 +32,7 @@ if(temperatureInUnit == "fahrenheit"){
     temp.push(temperatureInKelvin);
     console.log("Temperature converted into Kelvin" + " " + temp[2] + "K");
     console.log(temp);
+    tempArray.push(temp);
     if(temp[1] < 0){
         console.log("ooh it's cold out there. " + "Wear a " + clothes[3] + " " + userInputName);
     } else if(temp[1] > 40 && temp[1] < 100){
@@ -47,6 +53,7 @@ if(temperatureInUnit == "fahrenheit"){
     temp.push(temperatureInCelsius);
     console.log("Temperature converted into Celsius" + " " + temp[2] + "C");
     console.log(temp);
+    tempArray.push(temp);
     if(temp[2] < 0){
         console.log("ooh it's cold out there. " + "Wear a " + clothes[3] + " " + userInputName);
     } else if(temp[2] > 40 && temp[2] < 100){
@@ -67,6 +74,7 @@ if(temperatureInUnit == "fahrenheit"){
     temp.push(temperatureInKelvin);
     console.log("Temperature converted into Kelvin" + " " + temperatureInKelvin + "K");
     console.log(temp);
+    tempArray.push(temp);
     if(temp[0] < 0){
         console.log("ooh it's cold out there. " + "Wear a " + clothes[3] + " " + userInputName);
     } else if(temp[0] > 40 && temp[0] < 100){
@@ -83,6 +91,9 @@ else {
     var userInputUnit = prompt("Input the type of temperature unit")
 }
 
+// ### Part 6
+// Use a for or while loop to print out the conversion results for each temperature. It's OK if you need to simplify your `console.log` statements and remove strings.
+
 // ### Part 5
 // Also prompt the user for their name. When you output the result, suggest the type of clothing they should wear from an array of values:
 
@@ -97,6 +108,91 @@ else {
 //  'heavy jacket and toe warmers',
 //  'dont go outside if you want to live'
 // ];
+
+// var userInputNum = prompt("Input the temperature");
+// var userInputUnit = prompt("Input the type of temperature unit")
+// var userInputName = prompt("Input your name");
+
+// var temperatureInNum = userInputNum;
+// var temperatureInUnit = userInputUnit;
+
+// var clothes = [
+//  'nothing',
+//  'swimsuit',
+//  'shorts and shirt',
+//  'sweater',
+//  'sweater + jacket',
+//  'heavy jacket',
+//  'heavy jacket and toe warmers',
+//  'Dont go outside if you want to live'
+// ];
+
+// if(temperatureInUnit == "fahrenheit"){
+//     var temperatureInfahr = userInputNum;
+//     var temp = [temperatureInfahr];
+//     console.log("Temperature input by user in Fahrenheit" + " " + temp[0] + "F");
+//     var temperatureInCelsius = (userInputNum - 32) * (5 / 9);
+//     temp.push(temperatureInCelsius);
+//     console.log("Temperature converted into Celsius" + " " + temp[1] + "C");
+//     var temperatureInKelvin = (userInputNum - 32) * (5 / 9 ) + 273.15;
+//     temp.push(temperatureInKelvin);
+//     console.log("Temperature converted into Kelvin" + " " + temp[2] + "K");
+//     console.log(temp);
+//     if(temp[1] < 0){
+//         console.log("ooh it's cold out there. " + "Wear a " + clothes[3] + " " + userInputName);
+//     } else if(temp[1] > 40 && temp[1] < 100){
+//         console.log("ooh it's hot out there. " + "Wear a " + clothes[1] + " " + userInputName);
+//     } else if(temp[1] >= 100){
+//         console.log("Your literally boiling. " + clothes[7] + " " + userInputName);
+//     } else {
+//         console.log("Just the right temperature. " + "Wear a " + clothes[2] + " " + userInputName)
+//     }
+// } else if(temperatureInUnit == "kelvin"){
+//     var temperatureInKelvin = userInputNum;
+//     var temp = [temperatureInKelvin];
+//     console.log("Temperature input by user in Kelvin" + " " + temp[0] + "K");
+//     var temperatureInfahr = (userInputNum - 273.15) * (9 / 5) + 32;
+//     temp.push(temperatureInfahr);
+//     console.log("Temperature converted into Fahrenheit" + " " + temp[1] + "F");
+//     var temperatureInCelsius = (userInputNum - 273.15);
+//     temp.push(temperatureInCelsius);
+//     console.log("Temperature converted into Celsius" + " " + temp[2] + "C");
+//     console.log(temp);
+//     if(temp[2] < 0){
+//         console.log("ooh it's cold out there. " + "Wear a " + clothes[3] + " " + userInputName);
+//     } else if(temp[2] > 40 && temp[2] < 100){
+//         console.log("ooh it's hot out there. " + "Wear a " + clothes[1] + " " + userInputName);
+//     } else if(temp[2] >= 100){
+//         console.log("Your literally boiling. " + clothes[7] + " " + userInputName);
+//     } else {
+//         console.log("Just the right temperature." + "Wear a " + clothes[2] + " " + userInputName)
+//     }
+// } else if(temperatureInUnit == "celsius"){
+//     var temperatureInCelsius = userInputNum;
+//     var temp = [temperatureInCelsius];
+//     console.log("Temperature input by user in Celsius" + " " + temp[0] + "C");
+//     var temperatureInfahr = userInputNum * (9 / 5) + 32;
+//     temp.push(temperatureInfahr);
+//     console.log("Temperature converted into Fahrenheit" + " " + temp[1] + "F");
+//     var temperatureInKelvin = Number(userInputNum) + 273.15;
+//     temp.push(temperatureInKelvin);
+//     console.log("Temperature converted into Kelvin" + " " + temperatureInKelvin + "K");
+//     console.log(temp);
+//     if(temp[0] < 0){
+//         console.log("ooh it's cold out there. " + "Wear a " + clothes[3] + " " + userInputName);
+//     } else if(temp[0] > 40 && temp[0] < 100){
+//         console.log("ooh it's hot out there. " + "Wear a " + clothes[1] + " " + userInputName);
+//     } else if(temp[0] >= 100){
+//         console.log("Your literally boiling. " + clothes[7] + " " + userInputName);
+//     } else {
+//         console.log("Just the right temperature. " + "Wear a " + clothes[2] + " " + userInputName)
+//     }
+// }
+// else {
+//     alert("Error! Type in the right inputs!");
+//     var userInputNum = prompt("Input the temperature");
+//     var userInputUnit = prompt("Input the type of temperature unit")
+// }
 
 // ### Part 4
 // If the temperature is below 0 also print out a message like "ooh it's cold out".
