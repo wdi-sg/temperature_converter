@@ -119,7 +119,7 @@ while (userResponse == true) {
             userResponse = false;
             alert("Alright bye! xD");
         } else {
-            stillContinue = prompt("Response not recognised. Do you want to convert another temperature? (Yes/No)");
+            stillContinue = prompt("Response not recognised. Do you want to do another temperature conversion? (Yes/No)");
         }
 }
 
