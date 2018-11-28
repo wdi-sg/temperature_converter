@@ -1,4 +1,4 @@
-let temps = {
+const temps = {
     fahr: null,
     cels: null,
     kelv: null,
@@ -7,21 +7,21 @@ let getName = null;
 let getTemp = null;
 let getUnit = null;
 
-function askName() {
+const askName = () => {
     getName = prompt("What's your name?");
     if (!getName) {
         getName = 'stranger';
     }
 }
 
-function askTemp() {
+const askTemp = () => {
     getTemp = parseFloat(prompt(`Howdy ${getName}, what is the temperature right now?`));
     while (!getTemp) {
         getTemp = parseFloat(prompt('Sorry, but you need to enter a number. Please try again.'));
     }
 }
 
-function askUnit() {
+const askUnit = () => {
     getUnit = prompt('And what unit is it in? Please type f(ahrenheit), c(elsius), or k(elvin).');
     while (!(getUnit == 'f' || getUnit == 'c' || getUnit =='k')) {
         getUnit = prompt('Sorry, but you need to enter either f, c, or k.')
@@ -31,7 +31,7 @@ function askUnit() {
         temps.kelv = getTemp
 }
 
-function tempConv() {
+const tempConv = () => {
     if (temps.fahr) {
         temps.cels = (temps.fahr - 32) * (5 / 9);
         temps.kelv = temps.cels + 273.15;
@@ -44,12 +44,12 @@ function tempConv() {
     }
 }
 
-function giveResult() {
+const giveResult = () => {
     getTemp = prompt(`It's ${temps.cels}°C, equivalent to ${temps.fahr}°F, which is equivalent to ${temps.kelv}K.
                 Would you like to convert more temperatures? If yes, enter a number, if not, enter anything.`);
 }
 
-function convMainLoop() {
+const convMainLoop = () => {
     askName();
     askTemp();
     while (parseFloat(getTemp)) {
