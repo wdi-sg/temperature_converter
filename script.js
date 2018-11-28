@@ -15,11 +15,21 @@
 // --------------------------------------------------------------------------------------------
 
 
-// Part 2 + Part 3 + Part 6 + Part 7
+// Part 2 - 7
 
 
 var stillContinue; // ask user if they still want to do another temp conversion
 var userResponse = true; // user response to stillContinue
+var clothes = [
+ 'nothing',
+ 'swimsuit',
+ 'shorts and shirt',
+ 'sweater',
+ 'sweater + jacket',
+ 'heavy jacket',
+ 'heavy jacket and toe warmers',
+ 'dont go outside if you want to live'
+];
 
 var tempInFahr;
     var tempInKel;
@@ -28,6 +38,7 @@ var tempInFahr;
     var alltemps = []; // to consolidate all the temps in one array.
 
 while (userResponse == true) {
+    var name = prompt("Enter your name!")
     var temperature = prompt("Please enter temperature.")
     temperature = parseInt(temperature);
 
@@ -40,8 +51,9 @@ while (userResponse == true) {
 
     var temperatureUnit = prompt("Please enter temperature unit.");
     // console.log(typeof temperatureUnit);
+    temperatureUnit = temperatureUnit.toLowerCase(); // to make it non-case-sensitive
 
-    while ((temperatureUnit != "Fahrenheit") && (temperatureUnit != "Kelvin") && (temperatureUnit != "Celsius")) {
+    while ((temperatureUnit != "fahrenheit") && (temperatureUnit != "kelvin") && (temperatureUnit != "celsius")) {
         temperatureUnit = prompt("Please re-enter temperature unit (Fahrenheit, Kelvin or Celsius).");
     }
 
@@ -81,48 +93,38 @@ while (userResponse == true) {
 
     temps = []; //refresh temps array for next loop
 
+    var temp = tempInCel;
+
+
+    if (temp <0){
+        alert("ooh it's cold outside");
+        alert("hey " + name + ", get some " + clothes[6] + " but actually " + clothes[7]);
+    } else if (temp>100) {
+        alert("you're literally boiling");
+        alert("hey " + name + ", just wear " + clothes[0] + " already");
+    } else if (temp>40) {
+        alert("ooh it's hot out");
+        alert("hey " + name + ", get some " + clothes[2] + " or even " + clothes[1]);
+    } else {
+        alert("cooling weather! " + name +  ", grab some " + clothes[4]);
+    }
+
 
     stillContinue = prompt("Do you want to convert another temperature? (Yes/No)");
+    stillContinue = stillContinue.toLowerCase(); // makes it case insensitive
 
-    if (stillContinue == "Yes"){
+    if (stillContinue == "yes"){
             userResponse = true; // will continue looping while true
-        } else if (stillContinue == "No") {
+        } else if (stillContinue == "no") {
             userResponse = false;
+            alert("Alright bye! xD");
         } else {
             stillContinue = prompt("Response not recognised. Do you want to convert another temperature? (Yes/No)");
         }
 }
 
-// --------------------------------------------------------------------------------------------
 
 
-// Part 4 + Part 5
 
-// var clothes = [
-//  'nothing',
-//  'swimsuit',
-//  'shorts and shirt',
-//  'sweater',
-//  'sweater + jacket',
-//  'heavy jacket',
-//  'heavy jacket and toe warmers',
-//  'dont go outside if you want to live'
-// ];
-
-
-// var temp = 130;
-// // var temp = tempInCel; if needed to be combined with above steps
-// var name = prompt("Enter your name!")
-
-// if (temp <0){
-//     console.log("ooh it's cold outside");
-//     console.log("hey " + name + ", get some " + clothes[6] + " but actually " + clothes[7])
-// } else if (temp>40) {
-//     console.log("ooh it's hot out");
-//     console.log("hey " + name + ", get some " + clothes[2] + " or even " + clothes[1])
-// } else if (temp>100) {
-//     console.log("you're literally boiling");
-//     console.log("hey " + name + ", just wear " + clothes[0] + " already")
-// }
 
 
