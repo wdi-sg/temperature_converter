@@ -7,19 +7,35 @@
 // alert("Temperature in Kelvins is:" + temperatureInK + "\n" + "Temperature in Celcius is: " + temperatureInC);
 
 var promptTemperature = prompt("Please enter temperature degrees");
+var userName = prompt("Please enter your name");
 var STARTING_TEMP = Number(promptTemperature);
 var temperatureUnit = prompt("Please enter temperature units");
 var temp_comment ="";
+var clothes = [
+ 'nothing',
+ 'swimsuit',
+ 'shorts and shirt',
+ 'sweater',
+ 'sweater + jacket',
+ 'heavy jacket',
+ 'heavy jacket and toe warmers',
+ 'dont go outside if you want to live'
+];
+var toWear = "";
 
 var commentOnTemperature = temperatureInC => {
     if (temperatureInC > 100) {
         temp_comment = "you're literally boiling";
+        toWear = clothes[clothes.length];
     } else if (temperatureInC > 40) {
         temp_comment = "ooh it's hot out";
-    } else if (temperatureInC < 0) {
+        toWear = clothes[Math.floor(Math.random()*4 + 3)];
+    } else if (temperatureInC <= 0) {
         temp_comment = "ooh it's cold out";
+        toWear = clothes[Math.floor(Math.random()*3)];
     } else {
         temp_comment = "Nice Weather :)";
+        toWear = clothes[0] + " it looks good on you :)";
     }
 }
 
@@ -30,7 +46,7 @@ switch (temperatureUnit.toLowerCase()) {
         var CONVERTED_TEMP_2 = ((STARTING_TEMP - 32) * (5/9));
         commentOnTemperature(CONVERTED_TEMP_2);
 
-        alert("Temperature in Kelvins is:" + CONVERTED_TEMP_1 + "\n" + "Temperature in Celcius is: " + CONVERTED_TEMP_2 + "\n" + temp_comment);
+        alert("Temperature in Kelvins is:" + CONVERTED_TEMP_1 + "\n" + "Temperature in Celcius is: " + CONVERTED_TEMP_2 + "\n" + temp_comment + "\n" + "We recommend you to wear: " + toWear);
         break;
 
     case 'kelvins':
@@ -38,7 +54,7 @@ switch (temperatureUnit.toLowerCase()) {
         var CONVERTED_TEMP_2 = STARTING_TEMP - 273.14;
         commentOnTemperature(CONVERTED_TEMP_2);
 
-        alert("Temperature in Fahrenheits is: " + CONVERTED_TEMP_1 + "\n" + "Temperature in Celcius is: " + CONVERTED_TEMP_2 + "\n" + temp_comment);
+        alert("Temperature in Fahrenheits is: " + CONVERTED_TEMP_1 + "\n" + "Temperature in Celcius is: " + CONVERTED_TEMP_2 + "\n" + temp_comment + "\n" + "We recommend you to wear: " + toWear);
         break;
 
     case 'celcius':
@@ -46,7 +62,7 @@ switch (temperatureUnit.toLowerCase()) {
         var CONVERTED_TEMP_2 = (STARTING_TEMP*(9/5))+32;
         commentOnTemperature(STARTING_TEMP);
 
-        alert("Temperature in Kelvins is: " + CONVERTED_TEMP_1 + "\n" + "Temperature in Fahrenheits is: " + CONVERTED_TEMP_2 + "\n" + temp_comment);
+        alert("Temperature in Kelvins is: " + CONVERTED_TEMP_1 + "\n" + "Temperature in Fahrenheits is: " + CONVERTED_TEMP_2 + "\n" + temp_comment + "\n" + "We recommend you to wear: " + toWear);
         break;
 
     default:
