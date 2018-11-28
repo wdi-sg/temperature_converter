@@ -19,7 +19,7 @@
 
 
 var stillContinue; // ask user if they still want to do another temp conversion
-var userResponse = true; // user response to stillContinue
+var userResponse = true; // user response to stillContinue,
 var clothes = [
  'nothing',
  'swimsuit',
@@ -32,15 +32,16 @@ var clothes = [
 ];
 
 var tempInFahr;
-    var tempInKel;
-    var tempInCel;
-    var temps = [];
-    var alltemps = []; // to consolidate all the temps in one array.
+var tempInKel;
+var tempInCel;
+var temps = [];
+var alltemps = []; // to consolidate all the temps in one array.
+var name = prompt("Enter your name!")
 
 while (userResponse == true) {
-    var name = prompt("Enter your name!")
     var temperature = prompt("Please enter temperature.")
     temperature = parseInt(temperature);
+    console.log(temperature);
 
     while (Number.isInteger(temperature) == false) {
         console.log("hi")
@@ -55,9 +56,10 @@ while (userResponse == true) {
 
     while ((temperatureUnit != "fahrenheit") && (temperatureUnit != "kelvin") && (temperatureUnit != "celsius")) {
         temperatureUnit = prompt("Please re-enter temperature unit (Fahrenheit, Kelvin or Celsius).");
+        temperatureUnit = temperatureUnit.toLowerCase(); // to make it non-case-sensitive
     }
 
-    if (temperatureUnit == "Fahrenheit") {
+    if (temperatureUnit == "fahrenheit") {
         tempInFahr = temperature + "°F";
         tempInKel = ((temperature + 459.67) * (5/9) ).toFixed(1) + "K";
         tempInCel = ((temperature - 32) / 1.8).toFixed(1) + "°C";
@@ -65,7 +67,7 @@ while (userResponse == true) {
 
         alert(tempInFahr + " = " + tempInKel+ " = " + tempInCel );
 
-    } else if (temperatureUnit == "Kelvin") {
+    } else if (temperatureUnit == "kelvin") {
         tempInKel = temperature + "K";
         tempInCel = (temperature - 273.15).toFixed(1) + "°C";
         tempInFahr = ((temperature * 1.8)- 459.67).toFixed(1)+  "°F";
