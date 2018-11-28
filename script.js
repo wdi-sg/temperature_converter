@@ -46,28 +46,28 @@ while (userResponse == true) {
     }
 
     if (temperatureUnit == "Fahrenheit") {
-        tempInFahr = temperature;
-        tempInKel = ((tempInFahr + 459.67) * (5/9) ).toFixed(1);
-        tempInCel = ((tempInFahr - 32) / 1.8).toFixed(1) ;
-        temps.push(tempInFahr, tempInCel, tempInKel); // converted temp in alphabetical order
+        tempInFahr = temperature + "°F";
+        tempInKel = ((temperature + 459.67) * (5/9) ).toFixed(1) + "K";
+        tempInCel = ((temperature - 32) / 1.8).toFixed(1) + "°C";
+        temps.push(tempInFahr, tempInCel, tempInKel);
 
-        alert(temperature + "°F" + " = " + tempInKel + "K" + " = " + tempInCel + "°C");
+        alert(tempInFahr + " = " + tempInKel+ " = " + tempInCel );
 
     } else if (temperatureUnit == "Kelvin") {
-        tempInKel = temperature;
-        tempInCel = (tempInKel - 273.15).toFixed(1);
-        tempInFahr = ((temperature * 1.8)- 459.67).toFixed(1);
-        temps.push(tempInKel, tempInCel, tempInFahr); // converted temp in alphabetical order
+        tempInKel = temperature + "K";
+        tempInCel = (temperature - 273.15).toFixed(1) + "°C";
+        tempInFahr = ((temperature * 1.8)- 459.67).toFixed(1)+  "°F";
+        temps.push(tempInKel, tempInCel, tempInFahr);
 
-        alert(temperature + "K" + " = " + tempInFahr + "°F" + " = " + tempInCel + "°C");
+        alert(tempInKel + " = " + tempInFahr + " = " + tempInCel);
 
     } else {
-        tempInCel = temperature;
-        tempInKel = (temperature + 273.15).toFixed(1);
-        tempInFahr = ((temperature * 1.8) + 32).toFixed(1);
-        temps.push(tempInCel, tempInKel, tempInFahr); // converted temp in alphabetical order
+        tempInCel = temperature +  "°C";
+        tempInKel = (temperature + 273.15).toFixed(1) + "K";
+        tempInFahr = ((temperature * 1.8) + 32).toFixed(1) + "°F";
+        temps.push(tempInCel, tempInKel, tempInFahr);
 
-        alert(temperature + "°C" + " = " + tempInFahr + "°F" + " = " + tempInKel + "K");
+        alert(tempInCel + " = " + tempInFahr  + " = " + tempInKel);
     }
 
 
