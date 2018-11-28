@@ -14,42 +14,21 @@ function askName() {
     }
 }
 
-
 function askTemp() {
-    getTemp = prompt(`Howdy ${getName}, what is the temperature right now?`);
-    checkTemp();
-
-}
-
-function checkTemp() {
-    getTemp = parseFloat(getTemp);
-    if (!getTemp) {
-        getTemp = prompt('Sorry, but you need to enter a number. Please try again.');
-        checkTemp();
-    } else {
-        askUnit();
+    getTemp = parseFloat(prompt(`Howdy ${getName}, what is the temperature right now?`));
+    while (!getTemp) {
+        getTemp = parseFloat(prompt('Sorry, but you need to enter a number. Please try again.'));
     }
 }
 
 function askUnit() {
     getUnit = prompt('And what unit is it in? Please type f(ahrenheit), c(elsius), or k(elvin).');
-    checkUnit();
-}
-
-function checkUnit() {
-    if (!getUnit || !(getUnit == 'f' || getUnit == 'c' || getUnit == 'k')) {
-        getUnit = prompt('Sorry, but you need to enter either f, c, or k.');
-        checkUnit();
-    } else if (getUnit == 'f') {
-        temps.fahr = getTemp;
-        tempConv();
-    } else if (getUnit == 'c') {
-        temps.cels = getTemp;
-        tempConv();
-    } else {
-        temps.kelv = getTemp;
-        tempConv();
-    }
+    while (!(getUnit == 'f' || getUnit == 'c' || getUnit =='k')) {
+        getUnit = prompt('Sorry, but you need to enter either f, c, or k.')
+    };
+    getUnit == 'f' ? temps.fahr = getTemp :
+        getUnit == 'c' ? temps.cels = getTemp :
+        temps.kelv = getTemp
 }
 
 function tempConv() {
@@ -68,21 +47,22 @@ function tempConv() {
 function giveResult() {
     getTemp = prompt(`It's ${temps.cels}°C, equivalent to ${temps.fahr}°F, which is equivalent to ${temps.kelv}K.
                 Would you like to convert more temperatures? If yes, enter a number, if not, enter anything.`);
-                console.log(getTemp);
-    if (parseFloat(getTemp)) {
+}
+
+function convMainLoop() {
+    askName();
+    askTemp();
+    while (parseFloat(getTemp)) {
         getTemp = parseFloat(getTemp);
         temps.kelv = null;
         temps.fahr = null;
         temps.cels = null;
         getUnit = null;
         askUnit();
+        tempConv();
         giveResult();
-    } else {
-        alert(`See you later, ${getName}!`);
-    }
-
+    };
+    alert(`See you later, ${getName}!`);
 }
 
-askName();
-askTemp();
-giveResult();
+convMainLoop();
