@@ -9,6 +9,14 @@
 var STARTING_TEMP = prompt("Please enter temperature degrees");
 var temperatureUnit = prompt("Please enter temperature units");
 
+if (STARTING_TEMP > 100) {
+    console.log("you're literally boiling");
+} else if (STARTING_TEMP > 40) {
+    console.log("ooh it's hot out");
+} else if (STARTING_TEMP < 0) {
+    console.log("ooh it's cold out");
+}
+
 switch (temperatureUnit.toLowerCase()) {
     case 'fahrenheits':
         var CONVERTED_TEMP_1 = ((Number(STARTING_TEMP) - 32) * (5/9)) + 273.15;
@@ -26,10 +34,10 @@ switch (temperatureUnit.toLowerCase()) {
         var CONVERTED_TEMP_1 = Number(STARTING_TEMP) + 273.15;
         var CONVERTED_TEMP_2 = (Number(STARTING_TEMP)*(9/5))+32;
         alert("Temperature in Kelvins is: " + CONVERTED_TEMP_1 + "\n" + "Temperature in Fahrenheits is: " + CONVERTED_TEMP_2);
+        break;
 
     default:
         alert("Please check your inputs. Temperature should be numbers. Temperature units should be Kelvins, Fahrenheits or Celcius");
 }
 
 var temps = [STARTING_TEMP, CONVERTED_TEMP_1, CONVERTED_TEMP_2];
-console.log(temps[1]);
