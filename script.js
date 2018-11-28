@@ -1,13 +1,13 @@
 var userName = prompt("Hello! What's your name?");
 //*** the below if statement for userName does not work, SO SAD!!!! *****
-if (userName == null) {
+if (userName == null || userName == "") {
     userName = "stranger";
 };
 
 var temperature;
 var temperatureUnit;
 
-var tempDataArray = [name, temperature, temperatureUnit];
+var tempDataArray = [userName, temperature, temperatureUnit];
 
 var clothes = [
  'nothing',
@@ -23,7 +23,7 @@ var clothes = [
 var oneMoreTime = function() {
     var again = prompt("Wanna try another conversion? (Yes or No)");
 //if user presses cancel button
-    if (again == null) {
+    if (again == null || again == "") {
         alert("Thank you for using my service! Should you require my assistance again, please refresh my web page. Goodbye!");
     };
 //if user types any weird uppercase answer, convert all to lower case
@@ -37,10 +37,12 @@ var oneMoreTime = function() {
     };
 };
 //creating function for when user gives Degrees to convert, function arguments taken from conversionRun function below later
-var ifCharD = function(a, b, c) {
-    var degToFah = a * 9/5 + 32;
-    var degToKel = a + 273.15;
-    alert("Hello " + name + "!\n" + b + "\n" + c + a + " Degrees is " + degToFah + " in Fahrenheit and " + degToKel + " in Kelvin.");
+var ifCharD = function(temperature, coldHotMessage, clothingMessage) {
+    var degToFah = temperature * 9/5 + 32;
+    degToFah = +degToFah.toFixed(2);
+    var degToKel = temperature + 273.15;
+    degToFah = +degToFah.toFixed(2);
+    alert("Hello " + userName + "!\n" + coldHotMessage + "\n" + clothingMessage + temperature + " Degrees is " + degToFah + " in Fahrenheit and " + degToKel + " in Kelvin.");
 //pushes Degree to Fahrenheit answer into array
     tempDataArray.push(degToFah);
     tempDataArray.push(degToKel);
@@ -48,31 +50,31 @@ var ifCharD = function(a, b, c) {
     oneMoreTime();
 };
 //creating function for when user gives Kelvin to convert, function arguments taken from conversionRun function below later
-var ifCharK = function(a, b, c) {
-    var kelToFah = (a - 273.15) * 9/5 + 32;
-    var kelToDeg = a - 273.15;
-    alert("Hello " + name + "!\n" + b + "\n" + c + a + " Kelvin is " + kelToFah + " in Fahrenheit and " + kelToDeg + " in Degrees Celsius.");
+var ifCharK = function(temperature, coldHotMessage, clothingMessage) {
+    var kelToFah = (temperature - 273.15) * 9/5 + 32;
+    kelToFah = +kelToFah.toFixed(2);
+    var kelToDeg = temperature - 273.15;
+    kelToDeg = +kelToDeg.toFixed(2);
+    alert("Hello " + userName + "!\n" + coldHotMessage + "\n" + clothingMessage + temperature + " Kelvin is " + kelToFah + " in Fahrenheit and " + kelToDeg + " in Degrees Celsius.");
     tempDataArray.push(kelToFah);
     tempDataArray.push(kelToDeg);
     oneMoreTime();
 };
 //creating function for when user gives Fahrenheit to convert, function arguments taken from conversionRun function below later
-var ifCharF = function(a, b, c) {
-    var fahToDeg = (a - 32) * 5/9;
-    var fahToKel = (a - 32) * 5/9 + 273.15;
-    alert("Hello " + name + "!\n" + b + "\n" + c + a + " Fahrenheit is " + fahToKel + " in Kelvin and " + fahToDeg + " in Degrees Celsius.");
+var ifCharF = function(temperature, coldHotMessage, clothingMessage) {
+    var fahToDeg = (temperature - 32) * 5/9;
+    fahToDeg = +fahToDeg.toFixed(2);
+    var fahToKel = (temperature - 32) * 5/9 + 273.15;
+    fahToKel = +fahToKel.toFixed(2);
+    alert("Hello " + userName + "!\n" + coldHotMessage + "\n" + clothingMessage + temperature + " Fahrenheit is " + fahToKel + " in Kelvin and " + fahToDeg + " in Degrees Celsius.");
     tempDataArray.push(fahToDeg);
     tempDataArray.push(fahToKel);
     oneMoreTime();
 };
 //creating the function for conversion process
 var conversionRun = function() {
-//     userName = prompt("Hello! What's your name?");
 // //******* below if statement doesn't seem to work, sad *******
-// if (userName == null) {
-//     userName = "stranger";
-// };
-    temperature = prompt("What is your temperature? (without the unit)");
+    temperature = parseInt(prompt("What is your temperature? (without the unit)"));
 //if user presses cancel button for temperature prompt
 if (temperature == null) {
     alert("Thank you for using my service! Should you require my assistance again, please refresh my web page. Goodbye!");
