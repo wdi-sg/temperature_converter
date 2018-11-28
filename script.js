@@ -17,3 +17,4 @@ switch(unit){
     default:
         alert("please enter unit");
     };
+var temps = [temperature, celsius, kelvin]
