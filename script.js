@@ -23,7 +23,7 @@ const askTemp = () => {
 
 const askUnit = () => {
     getUnit = prompt('And what unit is it in? Please type f(ahrenheit), c(elsius), or k(elvin).');
-    while (!(getUnit == 'f' || getUnit == 'c' || getUnit =='k')) {
+    while (!(getUnit == 'f' || getUnit == 'c' || getUnit == 'k')) {
         getUnit = prompt('Sorry, but you need to enter either f, c, or k.')
     };
     getUnit == 'f' ? temps.fahr = getTemp :
