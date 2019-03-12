@@ -1,8 +1,6 @@
 //part 1
 /*var temperatureInFahr = prompt("Enter the temperature in Fahrenheit");
-
 var temperatureInCel = (temperatureInFahr - 32) * 5/9;
-
 var temperatureInKel = (temperatureInFahr - 32) * 5/9 + 273.15;
 
 alert("Temperature in Fahrenheit: " + temperatureInFahr + "\nTemperature in Celcius: " + temperatureInCel + "\nTemperature in Kelvin: " + temperatureInKel);*/
