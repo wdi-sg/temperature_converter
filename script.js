@@ -20,26 +20,57 @@ var kelvinToCelcius = function (kelvin) {
 var kelvinToFahr = function (kelvin) {
     return celciusToFahr(kelvinToCelcius(kelvin));
 }
+var tempFunction = function (degrees, unit) {
+    var unitString = "";
+    if (unit === "f") {
+        unitString = "\xB0 F"
+    //if celcius, run function for converting celcius to other units
+    } else if (unit === "c") {
+        unitString = "\xB0C"
+    //if kelvin, run functions for converting kelvin to other units
+    } else if (unit === "k") {
+        unitString = "K"
+    }
+    var temp = {
+        degrees: degrees,
+        unit: unitString
+    };
+    var degreesString = degrees.toString();
+    return degreesString + unitString;
+}
 var farenheit = 0;
 var kelvin = 0;
 var celcius = 0;
+//part 3 create a function to create temp objects which contain temperature in degrees and the associated units
+var temps = [];
 //if farenheit, run functions for converting farenheit to other units
 if (temperatureUnit === "f") {
     farenheit = temperature;
     celcius = fahrToCelcius(temperature);
     kelvin = fahrToKelvin(temperature);
+    temps[0] = tempFunction(farenheit, "f");
+    temps[1] = tempFunction(celcius, "c");
+    temps[2] = tempFunction(kelvin, "k");
 //if celcius, run function for converting celcius to other units
 } else if (temperatureUnit === "c") {
     farenheit = celciusToFahr(temperature);
     celcius = temperature;
     kelvin = celciusToKelvin(temperature);
+    temps[0] = tempFunction(celcius, "c");
+    temps[1] = tempFunction(kelvin, "k");
+    temps[2] = tempFunction(farenheit, "f");
 //if kelvin, run functions for converting kelvin to other units
 } else if (temperatureUnit === "k") {
     farenheit = kelvinToFahr(temperature);
     celcius = kelvinToCelcius(temperature);
     kelvin = temperature;
+    temps[0] = tempFunction(kelvin, "k");
+    temps[1] = tempFunction(farenheit, "f");
+    temps[2] = tempFunction(celcius, "c");
 }
-alert(farenheit + "o F = " + celcius + " oC = " + kelvin + "K");
+alert(temps[0] + " = " + temps[1] + " = " + temps[2]);
+
+console.log(temps[0] + ", " + temps[1] + ", " + temps[2]);
 //set 3 vars to their respective values after conditional conversion
 
 // alert("You entered " + temperature + "Farenheit, which is " + fahrToCelcius(temperature) + " Celcius.");
