@@ -22,6 +22,9 @@ var kelvinToFahr = function (kelvin) {
     return celciusToFahr(kelvinToCelcius(kelvin));
 }
 var temperature = prompt("Enter Temperature in Degrees:");
+while (isNaN(temperature)){
+    temperature = prompt("Enter Temperature in Degrees:");
+}
 console.log(temperature);
 var temperatureUnit = prompt("Enter Unit of Temperature to use, 'f' for Farenheit, 'c' for Celcius and 'k' for Kelvin");
 while (!((temperatureUnit === "f") || (temperatureUnit === "c") || (temperatureUnit === "k"))) {
@@ -78,7 +81,7 @@ alert(temps[0] + " = " + temps[1] + " = " + temps[2]);
 convertAllTemps ();
 //loops until user enters in NaN
 while (!isNaN(temperature)) {
-    temperature = prompt("Enter Temperature in Degrees(type an alphabet to stop):")
+    temperature = prompt("Enter Temperature in Degrees(type an alphabet to stop):");
     if (!isNaN(temperature)){
         var temperatureUnit = prompt("Enter Unit of Temperature to use, 'f' for Farenheit, 'c' for Celcius and 'k' for Kelvin");
         while (!((temperatureUnit === "f" )|| (temperatureUnit === "c") || (temperatureUnit === "k"))) {
