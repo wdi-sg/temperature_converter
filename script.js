@@ -42,10 +42,64 @@ console.log("Assignment1")
 //Part 3
 
 //declare an array variable
+// var temps = [];
+
+// //prompt user for temperature input
+// var temperature = prompt("What is the temperature?");
+
+// //prompt user for temperature unit
+// var temperatureUnit = prompt("What is the unit of temperature? F,C or K?");
+
+// //append degree symbol if temperature unit is either F or C
+// if(temperatureUnit === "F" || temperatureUnit === "C") {
+//     var temperatureUnitWithOrWithoutDegreeSymbol = "°" + temperatureUnit;
+// } else if (temperatureUnit === "K") {
+//     temperatureUnitWithOrWithoutDegreeSymbol = temperatureUnit;
+// }
+
+// //initialize starting temperature based on user input
+// var startingTemperature = temperature + "" + temperatureUnitWithOrWithoutDegreeSymbol;
+
+// //if user temperature input is in F, conversion to C and K will be done
+// if(temperatureUnit === "F") {
+//     var temperatureInCel = (temperature - 32) * (5/9);
+//     var temperatureInKel = ((temperature - 32) * (5/9) + 273.15);
+//     // console.log(startingTemperature + "=" + temperatureInCel + "°C" + "=" + temperatureInKel + "K");
+//     temps.push(startingTemperature, temperatureInCel, temperatureInKel);
+//     console.log(temps[0], temps[1] + "°C", temps[2] + "K");
+// //if user temperature input is in C, conversion to F and K will be done
+// } else if(temperatureUnit === "C") {
+//     var temperatureInFahr = (temperature * (9/5)) + 32 ;
+//     var temperatureInKel = (temperature * 1)+ 273.15 ;
+//     temps.push(startingTemperature, temperatureInFahr, temperatureInKel);
+//     console.log(temps[0], temps[1] + "°F", temps[2] + "K");
+// //if user temperature input is in K, conversion to C and F will be done
+// } else if(temperatureUnit === "K") {
+//     var temperatureInCel = temperature - 273.15;
+//     var temperatureInFahr = (temperature - 273.15) * (9/5) + 32;
+//     temps.push(startingTemperature, temperatureInCel, temperatureInFahr);
+//     console.log(temps[0], temps[1] + "°C", temps[2] + "°F");
+// }
+
+//Part 4
+
+//declare an array variable
 var temps = [];
 
 //prompt user for temperature input
 var temperature = prompt("What is the temperature?");
+
+//temperature check based on user's input
+if(temperature < 0) {
+    console.log("ohh it's cold out");
+    alert("ohh it's cold out");
+} else if(temperature > 40 && temperature <= 100) {
+    console.log("ohh it's hot out");
+    alert("ohh it's hot out");
+} else if(temperature > 100) {
+    console.log("your literally boiling");
+    alert("your literally boiling");
+}
 
 //prompt user for temperature unit
 var temperatureUnit = prompt("What is the unit of temperature? F,C or K?");
