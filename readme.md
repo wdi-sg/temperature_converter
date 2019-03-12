@@ -1,3 +1,4 @@
+Noted.
 # Exercise: Temperature Converter
 
 Goal: Create a program that can convert a temperature in Fahrenheit, Celsius or Kelvin to the other two units.
@@ -79,7 +80,7 @@ var clothes = [
 ```
 
 ### Part 6
-Use a for or while loop to print out the conversion results for each temperature. It's OK if you need to simplify your `console.log` statements and remove strings.  
+Use a for or while loop to print out the conversion results for each temperature. It's OK if you need to simplify your `console.log` statements and remove strings.
 
 ### Part 7
 
