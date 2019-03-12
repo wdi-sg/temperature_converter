@@ -15,16 +15,32 @@ alert("I'm saying something");
 4. if input2 = kel
     input1=xx
 */
+//part 7 loop
 
+
+// takes in temp & unit as user prompts
 var inputTemp, inputUnit;
+// create output variables
 var outFahr, outCel, outKel;
+//part 3 array
+var temps =[];
+var clothes = [
+ 'nothing',
+ 'swimsuit',
+ 'shorts and shirt',
+ 'sweater',
+ 'sweater + jacket',
+ 'heavy jacket',
+ 'heavy jacket and toe warmers',
+ 'dont go outside if you want to live'
+];
 
 inputTemp = prompt("What is the Temperature?");
 console.log(inputTemp);
 inputUnit = prompt("Is this is Fahrenheit, Celsius or Kelvin?");
 console.log(inputUnit);
 
-if (inputUnit ==="Fahr" || inputUnit === "fahr" || inputUnit ==="Fahrenheit") {
+if (inputUnit ==="Fahr" || inputUnit === "fahr" || inputUnit ==="Fahrenheit" || inputUnit==="f") {
     outCel = (inputTemp - 32) * (5/9);
     outKel = (inputTemp -32) * (5/9) + 273.15;
     console.log(outCel + " Celsius", outKel + " kelvin");
@@ -36,4 +52,26 @@ if (inputUnit ==="Fahr" || inputUnit === "fahr" || inputUnit ==="Fahrenheit") {
     outFahr = (inputTemp - 273.15) * 9/5 + 32;
     outCel = (inputTemp  - 273.15);
     console.log(outFahr + " Fahr", outCel + " c");
+}
+
+
+//part 3 & 4
+var temps = [inputTemp, outFahr, outCel, outKel]
+console.log(temps);
+console.log(outCel);
+if (outCel <= 0 ) {
+    console.log("ooh it's COLD out");
+} else if ( outCel >= 40 && outCel <= 100 ) {
+    console.log("ooh it's HOT out");
+} else if (outCel >= 100 ) {
+    console.log("your literally boiling");
+}
+
+//part 5
+if (outCel <= 0 ) {
+    console.log("Maybe you should wear " + clothes[0] + " or " + clothes[6]);
+} else if ( outCel >= 40 && outCel <= 100 ) {
+    console.log("ooh it's HOT out");
+} else if (outCel >= 100 ) {
+    console.log("your literally boiling");
 }
