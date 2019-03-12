@@ -84,7 +84,7 @@ if (temps[1] <= 0) {
 }*/
 
 
-
+// ..... + part 6 + part 7
 // decided to change array to object instead
 while (true) {
     var choice = Number(prompt("Enter 1 to Convert Temperature. \nEnter 0 to Exit."))
