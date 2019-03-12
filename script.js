@@ -18,7 +18,7 @@ console.log("hello");
 
 //     alert(tempInCel+" deg celsius" + " and " + tempInKel+"K");
 
-var tempType = prompt ("F (Fahrenheit) or C (Celsius) or K (Kelvin");
+var tempType = prompt ("F (Fahrenheit) | C (Celsius) | K (Kelvin");
 var temp = prompt ("Input temperature");
 
 if (tempType == "F") {
@@ -33,7 +33,7 @@ if (tempType == "F") {
     else {
         if (tempType == "C") {
         var tempInFahr = Math.round(((temp * (9/5)) + 32),);
-        var tempInKel = Math.round((temp + 273.15),);
+        var tempInKel = Math.round((temp - -273.15),);
         alert(temp + "°c" + " = " + tempInFahr + "°F" + " = " + tempInKel+"K");
         }
 
@@ -49,3 +49,5 @@ if (tempType == "F") {
 
     }
 };
+
+var temps = []
