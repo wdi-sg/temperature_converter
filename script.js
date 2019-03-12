@@ -71,8 +71,12 @@ if (temperatureUnit === "f") {
 }
 alert(temps[0] + " = " + temps[1] + " = " + temps[2]);
 
-console.log(temps[0] + ", " + temps[1] + ", " + temps[2]);
-
+// console.log(temps[0] + ", " + temps[1] + ", " + temps[2]);
+//Part 6
+for (var i = 0; i < temps.length; i++) {
+    var iplus1 = i + 1;
+    console.log("for loop output " + iplus1 + ": " + temps[i]);
+}
 if (celcius < 0) {
     console.log("ooh it's cold out");
 } else if (celcius > 40 && celcius <= 100) {
