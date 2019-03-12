@@ -1,7 +1,8 @@
-var temperature = prompt("Enter Temperature in Degrees:");
-console.log(temperature);
-var temperatureUnit = prompt("Enter Unit of Temperature to use, 'f' for Farenheit, 'c' for Celcius and 'k' for Kelvin");
-console.log(temperatureUnit);
+var farenheit = 0;
+var kelvin = 0;
+var celcius = 0;
+//part 3 create a function to create temp objects which contain temperature in degrees and the associated units
+var temps = [];
 var fahrToCelcius = function (fahr) {
     return (fahr - 32)*5/9;
 }
@@ -20,6 +21,13 @@ var kelvinToCelcius = function (kelvin) {
 var kelvinToFahr = function (kelvin) {
     return celciusToFahr(kelvinToCelcius(kelvin));
 }
+var temperature = prompt("Enter Temperature in Degrees:");
+console.log(temperature);
+var temperatureUnit = prompt("Enter Unit of Temperature to use, 'f' for Farenheit, 'c' for Celcius and 'k' for Kelvin");
+while (!((temperatureUnit === "f") || (temperatureUnit === "c") || (temperatureUnit === "k"))) {
+    temperatureUnit = prompt("Enter Unit of Temperature to use, 'f' for Farenheit, 'c' for Celcius and 'k' for Kelvin");
+}
+console.log(temperatureUnit);
 var tempFunction = function (degrees, unit) {
     var unitString = "";
     if (unit === "f") {
@@ -38,38 +46,47 @@ var tempFunction = function (degrees, unit) {
     var degreesString = degrees.toString();
     return degreesString + unitString;
 }
-var farenheit = 0;
-var kelvin = 0;
-var celcius = 0;
-//part 3 create a function to create temp objects which contain temperature in degrees and the associated units
-var temps = [];
 //set 3 vars to their respective values after conditional conversion
 //if farenheit, run functions for converting farenheit to other units
-if (temperatureUnit === "f") {
-    farenheit = temperature;
-    celcius = fahrToCelcius(temperature);
-    kelvin = fahrToKelvin(temperature);
-    temps[0] = tempFunction(farenheit, "f");
-    temps[1] = tempFunction(celcius, "c");
-    temps[2] = tempFunction(kelvin, "k");
-//if celcius, run function for converting celcius to other units
-} else if (temperatureUnit === "c") {
-    farenheit = celciusToFahr(temperature);
-    celcius = temperature;
-    kelvin = celciusToKelvin(temperature);
-    temps[0] = tempFunction(celcius, "c");
-    temps[1] = tempFunction(kelvin, "k");
-    temps[2] = tempFunction(farenheit, "f");
-//if kelvin, run functions for converting kelvin to other units
-} else if (temperatureUnit === "k") {
-    farenheit = kelvinToFahr(temperature);
-    celcius = kelvinToCelcius(temperature);
-    kelvin = temperature;
-    temps[0] = tempFunction(kelvin, "k");
-    temps[1] = tempFunction(farenheit, "f");
-    temps[2] = tempFunction(celcius, "c");
-}
+var convertAllTemps = function () {
+    if (temperatureUnit === "f") {
+        farenheit = temperature;
+        celcius = fahrToCelcius(temperature);
+        kelvin = fahrToKelvin(temperature);
+        temps[0] = tempFunction(farenheit, "f");
+        temps[1] = tempFunction(celcius, "c");
+        temps[2] = tempFunction(kelvin, "k");
+    //if celcius, run function for converting celcius to other units
+    } else if (temperatureUnit === "c") {
+        farenheit = celciusToFahr(temperature);
+        celcius = temperature;
+        kelvin = celciusToKelvin(temperature);
+        temps[0] = tempFunction(celcius, "c");
+        temps[1] = tempFunction(kelvin, "k");
+        temps[2] = tempFunction(farenheit, "f");
+    //if kelvin, run functions for converting kelvin to other units
+    } else if (temperatureUnit === "k") {
+        farenheit = kelvinToFahr(temperature);
+        celcius = kelvinToCelcius(temperature);
+        kelvin = temperature;
+        temps[0] = tempFunction(kelvin, "k");
+        temps[1] = tempFunction(farenheit, "f");
+        temps[2] = tempFunction(celcius, "c");
+    }
 alert(temps[0] + " = " + temps[1] + " = " + temps[2]);
+}
+convertAllTemps ();
+//loops until user enters in NaN
+while (!isNaN(temperature)) {
+    temperature = prompt("Enter Temperature in Degrees(type an alphabet to stop):")
+    if (!isNaN(temperature)){
+        var temperatureUnit = prompt("Enter Unit of Temperature to use, 'f' for Farenheit, 'c' for Celcius and 'k' for Kelvin");
+        while (!((temperatureUnit === "f" )|| (temperatureUnit === "c") || (temperatureUnit === "k"))) {
+            var temperatureUnit = prompt("Enter Unit of Temperature to use, 'f' for Farenheit, 'c' for Celcius and 'k' for Kelvin");
+        }
+        convertAllTemps ();
+    }
+}
 
 // console.log(temps[0] + ", " + temps[1] + ", " + temps[2]);
 //Part 6
