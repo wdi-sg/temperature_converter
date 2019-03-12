@@ -43,6 +43,7 @@ var kelvin = 0;
 var celcius = 0;
 //part 3 create a function to create temp objects which contain temperature in degrees and the associated units
 var temps = [];
+//set 3 vars to their respective values after conditional conversion
 //if farenheit, run functions for converting farenheit to other units
 if (temperatureUnit === "f") {
     farenheit = temperature;
@@ -71,6 +72,11 @@ if (temperatureUnit === "f") {
 alert(temps[0] + " = " + temps[1] + " = " + temps[2]);
 
 console.log(temps[0] + ", " + temps[1] + ", " + temps[2]);
-//set 3 vars to their respective values after conditional conversion
 
-// alert("You entered " + temperature + "Farenheit, which is " + fahrToCelcius(temperature) + " Celcius.");
+if (celcius < 0) {
+    console.log("ooh it's cold out");
+} else if (celcius > 40 && celcius <= 100) {
+    console.log("ooh it's hot out");
+} else if (celcius > 100) {
+    console.log("you're literally boiling");
+}
