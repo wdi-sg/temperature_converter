@@ -10,7 +10,7 @@ function part1 () {
     temperatureInKelDisplay = temperatureInKel.toFixed(2) + "K";
     temperatureInCelDisplay = temperatureInCel.toFixed(2) + "\xB0C";
 
-    console.log(temperatureInFahrDisplay + " = " + temperatureInKelDisplay + " = " + temperatureInCelDisplay);
+    console.log(temperatureInFahrDisplay + " = " + temperatureInCelDisplay + " = " + temperatureInKelDisplay);
 }
 
 function part2 () {
@@ -51,8 +51,50 @@ function part2 () {
         temperatureInFahrDisplay = temperatureInFahr.toFixed(2) + "\xB0F";
 
     }
-    console.log(temperatureInFahrDisplay + " = " + temperatureInKelDisplay + " = " + temperatureInCelDisplay);
+    console.log(temperatureInFahrDisplay + " = " + temperatureInCelDisplay + " = " + temperatureInKelDisplay);
 
 }
 
-part2();
+function part3 () {
+    var temps = [];
+
+    var userInputTemperature = parseInt(prompt("What is the temperature?", "Please enter a number"));
+    var userInputTemperatureUnit = prompt("What is the unit of measurement?", "Please enter either Fahrenheit, Celsius, or Kelvin");
+
+    console.log("User have input " + userInputTemperature + " as the temperature in " + userInputTemperatureUnit + ".");
+
+    if (userInputTemperatureUnit === "Fahrenheit"){
+        var temperatureInKel =(userInputTemperature - 32) * 5/9 + 273.15;
+        var temperatureInCel =(userInputTemperature - 32) * 5/9;
+
+        // process data into display format
+        temps.push(userInputTemperature.toFixed(2) + "\xB0F");
+        temps.push(temperatureInKel.toFixed(2) + "K");
+        temps.push(temperatureInCel.toFixed(2) + "\xB0C");
+
+    } else if (userInputTemperatureUnit === "Celsius"){
+        var temperatureInKel = (userInputTemperature) + 273.15;
+        var temperatureInFahr =(userInputTemperature * 9/5) + 32;
+
+        // process data into display format
+        temps.push(userInputTemperature.toFixed(2) + "\xB0C");
+        temps.push(temperatureInKel.toFixed(2) + "K");
+        temps.push(temperatureInFahr.toFixed(2) + "\xB0F");
+
+    } else if (userInputTemperatureUnit === "Kelvin"){
+        var temperatureInCel =(userInputTemperature) - 273.15;
+        var temperatureInFahr =((userInputTemperature - 273.15) * 9/5) + 32;
+
+        // process data into display format
+        temps.push(userInputTemperature.toFixed(2) + "K");
+        temps.push(temperatureInCel.toFixed(2) + "\xB0C");
+        temps.push(temperatureInFahr.toFixed(2) + "\xB0F");
+
+    }
+
+    for (var i =0; i < temps.length; i++) {
+        console.log(temps[i]);
+    }
+}
+
+part3();
