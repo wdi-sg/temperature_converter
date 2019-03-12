@@ -24,4 +24,24 @@ var farenheit = 0;
 var kelvin = 0;
 var celcius = 0;
 alert("")
+//if farenheit, run functions for converting farenheit to other units
+if (temperatureUnit === f) {
+    farenheit = temperature;
+    celcius = fahrToCelcius(temperature);
+    kelvin = fahrToKelvin(temperature);
+//if celcius, run function for converting celcius to other units
+} else if (temperatureUnit === c) {
+    farenheit = celciusToFahr(temperature);
+    celcius = temperature;
+    kelvin = celciusToKelvin(temperature);
+//if kelvin, run functions for converting kelvin to other units
+} else if (temperatureUnit === k) {
+    farenheit = kelvinToFahr(temperature);
+    celcius = kelvinToCelcius(temperature);
+    kelvin = temperature;
+}
+
+
+//set 3 vars to their respective values after conditional conversion
+
 // alert("You entered " + temperature + "Farenheit, which is " + fahrToCelcius(temperature) + " Celcius.");
