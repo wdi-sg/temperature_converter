@@ -1,24 +1,23 @@
 function part1 () {
     var userInputTemperatureInFahr = parseInt(prompt("What is the temperature in Fahrenheit?", "Please enter a number"));
-    var temperatureInKel = 0;
-    var temperatureInCel = 0;
-
     console.log("User have input " + userInputTemperatureInFahr + "as the temperature in Fahrenheit.");
 
-    temperatureInKel =(userInputTemperatureInFahr - 32) * 5/9 + 273.15;
-    temperatureInCel =(userInputTemperatureInFahr - 32) * 5/9;
+    var temperatureInKel =(userInputTemperatureInFahr - 32) * 5/9 + 273.15;
+    var temperatureInCel =(userInputTemperatureInFahr - 32) * 5/9;
 
     // process data into display format
     temperatureInFahrDisplay = userInputTemperatureInFahr.toFixed(2) + "\xB0F";
     temperatureInKelDisplay = temperatureInKel.toFixed(2) + "K";
     temperatureInCelDisplay = temperatureInCel.toFixed(2) + "\xB0C";
 
-    console.log("[User Input] Fahrenheit: " + temperatureInFahrDisplay);
-    console.log("Kelvin: " + temperatureInKelDisplay);
-    console.log("Celsius: " + temperatureInCelDisplay);
+    console.log(temperatureInFahrDisplay + " = " + temperatureInKelDisplay + " = " + temperatureInCelDisplay);
 }
 
 function part2 () {
+    var temperatureInCelDisplay;
+    var temperatureInKelDisplay;
+    var temperatureInFahrDisplay;
+
     var userInputTemperature = parseInt(prompt("What is the temperature?", "Please enter a number"));
     var userInputTemperatureUnit = prompt("What is the unit of measurement?", "Please enter either Fahrenheit, Celsius, or Kelvin");
 
@@ -33,10 +32,6 @@ function part2 () {
         temperatureInKelDisplay = temperatureInKel.toFixed(2) + "K";
         temperatureInCelDisplay = temperatureInCel.toFixed(2) + "\xB0C";
 
-        console.log("[User Input] Fahrenheit: " + temperatureInFahrDisplay);
-        console.log("Kelvin: " + temperatureInKelDisplay);
-        console.log("Celsius: " + temperatureInCelDisplay);
-
     } else if (userInputTemperatureUnit === "Celsius"){
         var temperatureInKel = (userInputTemperature) + 273.15;
         var temperatureInFahr =(userInputTemperature * 9/5) + 32;
@@ -45,10 +40,6 @@ function part2 () {
         temperatureInCelDisplay = userInputTemperature.toFixed(2) + "\xB0C";
         temperatureInKelDisplay = temperatureInKel.toFixed(2) + "K";
         temperatureInFahrDisplay = temperatureInFahr.toFixed(2) + "\xB0F";
-
-        console.log("[User Input] Celsius: " + temperatureInCelDisplay);
-        console.log("Kelvin: " + temperatureInKelDisplay);
-        console.log("Fahrenheit: " + temperatureInFahrDisplay);
 
     } else if (userInputTemperatureUnit === "Kelvin"){
         var temperatureInCel =(userInputTemperature) - 273.15;
@@ -59,10 +50,9 @@ function part2 () {
         temperatureInCelDisplay = temperatureInCel.toFixed(2) + "\xB0C";
         temperatureInFahrDisplay = temperatureInFahr.toFixed(2) + "\xB0F";
 
-        console.log("[User Input] Kelvin: " + temperatureInKelDisplay);
-        console.log("Celsius: " + temperatureInCelDisplay);
-        console.log("Fahrenheit: " + temperatureInFahrDisplay);
     }
+    console.log(temperatureInFahrDisplay + " = " + temperatureInKelDisplay + " = " + temperatureInCelDisplay);
+
 }
 
 part2();
