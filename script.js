@@ -26,6 +26,14 @@ if (temperatureUnit === "F") {
     temps.push(tempsCel);
     temps.push(tempsKel);
 
+    if (temparatureInCel > 100) {
+        alert("You are literally boiling!");
+    } else if (temparatureInCel > 40) {
+        alert("ooh its hot out!");
+    } else {
+        alert("ooh its cold out!");
+    }; //use C to determine conditional
+
 }; //BLOCK SCOPE FOR F to C and K. Reassign var value from top
 
 if (temperatureUnit === "C") {
@@ -37,6 +45,15 @@ if (temperatureUnit === "C") {
     var tempsFar = (temperatureInFar + "F");
     temps.push(tempsKel);
     temps.push(tempsFar);
+
+    if (temperature > 100) {
+        alert("You are literally boiling!");
+    } else if (temperature > 40) {
+        alert("ooh its hot out!");
+    } else {
+        alert("ooh its cold out!");
+    }; //use C to determine conditional, there is no conversion so just use temp var
+
 }; // BLOCKSCOPE for C to F and K. Reassign var value from top
 
 if (temperatureUnit === "K") {
@@ -48,6 +65,15 @@ if (temperatureUnit === "K") {
     var tempsFar = (temperatureInFar + "F");
     temps.push(tempsCel);
     temps.push(tempsFar);
+
+    if (temparatureInCel > 100) {
+        alert("You are literally boiling!");
+    } else if (temparatureInCel > 40) {
+        alert("ooh its hot out!");
+    } else {
+        alert("ooh its cold out!");
+    }; //use C to determine conditional
+
 }; // BLOCKSCOPE for K to F and C. Reassign var value from top
 
 //PART 3
@@ -55,3 +81,6 @@ if (temperatureUnit === "K") {
 // push  temp at part 2
 //
 console.log(temps);
+
+//PART 4
+//PART 4 Conditionals are nested in Part 2
