@@ -101,3 +101,14 @@ var clothes = [
 
 var randomClothes = clothes[Math.floor(Math.random() * 8)]; //there are 8 index in var clothes, therefore you random 8.
 alert(`You should wear ${randomClothes}, ${userName}!`);
+
+//Part 6 ?????
+
+
+//part 7
+var userAnswer = prompt("what is the temperature");
+
+while (userAnswer !== 'stop') {
+    alert('Try again!');
+    userAnswer = prompt("what is the temperature now?"); // have to refactor in variable
+}
