@@ -80,3 +80,37 @@ if (celcius < 0) {
 } else if (celcius > 100) {
     console.log("you're literally boiling");
 }
+var username = prompt("Enter your Name:");
+var clothes = [
+ 'nothing',
+ 'swimsuit',
+ 'shorts and shirt',
+ 'sweater',
+ 'sweater + jacket',
+ 'heavy jacket',
+ 'heavy jacket and toe warmers',
+ 'dont go outside if you want to live'
+];
+var wearThis = "something";
+if (celcius < -30 || celcius >= 60) {
+    wearThis = clothes[7];
+} else if (celcius < 60 && celcius >= 40) {
+    wearThis = clothes[0];
+} else if (celcius < 40 && celcius >= 30) {
+    wearThis = "a " + clothes[1];
+} else if (celcius < 30 && celcius >= 20) {
+    wearThis = clothes[2];
+} else if (celcius < 20 && celcius >= 10) {
+    wearThis = "a " + clothes[3];
+} else if (celcius < 10 && celcius >= 0) {
+    wearThis = "a " + clothes[4];
+} else if (celcius < 0 && celcius >= -20) {
+    wearThis = "a " + clothes[5];
+} else if (celcius < -20 && celcius >= -30) {
+    wearThis = "a " + clothes[6];
+}
+if (celcius < -30 || celcius >= 60) {
+    alert("Hi " + username + ",  " + wearThis);
+} else {
+    alert("Hi " + username + ", you should wear " + wearThis);
+}
