@@ -84,3 +84,20 @@ console.log(temps);
 
 //PART 4
 //PART 4 Conditionals are nested in Part 2
+
+//PART 5
+var userName = prompt('What is your name?')
+
+var clothes = [
+ 'nothing',
+ 'swimsuit',
+ 'shorts and shirt',
+ 'sweater',
+ 'sweater + jacket',
+ 'heavy jacket',
+ 'heavy jacket and toe warmers',
+ 'dont go outside if you want to live'
+];
+
+var randomClothes = clothes[Math.floor(Math.random() * 8)]; //there are 8 index in var clothes, therefore you random 8.
+alert(`You should wear ${randomClothes}, ${userName}!`);
