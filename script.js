@@ -91,6 +91,7 @@ var temps =[];
 }
 
 console.log(temps[0], temps[1], temps[2]);
+console.log(typeof(temps[0]));
 
 //Part 4, assuming we use degrees celsius
 if (temps[1]<0){
@@ -100,3 +101,30 @@ if (temps[1]<0){
 }else if (temps[1]>100){
   alert("You are literally boiling OMG!");
 }
+
+//Part 5
+var yourName = prompt("Eh... Your name is what ah?");
+console.log(yourName);
+
+var clothes = ['nothing', 'swimsuit', 'shorts and shirt', 'sweater', 'sweater+jacket','heavy jacket','heavy jacket+toe warmers',"don't go outside if you want to live"];
+if (temps[1]<-20){
+  alert("Hi, "+yourName+" "+clothes[7]+".");
+}else if (temps[1]<-10){
+  alert("Hi, "+yourName+", you should wear "+clothes[6]+".");
+}else if (temps[1]<0){
+  alert("Hi, "+yourName+", you should wear "+clothes[5]+".");
+}else if (temps[1]<10){
+  alert("Hi, "+yourName+", you should wear "+clothes[4]+".");
+}else if (temps[1]<20){
+  alert("Hi, "+yourName+", you should wear "+clothes[3]+".");
+}else if (temps[1]<30){
+  alert("Hi, "+yourName+", you should wear "+clothes[2]+".");
+}else if (temps[1]<40){
+  alert("Hi, "+yourName+", you should wear "+clothes[1]+".");
+}else if (temps[1]<50){
+  alert("Hi, "+yourName+", you should wear "+clothes[0]+".");
+}else{
+  //alert("Hi, "+yourName+", you should wear "+clothes[0]+".");
+}
+
+//Part 6
