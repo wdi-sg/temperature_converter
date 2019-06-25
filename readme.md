@@ -28,13 +28,13 @@ Goal: Create a program that can convert a temperature in Fahrenheit, Celsius or 
 Using Conditionals, have your code accept either fahrenheit, celsius or kelvin, and output the other two temp types.
 
 Note:
-```
-You will need one other *kind* of data to be able to get input twice: world status data.
 
-This is a data value that changes and keeps track of the world state of your program- for instance, what step is the user in? Are they supposed to enter the temperature or the unit right now?
+>> You will need one other *kind* of data to be able to get input twice: world status data.
 
-You will have to store this value somewhere and alter it as needed by your program.
-```
+>> This is a data value that changes and keeps track of the world state of your program- for instance, what step is the user in? Are they supposed to enter the temperature or the unit right now?
+
+>> You will have to store this value somewhere and alter it as needed by your program.
+
 
 
 ### Part 3
