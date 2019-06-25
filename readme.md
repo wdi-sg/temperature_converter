@@ -11,6 +11,8 @@ Goal: Create a program that can convert a temperature in Fahrenheit, Celsius or 
 * Prompt the user for a starting temperature. This should be a numerical value that represents degrees in fahrenheit.
 * After receiving input it should show that same temperature in both Kelvin and Celsius.
 
+## Further: (if you get done with the above)
+
 ### Part 2
 
 > Your application should...
@@ -25,7 +27,15 @@ Goal: Create a program that can convert a temperature in Fahrenheit, Celsius or 
 
 Using Conditionals, have your code accept either fahrenheit, celsius or kelvin, and output the other two temp types.
 
-## Further: (if you get done with the above)
+Note:
+```
+You will need one other *kind* of data to be able to get input twice: world status data.
+
+This is a data value that changes and keeps track of the world state of your program- for instance, what step is the user in? Are they supposed to enter the temperature or the unit right now?
+
+You will have to store this value somewhere and alter it as needed by your program.
+```
+
 
 ### Part 3
 If the temperature is below 0 also print out a message like "ooh it's cold out".
