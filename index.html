@@ -3,19 +3,41 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <p>temperature converter</p>
-    <input class="starter" id="input" placeholder="input"/>
-    <h2>output:</h2>
+    <h1>Temperature Converter</h1>
+    <input class="starter-input" id="name-input" placeholder="What's your name?"/>
+    <input class="starter-input" id="temp-input" placeholder="Temperature"/>
+    <select class="starter-input" id="unit-input" placeholder="Temp Unit">
+        <option value="fahrenheit">Fahrenheit</option>
+        <option value="celsius">Celsius</option>
+        <option value="kelvin">Kelvin</option>
+    </select>
+    <h2>Results:</h2>
     <p class="starter" id="output"></p>
     <script>
-      document.querySelector('#input').addEventListener('change', function(event){
-        var currentInput = event.target.value;
-        inputHappened(currentInput)
-      });
+        var checkInputs = function () {
+            var nameInput = document.querySelector('#name-input').value;
+            var tempInput = document.querySelector('#temp-input').value;
+            var unitInput = document.querySelector('#unit-input').value;
+            if (nameInput.length > 0 && tempInput.length > 0 && unitInput.length > 0){
+                inputHappened(nameInput,tempInput,unitInput);
+            }
+            else {
+                display("Please fill in all of inputs.")
+            }
+        }
+        document.querySelector('#name-input').addEventListener('change', function(event){
+            checkInputs();
+        });
+        document.querySelector('#temp-input').addEventListener('change', function(event){
+            checkInputs();
+        });
+        document.querySelector('#unit-input').addEventListener('change', function(event){
+            checkInputs();
+        });
 
-      var display = function( data ){
+        var display = function( data ){
         var output = document.querySelector('#output');
-        output.innerText = data;
+        output.innerHTML = data;
       }
     </script>
     <script src="script.js"></script>
