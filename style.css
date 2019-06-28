@@ -6,6 +6,10 @@
   border:3px solid blue;
 }
 
-#output{
+#output1,#output2{
   background-color:pink;
+}
+
+div {
+	text-align: center;
 }

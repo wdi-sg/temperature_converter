@@ -1,23 +1,39 @@
 <html>
-  <head>
+<head>
     <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <p>temperature converter</p>
-    <input class="starter" id="input" placeholder="input"/>
-    <h2>output:</h2>
-    <p class="starter" id="output"></p>
-    <script>
-      document.querySelector('#input').addEventListener('change', function(event){
-        var currentInput = event.target.value;
-        inputHappened(currentInput)
-      });
+</head>
+<body>
+    <h1>temperature converter</h1>
+    <input class="starter" id="inputOne" placeholder="input temp numeral"/>
+    <input class="starter" id="inputTwo" placeholder="input unit"/>
 
-      var display = function( data ){
-        var output = document.querySelector('#output');
-        output.innerText = data;
-      }
+    <h2>output:</h2>
+    <p class="starter" id="output1"></p>
+    <p class="starter" id="output2"></p>
+    <div><p id="message-text"></p></div>
+    <div><p id="name-text"></p></div>
+    <div><p id="clothing-text"></p></div>
+    <script>
+
+        var name = prompt("Please enter your name","name");
+        document.getElementById('name-text').innerHTML = "Hello " + name +",";
+
+        document.querySelector('#inputOne').addEventListener('change', function(event){
+            var currentInputNum = event.target.value;
+            inputHappenedNum(currentInputNum);
+        });
+        document.querySelector('#inputTwo').addEventListener('change', function(event){
+            var currentInputUnit = event.target.value;
+            inputHappenedUnit(currentInputUnit);
+        });
+
+        var display = function( dataOne, dataTwo){
+            var outputOne = document.querySelector('#output1');
+            var outputTwo = document.querySelector('#output2');
+            outputOne.innerText = dataOne;
+            outputTwo.innerText = dataTwo;
+        }
     </script>
     <script src="script.js"></script>
-  </body>
+</body>
 </html>
