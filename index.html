@@ -1,23 +1,50 @@
-<html>
-  <head>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <p>temperature converter</p>
-    <input class="starter" id="input" placeholder="input"/>
-    <h2>output:</h2>
-    <p class="starter" id="output"></p>
-    <script>
-      document.querySelector('#input').addEventListener('change', function(event){
-        var currentInput = event.target.value;
-        inputHappened(currentInput)
-      });
 
-      var display = function( data ){
-        var output = document.querySelector('#output');
-        output.innerText = data;
-      }
-    </script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Temperature Converter</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <header>
+        <h1>Temperature Converter</h1>
+    </header>
+
+    <section>
+        <h2>Please type in a temperature and choose a temperature unit</h2>
+    </section>
+
+    <div class="wrapper1">
+        <div class="container1">
+            <input type="text" class="inputTemp" id="input" value="32"></input>
+        </div>
+        <div class="container2">
+            <input type="radio" name="tempUnit" value="fahrenheit"> Fahrenheit<br>
+            <input type="radio" name="tempUnit" value="celcius"> Celcius<br>
+            <input type="radio" name="tempUnit" value="kelvin"> Kelvin<br>
+        </div>
+    </div>
+
+    <div class="container3">
+        <input type="button" id="button" value="Convert!">
+    </div>
+
+
+    <div class="wrapper2">
+        <h2>Temperature in <span id="tempUnit1">Celcius</span></h2>
+
+        <p class="outputTemp1" id="output1"></p>
+
+        <h2>Temperature in <span id="tempUnit2">Kelvin</span></h2>
+
+        <p class="outputTemp2" id="output2"></p>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="script.js"></script>
-  </body>
+
+
+</body>
 </html>
