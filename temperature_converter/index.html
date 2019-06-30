@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h2>Your Name:</h2>
+    <input class="starter" id="name" placeholder="Enter Your Name Here"/>
+    <p class="starter" id="yourname"></p>
+    <h2>temperature converter:</h2>
+    <input class="starter" id="input" placeholder="Enter Fahrenheit"/>
+    <h2>temperature:</h2>
+    <p class="starter" id="degC"></p>
+    <p class="starter" id="degK"></p>
+
+    <h2>Temperature Calculation</h2>
+
+    <button onclick="convertTemperatureUnit()">Convert Temperature Unit</button>
+
+    <p id="status"></p>
+    <p id="message"></p>
+
+
+
+    <script>
+        document.querySelector('#name').addEventListener('change', function(event){
+        var inputName = event.target.value;
+        inputYourName(inputName)
+      });
+
+      document.querySelector('#input').addEventListener('change', function(event){
+        var currentInput = event.target.value;
+        inputHappened(currentInput)
+      });
+
+      var displayName = function( data ){
+        var username = document.querySelector('#yourname');
+        username.innerText = data;
+      }
+
+      var display = function( data ){
+        var temperature = document.querySelector('#degC');
+        temperature.innerText = data;
+      }
+
+      var display2 = function( data ){
+        var temperature = document.querySelector('#degK');
+        temperature.innerText = data;
+      }
+
+
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>
