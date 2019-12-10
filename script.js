@@ -1,8 +1,10 @@
+"use strict"
 console.log("hello script js");
 
 // variable for amount of inputs
 let inputAmount = 0;
 let unit
+let degree
 
 document.querySelector('#input').addEventListener('change', function (event) {
   var currentInput = event.target.value;
