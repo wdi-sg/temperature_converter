@@ -38,9 +38,9 @@ var kelvinToFarenheit = function(input) {
 };
 
 var statementWeather = function(input) {
-    if (input < 0) {
+    if (input <= 0) {
         return "ooh it's cold out";
-    } else if (input >= 40 && input < 100) {
+    } else if (input >= 40 && input <    100) {
         return "ooh it's hot out";
     } else if (input >= 100) {
         return "you're literally boiling";
@@ -80,14 +80,19 @@ var inputHappened = function(currentInput) {
   var statement = statementWeather(temperature);
   var clothing = clothes(temperature);
 
-  console.log(typeof output);
-
+  // store the temperature in global variable
   if (count === 0){
     temperature = parseInt(currentInput);
-    count += 1;
-    return "Next, input your unit of temperature"
+    console.log(temperature);
+    if (isNaN(temperature)) {
+        return "Please enter a number!";
+    } else {
+        count += 1;
+        return "Next, input your unit of temperature";
+    }
   };
 
+  // store the temperature and displays the temperature unit
   if (count === 1) {
     temperatureUnit = currentInput;
     temperatureUnit = temperatureUnit.toLowerCase();
@@ -101,11 +106,9 @@ var inputHappened = function(currentInput) {
     count += 1;
   };
 
+  // display what the person should wear
   if (count === 2) {
     name = currentInput;
     return name + ", you should wear " + clothing;
   }
-
-console.log(clothing(50));
-
 };
