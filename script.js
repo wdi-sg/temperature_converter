@@ -17,7 +17,13 @@ var inputHappened = function (currentInput) {
   if (inputAmount === 0) {
     degree = parseInt(currentInput)
     inputAmount++
-    return `Please input unit(Celsius, Fahrenheit or Kelvin) next`
+    if (currentInput < 0) {
+      return `Oooooh it is cold out!`
+    } else if (currentInput > 40 && currentInput <= 100) {
+      return `ooooooh it is hot out!`
+    } else if (currentInput > 100) {
+      return `you are literally boiling!`
+    }
   } else if (inputAmount === 1) {
     if (currentInput === "Celsius") {
       let celsius = degree
