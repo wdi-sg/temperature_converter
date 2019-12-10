@@ -4,14 +4,21 @@
   </head>
   <body>
     <h1>Temperature Converter</h1>
-    <p>Please enter the temperature in fahrenheit</p>
-    <input class="starter" id="input" placeholder="input"/>
+    <p>Please enter the Temperature Unit (eg. Celsius, Fahrenheit or Kelvin)</p>
+    <input class="starter" id="input1" placeholder="input"/>
+    <p>Please enter the Temperature</p>
+    <input class="starter" id="input2" placeholder="input"/>
     <h2>output:</h2>
     <p class="starter" id="output"></p>
     <script>
-      document.querySelector('#input').addEventListener('change', function(event){
+      document.querySelector('#input1').addEventListener('change', function(event){
         var currentInput = event.target.value;
-        var output = inputHappened(currentInput);
+        var output = inputHappened1(currentInput);
+        display( output );
+      });
+        document.querySelector('#input2').addEventListener('change', function(event){
+        var currentInput = event.target.value;
+        var output = inputHappened2(currentInput);
         display( output );
       });
 
