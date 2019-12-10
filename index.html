@@ -4,10 +4,13 @@
   </head>
   <body>
     <p>temperature converter</p>
-    <input class="starter" id="input" placeholder="input"/>
+    <input class="starter" id="input" placeholder="input" type="number"/>
     <h2>output:</h2>
     <p class="starter" id="output"></p>
+
+
     <script>
+
       document.querySelector('#input').addEventListener('change', function(event){
         var currentInput = event.target.value;
         var output = inputHappened(currentInput);
@@ -20,5 +23,21 @@
       }
     </script>
     <script src="script.js"></script>
+    <form id="tempCalc" onsubmit="calculateTemp(); return false">
+      <label for="temp"
+        >Please enter the temperature you'd like to convert.</label
+      >
+      <br />
+      <input name="temp" id="temp" type="number" />
+      <select name="temp_diff" id="temp_diff">
+        <option value="1">°Celsius</option>
+        <option value="2">°Fahrenheit</option>
+        <option value="3">°Kelvin</option>
+      </select>
+      <br />
+      <input name="temp" type="submit" /> <br />
+      <span id="resultContainer"></span>
+    </form>
+
   </body>
 </html>
