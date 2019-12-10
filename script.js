@@ -6,17 +6,6 @@ let inputAmount = 0;
 let unit
 let degree
 
-document.querySelector('#input').addEventListener('change', function (event) {
-  var currentInput = event.target.value;
-  var output = inputHappened(currentInput);
-  display(output);
-});
-
-var display = function (data) {
-  var output = document.querySelector('#output');
-  output.innerText = data;
-}
-
 var inputHappened = function (currentInput) {
   // first input
   if (inputAmount === 0) {
@@ -55,6 +44,7 @@ var inputHappened = function (currentInput) {
 
     // third input
   } else if (inputAmount === 2) {
+    // reset input placeholder and input amount to rerun everything
     inputAmount = 0
     document.querySelector('#input').setAttribute("placeholder", "input temperature!")
 

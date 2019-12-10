@@ -10,6 +10,18 @@
   <h2>output:</h2>
   <p class="starter" id="output"></p>
   <script src="script.js"></script>
+  <script>
+    document.querySelector('#input').addEventListener('change', function (event) {
+      var currentInput = event.target.value;
+      var output = inputHappened(currentInput);
+      display(output);
+    });
+
+    var display = function (data) {
+      var output = document.querySelector('#output');
+      output.innerText = data;
+    }
+  </script>
 </body>
 
 </html>
