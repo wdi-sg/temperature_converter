@@ -15,6 +15,7 @@ let unitC;
 let unitK;
 let tempF;
 let tempC;
+let tempC1;
 let tempK;
 let unitType;
 let tempNum;
@@ -26,12 +27,13 @@ convertTemp= function (tempNum) {
     tempK = (tempC + 273.15);
     } else if (unitC === true) {
         tempC = tempNum;
-        tempK = (parseInt(tempC) + 273);
+        tempC1 = parseInt(tempC);
+        tempK = (tempC1 + 273);
         tempF = (tempK - 273.15) * 9 / 5 + 32;
     } else if (unitK === true) {
         tempK = tempNum;
         tempC = tempK - 273.15;
-        tempF = (tempC * 9) + 32;
+        tempF = (tempC * 9 / 5) + 32;
     } else {
         output = "I screwed something up"
     };
