@@ -62,8 +62,12 @@ var inputHappened = function(currentInput){
   if (count === 0){
     temperature = parseInt(currentInput);
     count += 1;
-  } else if (count === 1) {
+    return "Input your unit of temperature!"
+  };
+
+  if (count === 1) {
     temperatureUnit = currentInput;
+    temperatureUnit = temperatureUnit.toLowerCase();
     if (temperatureUnit === "farenheit"){
         return "Temperature: " + output + " Farenheit, " + celsius + " Celsius, " + kelvin + " Kelvin" + " " + statement;
     } else if (temperatureUnit === "celsius"){
@@ -73,6 +77,11 @@ var inputHappened = function(currentInput){
     }
   };
 
-  console.log(temperature);
-  console.log(temperatureUnit);
+  if (count === 2) {
+    if (temperature <= 0) {
+        return "Don't go outside if you want to live!";
+    } else if (temperature <= 10) {
+        return "";
+    }
+  };
 };
