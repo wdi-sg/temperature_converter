@@ -5,6 +5,8 @@ var temperatureUnit = "";
 
 var count = 0;
 
+var name = "";
+
 var farenheitToCelsius = function(input) {
     var celsius = ((input - 32) * 5) / 9;
     return celsius;
@@ -47,7 +49,27 @@ var statementWeather = function(input) {
     }
 };
 
-var inputHappened = function(currentInput){
+var clothes = function(input) {
+    if (input <= 0) {
+        return "don't go outside if you want to live";
+    } else if (input > 0 && input <= 10) {
+        return "heavy jacket and toe warmers";
+    } else if (input > 10 && input <= 15) {
+        return "heavy jacket";
+    } else if (input > 15 && input <= 20) {
+        return "sweater + jacket";
+    } else if (input > 20 && input <= 25) {
+        return "sweater";
+    } else if (input > 25 && input <= 30) {
+        return "shorts and shirt";
+    } else if (input > 30 && input <= 70) {
+        return "swimsuit";
+    } else if (input > 70 ) {
+        return "nothing";
+    };
+}
+
+var inputHappened = function(currentInput) {
   var output = temperature;
   var celsius = Math.round(farenheitToCelsius(temperature) * 100) / 100;
   var kelvin = Math.round(farenheitToKelvin(temperature) * 100) / 100;
@@ -56,13 +78,14 @@ var inputHappened = function(currentInput){
   var celsiusToK = Math.round(celsiusToKelvin(temperature)* 100) / 100;
   var kelvinToC = Math.round(kelvinToCelsius(temperature) * 100) / 100;
   var statement = statementWeather(temperature);
+  var clothing = clothes(temperature);
 
   console.log(typeof output);
 
   if (count === 0){
     temperature = parseInt(currentInput);
     count += 1;
-    return "Input your unit of temperature!"
+    return "Next, input your unit of temperature"
   };
 
   if (count === 1) {
@@ -75,13 +98,14 @@ var inputHappened = function(currentInput){
     } else if (temperatureUnit === "kelvin") {
         return "Temperature: " + output + " Kelvin, " + kelvinToC + " Celsius, " + kelvinToF + " Farenheit" + " " + statement;
     }
+    count += 1;
   };
 
   if (count === 2) {
-    if (temperature <= 0) {
-        return "Don't go outside if you want to live!";
-    } else if (temperature <= 10) {
-        return "";
-    }
-  };
+    name = currentInput;
+    return name + ", you should wear " + clothing;
+  }
+
+console.log(clothing(50));
+
 };
