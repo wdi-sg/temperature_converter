@@ -1,15 +1,5 @@
 console.log("hello script js");
 
-/*
-C to F
-Celsius = (Fahrenheit - 32) * 5 / 9.
-F to C
-Fahrenheit = (Celsius * 9) + 32.
-K to C
-Kelvin = Celsius + 273.15.
-C to K
-Celsius = Kelvin - 273.15.
-*/
 let unitF;
 let unitC;
 let unitK;
@@ -63,7 +53,6 @@ var inputHappened1 = function(currentInput) {
         default:
         output = "Please enter valid unit of temperature.";
     };
-/*    var output = currentInput;*/
     return output;
 }
 var inputHappened2 = function(currentInput){
@@ -72,9 +61,3 @@ var inputHappened2 = function(currentInput){
     var output = "The temperature in Celsius is " + tempC + "C." + "\n" + "The temperature in Kelvin is " + tempK + "K." + "\n" + "The temperature in Fahrenheit is " + tempF + "F.";
   return output;
 };
-
-/*var inputHappened = function(currentInput){
-  console.log( currentInput );
-  var output = "";
-  return output;
-};*/
