@@ -3,14 +3,29 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <p>temperature converter</p>
+    <h1>temperature converter</h1>
+    <h2>please enter your temperature:</h2>
     <input class="starter" id="input" placeholder="input"/>
+    <input class="starter" id="unitInput" placeholder="unit"/>
+    <input class="starter" id="userName" placeholder="your name please"/>
     <h2>output:</h2>
     <p class="starter" id="output"></p>
     <script>
       document.querySelector('#input').addEventListener('change', function(event){
         var currentInput = event.target.value;
         var output = inputHappened(currentInput);
+        display( output );
+      });
+
+      document.querySelector('#unitInput').addEventListener('change', function(event){
+        var unitInput = event.target.value;
+        var output = temperatureUnit(unitInput);
+        display( output );
+      });
+
+      document.querySelector('#userName').addEventListener('change', function(event){
+        var userName = event.target.value;
+        var output = printUserMsg(userName);
         display( output );
       });
 
