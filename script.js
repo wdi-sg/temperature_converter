@@ -1,13 +1,12 @@
 console.log("hello script js");
 // alert("Choose a starting temperature");
 let temp;
-let enteredName = false;
 let gotTemp = false;
 const name = prompt("What's your name?")
 const outputBox = document.querySelector("#output");
-outputBox.innerText = "Enter a temperature"
+outputBox.innerText = "Enter a starting temperature";
 
-var inputHappened = function(currentInput) {
+const inputHappened = function(currentInput) {
   if (!gotTemp) {
     temp = parseInt(getTemp(currentInput));
     if (!isNaN(temp)) {
@@ -38,36 +37,36 @@ var inputHappened = function(currentInput) {
   }
 };
 
-var getTemp = function(currentInput) {
+const getTemp = function(currentInput) {
   temp = currentInput;
   return temp;
 };
 
-var getTempUnit = function(currentInput) {
+const getTempUnit = function(currentInput) {
   const tempUnit = currentInput;
   console.log(temp, typeof temp);
   return tempUnit;
 };
 
-var fahToKelAndCel = function(fah) {
+const fahToKelAndCel = function(fah) {
   const fahToKel = (fah - 32) * (5 / 9) + 273.15;
   const fahToCel = (fah - 32) * (5 / 9);
   return `${fah} F = ${fahToKel.toFixed(2)} K = ${fahToCel.toFixed(2)} C`;
 };
 
-var celToFahAndKel = function(cel) {
+const celToFahAndKel = function(cel) {
   const celToFah = cel * (9 / 5) + 32;
   const celToKel = cel + 273.15;
   return `${cel} C = ${celToFah.toFixed(2)} F = ${celToKel.toFixed(2)} K`;
 };
 
-var kelToCelAndFah = function(kel) {
+const kelToCelAndFah = function(kel) {
   const kelToCel = kel - 273.15;
   const kelToFah = (kel - 273.15) * (9 / 5) + 32;
   return `${kel} K = ${kelToCel.toFixed(2)} C = ${kelToFah.toFixed(2)} F`;
 };
 
-var printMessage = function(temp) {
+const printMessage = function(temp) {
   if (temp < 0) {
     return "Ooh it's cold out!";
   } else if (temp > 40 && temp <= 100) {
@@ -91,7 +90,7 @@ var clothesMessage = function(temp) {
     return `${name}, wear a heavy jacket. 
     ${restartMessage}`;
   } else if (temp > 0 && temp <= 5) {
-    return `${name}, wear a sweather + jacket. 
+    return `${name}, wear a sweater + jacket. 
     ${restartMessage}`;
   } else if (temp > 5 && temp <= 20) {
     return `${name}, wear a sweater. 
