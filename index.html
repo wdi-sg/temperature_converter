@@ -7,6 +7,7 @@
     <h2>please enter your temperature:</h2>
     <input class="starter" id="input" placeholder="input"/>
     <input class="starter" id="unitInput" placeholder="unit"/>
+    <input class="starter" id="userName" placeholder="your name please"/>
     <h2>output:</h2>
     <p class="starter" id="output"></p>
     <script>
@@ -18,8 +19,14 @@
 
       document.querySelector('#unitInput').addEventListener('change', function(event){
         var unitInput = event.target.value;
-        var unitOutput = temperatureUnit(unitInput);
-        display( unitOutput );
+        var output = temperatureUnit(unitInput);
+        display( output );
+      });
+
+      document.querySelector('#userName').addEventListener('change', function(event){
+        var userName = event.target.value;
+        var output = printUserMsg(userName);
+        display( output );
       });
 
       var display = function( data ){

@@ -8,8 +8,10 @@ var num;
 var currentInput; // number
 var unitInput; // celcius or fahrenheit or kelvin
 
+var userName; // grab user's name
+
+// grab initial values for temperature
 var inputHappened = function(currentInput){
-    // part 1 done and dusted
     num = currentInput;
     if (isNaN(currentInput) === true) {
     output = "Invalid, only numbers please!";
@@ -29,7 +31,7 @@ var inputHappened = function(currentInput){
   return output;
 };
 
-// calculating part 2
+// check unit of temperature
 var temperatureUnit = function(unitInput) {
     if (isNaN(unitInput) === false) {
         output = "Invalid, only characters please!";
@@ -44,3 +46,25 @@ var temperatureUnit = function(unitInput) {
     }
     return output;
 };
+
+// print user's name
+var printUserMsg = function(userName, num) {
+    console.log(userName + num);
+    output = "hello " + userName + "!";
+    if (num <= 0) {
+        output = "i warned you, don't go out if you want to live";
+    } else if (num > 0 && num <= 10) {
+        output = "heavy jacket and toe warmers";
+    } else if (num > 10 && num <= 15) {
+        output = "sweater and jacket";
+    } else if (num > 20 && num <= 25) {
+        output = "sweater";
+    } else if (num > 25 && num <= 30) {
+        output = "shorts and shirt";
+    } else if (num > 30 && num <= 70) {
+        output = "swimsuit";
+    } else if (num > 70) {
+        output = "nothing";
+    }
+    return output;
+}
