@@ -7,5 +7,14 @@
 }
 
 #output{
-  background-color:pink;
+  background-color:rgba(20, 225, 30, 7);
+}
+p  {
+    font-size: 30px;
+    font-weight: bold;
+    font-family: sans;
+}
+h2  {
+    color: green;
+    font-size: 40px;
 }
