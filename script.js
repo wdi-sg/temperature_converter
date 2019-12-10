@@ -4,13 +4,7 @@ var output;
 var temperatureKelvin;
 var temperatureCelsius;
 
-var inputFahrenheit;
-var inputKelvin;
-var inputCelsius;
-
 var num;
-
-var userUnit = document.getElementById("unitInput").innerText;
 
 var inputHappened = function(currentInput){
 // part 1 done and dusted
@@ -29,16 +23,27 @@ var inputHappened = function(currentInput){
 };
 
 // calculating part 2
-    var temperatureUnit = function(unitInput) {
-        var output;
-        if (isNaN(unitInput) === false) {
-            output = "Invalid, only characters please!";
-        } else if (unitInput === "fahrenheit") {
-            output = num + "F " + "C " + ((num - 32) * 5 / 9 + 273.15) + "K";
-        } else if (unitInput === "celcius") {
-            output = num + "C " + ((num * 9 / 5) + 32) + "F " + (num + 273.15) + "K";
-        } else if (unitInput === "kelvin") {
-            output = num + "K " + (num - 273.15) + "C " + ((num - 273.15) * 9 / 5 + 32) + "F";
-        }
-        return output;
+var temperatureUnit = function(unitInput) {
+    if (isNaN(unitInput) === false) {
+        output = "Invalid, only characters please!";
+    } else if (unitInput === "fahrenheit") {
+        output = num + "F " + "C " + ((num - 32) * 5 / 9 + 273.15) + "K";
+    } else if (unitInput === "celcius") {
+        output = num + "C " + ((num * 9 / 5) + 32) + "F " + (num + 273.15) + "K";
+    } else if (unitInput === "kelvin") {
+        output = num + "K " + (num - 273.15) + "C " + ((num - 273.15) * 9 / 5 + 32) + "F";
     }
+    return output;
+};
+
+// rendering part 3
+
+var message = function(num, currentInput) {
+    num = currentInput;
+    console.log(num);
+    console.log(currentInput);
+    if (num > 100) {
+        console.log("YOU ARE BOILING!! RUN");
+    } else {}
+    return
+}
