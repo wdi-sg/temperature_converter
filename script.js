@@ -33,6 +33,8 @@ const inputHappened = function(currentInput) {
       return `${kelToCelAndFah(temp)}
       ${printMessage(temp)}
       ${clothesMessage(temp)}`;
+    } else {
+      return "An error occurred. Please enter a number."
     }
   }
 };
