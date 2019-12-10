@@ -1,11 +1,16 @@
 .starter{
-  font-size:30px;
-  padding:10px;
-  display:block;
-  margin:40px;
-  border:3px solid blue;
+  font-size: 15px;
+  padding: 10px;
+  display: block;
+  margin: 40px;
+  border: 3px solid black;
 }
 
 #output{
-  background-color:pink;
+  background-color: pink;
+  font-size: 15px;
+}
+
+h1{
+    color: blue;
 }
