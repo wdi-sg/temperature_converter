@@ -1,10 +1,14 @@
 console.log("hello script js");
 // alert("Choose a starting temperature");
 let temp;
+let enteredName = false;
 let gotTemp = false;
+const name = prompt("What's your name?")
+const outputBox = document.querySelector("#output");
+outputBox.innerText = "Enter a temperature"
 
 var inputHappened = function(currentInput) {
-  let output = "Please enter a number.";
+
   if (!gotTemp) {
     temp = parseInt(getTemp(currentInput));
     if (!isNaN(temp)) {
@@ -17,20 +21,23 @@ var inputHappened = function(currentInput) {
     }
   }
   if (gotTemp) {
+    gotTemp = false;
+    console.log(gotTemp);
     let tempUnit = getTempUnit(currentInput).toLowerCase();
     if (tempUnit === "fah") {
       return `${fahToKelAndCel(temp)}
-      ${printMessage(temp)}`;
+      ${printMessage(temp)}
+      ${clothesMessage(temp)}`;
     } else if (tempUnit === "cel") {
       return `${celToFahAndKel(temp)}
-      ${printMessage(temp)}`;
+      ${printMessage(temp)}
+      ${clothesMessage(temp)}`;
     } else if (tempUnit === "kel") {
       return `${kelToCelAndFah(temp)}
-      ${printMessage(temp)}`;
+      ${printMessage(temp)}
+      ${clothesMessage(temp)}`;
     }
   }
-  temp = null;
-  gotTemp = false;
 };
 
 var getTemp = function(currentInput) {
@@ -70,6 +77,27 @@ var printMessage = function(temp) {
   } else if (temp > 100) {
     return "You're literally boiling 🔥";
   } else {
-    return "You're ok. Go out."
+    return "You're ok. Go out.";
+  }
+};
+
+var clothesMessage = function(temp) {
+  var restartMessage = "Enter a number to restart.";
+  if (temp < -50) {
+    return `${name}, don't go outside if you want to live. ${restartMessage}`;
+  } else if (temp > -50 && temp <= -20) {
+    return `${name}, wear a heavy jacket and toe warmers. ${restartMessage}`;
+  } else if (temp > -20 && temp <= 0) {
+    return `${name}, wear a heavy jacket. ${restartMessage}`;
+  } else if (temp > 0 && temp <= 5) {
+    return `${name}, wear a sweather + jacket. ${restartMessage}`;
+  } else if (temp > 5 && temp <= 20) {
+    return `${name}, wear a sweater. ${restartMessage}`;
+  } else if (temp > 20 && temp <= 25) {
+    return `${name}, wear shorts and a shit. ${restartMessage}`;
+  } else if (temp > 25 && temp <= 30) {
+    return `${name}, wear a swimsuit. ${restartMessage}`;
+  } else {
+    return `${name}, wear nothing. ${restartMessage}`;
   }
 };
