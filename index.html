@@ -6,6 +6,7 @@
   <body>
     <h1>temperature converter</h1>
     <input class="starter" id="input" placeholder="input"/>
+    <input class="starter" id="nameinput" placeholder="your name"/>
     <p>Unit to convert from:</p>
     <select class="select" id="select">
         <option value="farenheit">Farenheit</option>
@@ -18,7 +19,8 @@
       document.querySelector('#input').addEventListener('change', function(event){
         var currentInput = event.target.value;
         var unitInput = document.getElementById("select").value;
-        var output = inputHappened(currentInput, unitInput);
+        var nameInput = document.getElementById("nameinput").value;
+        var output = inputHappened(currentInput, unitInput, nameInput);
         display( output );
       });
 
