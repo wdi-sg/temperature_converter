@@ -40,7 +40,7 @@ var kelvinToFarenheit = function(input) {
 var statementWeather = function(input) {
     if (input <= 0) {
         return "ooh it's cold out";
-    } else if (input >= 40 && input <    100) {
+    } else if (input >= 40 && input < 100) {
         return "ooh it's hot out";
     } else if (input >= 100) {
         return "you're literally boiling";
@@ -88,7 +88,7 @@ var inputHappened = function(currentInput) {
         return "Please enter a number!";
     } else {
         count += 1;
-        return "Next, input your unit of temperature";
+        return "Next, input your unit of temperature (i.e farenheit, celsius or kelvin)";
     }
   };
 
@@ -96,12 +96,12 @@ var inputHappened = function(currentInput) {
   if (count === 1) {
     temperatureUnit = currentInput;
     temperatureUnit = temperatureUnit.toLowerCase();
-    if (temperatureUnit === "farenheit"){
-        return "Temperature: " + output + " Farenheit, " + celsius + " Celsius, " + kelvin + " Kelvin" + " " + statement;
-    } else if (temperatureUnit === "celsius"){
-        return "Temperature: " + output + " Celsius, " + celsiusToF + " Farenheit, " + celsiusToK + " Kelvin" + " " + statement;
-    } else if (temperatureUnit === "kelvin") {
-        return "Temperature: " + output + " Kelvin, " + kelvinToC + " Celsius, " + kelvinToF + " Farenheit" + " " + statement;
+    if (temperatureUnit === "farenheit" || temperatureUnit === "f"){
+        return "Temperature: " + output + " Farenheit, " + celsius + " Celsius, " + kelvin + " Kelvin" + " " + "(" + statement + ")";
+    } else if (temperatureUnit === "celsius" || temperatureUnit === "c"){
+        return "Temperature: " + output + " Celsius, " + celsiusToF + " Farenheit, " + celsiusToK + " Kelvin" + " " + "(" + statement + ")";
+    } else if (temperatureUnit === "kelvin" || temperatureUnit === "k") {
+        return "Temperature: " + output + " Kelvin, " + kelvinToC + " Celsius, " + kelvinToF + " Farenheit" + " " + "(" + statement + ")";
     }
     count += 1;
   };
