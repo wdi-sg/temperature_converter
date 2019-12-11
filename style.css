@@ -1,11 +1,37 @@
+body {
+    background-color: white;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+p {
+    text-align: center;
+}
+
+input {
+    margin: 0 auto;
+}
+
 .starter{
-  font-size:30px;
+  font-size:30px;;
   padding:10px;
   display:block;
-  margin:40px;
+  margin:0 auto;
   border:3px solid blue;
 }
 
 #output{
-  background-color:pink;
+  background-color: grey;
+  color: white;
+  height: 140px;
+}
+
+p#output {
+    text-align: left;
 }
