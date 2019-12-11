@@ -1,10 +1,20 @@
 <html>
   <head>
+    <meta charset="utf-8">
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <p>temperature converter</p>
     <input class="starter" id="input" placeholder="input"/>
+    <div class="dropdown">
+        <button onclick="clickSelectUnitBtn()" class="dropbtn">select unit</button>
+        <ul id="myDropdown" class="dropdown-content">
+            <li><a>Fahrenheit</a></li>
+            <li><a>Celcius</a></li>
+            <li><a>Kelvin</a></li>
+        </ul>
+    </div>
+    </div>
     <h2>output:</h2>
     <p class="starter" id="output"></p>
     <script>
