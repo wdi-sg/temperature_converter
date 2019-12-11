@@ -1,8 +1,8 @@
 console.log("hello script js");
 
-let unitF;
-let unitC;
-let unitK;
+let unitF; //
+let unitC; //
+let unitK; //
 let tempF;
 let tempC;
 let tempC1;
@@ -10,6 +10,13 @@ let tempK;
 let unitType;
 let tempNum;
 let tempDesc;
+
+roundOffTemp = function () {
+    tempF = Math.round(tempF);
+    tempK = Math.round(tempK);
+    tempC1 = Math.round(tempC1);
+    return tempC1;
+}
 
 convertTemp = function (tempNum) {
     if (unitF === true) {
@@ -77,6 +84,7 @@ var inputHappened1 = function(currentInput) {
 var inputHappened2 = function(currentInput){
     tempNum = currentInput;
     convertTemp(tempNum);
+    roundOffTemp();
     tempCheck();
     var output = "The temperature in Celsius is " + tempC + "C." + "\n" + "The temperature in Kelvin is " + tempK + "K." + "\n" + "The temperature in Fahrenheit is " + tempF + "F." + "\n" + tempDesc;
   return output;
