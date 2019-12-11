@@ -3,10 +3,14 @@
 var inputHappened = function(currentInput) {
     console.log(currentInput);
 
-function clickSelectUnitBtn() {
-  document.getElementById("myDropdown").classList.toggle("show");
-}
+// function clickSelectUnitBtn() {
+//   document.getElementById("myDropdown").classList.toggle("show");
+// }
 
+if (isNaN(currentInput)) {
+    return output = "Invalid input, try again!"
+    }
+else {
 //const celciusTemperature = formula used
 //returns an integer
     const celciusTemperature = (currentInput - 32) * (5/9);
@@ -18,8 +22,8 @@ function clickSelectUnitBtn() {
 
     var output = [celciusTemperatureInteger + "°C" + ", " + kelvinTemperature + "K"];
     return output;
-}
-inputHappened(70);
+    }
+};
 
 // Prompt the user for a starting temperature. This should be a numerical value that represents degrees.
 // Prompt the user for a starting temperatureUnit. This will represent either Fahrenheit, Celsius, or Kelvin.
