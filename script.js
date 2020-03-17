@@ -8,31 +8,36 @@ var alertUnit = function () {
     alert('Next, enter a temperature unit (i.e. Farenheit/ Celsius/ Kelvin).');
 }
 
-/*var alertName = function () {
+var alertName = function () {
     alert('Lastly, enter your name.');
-}*/
+}
 
 alertTemp();
 
-var secondInput = false;
-var temp, unit;
+var secondInput = 0;
+var temp, unit, name;
 
 var inputHappened = function(currentInput) {
     var notInteger = isNaN(parseInt(currentInput))
 
-    if (secondInput === false) {
+    if (secondInput === 0) {
         if(notInteger) {
             return "Please enter a valid number.";
         } else {
-            secondInput = true;
+            secondInput = 1;
             temp = currentInput;
             alertUnit();
         }
 
-    } else {
+    } else if (secondInput === 1) {
         unit = currentInput;
-        //alertName();
+        alertName();
         return calcTemp(temp, unit);
+
+    } else {
+        name = currentInput;
+        secondInput = 0;
+        return clothing(name, temp)
     }
 };
 
@@ -40,19 +45,19 @@ var calcTemp = function (temp, unit) {
     var farenheit, celsius, kelvin;
 
     if (unit.toLowerCase() === 'farenheit') {
-        secondInput = false;
+        secondInput = 2;
         celsius = (temp - 32) * (5/9);
         kelvin = (temp - 32) * (5/9) + 273.15;
         return `${temp}F = ${celsius}C = ${kelvin}K. ` + weather(celsius);
 
     } else if (unit.toLowerCase() === 'celsius') {
-        secondInput = false;
+        secondInput = 2;
         farenheit = (temp * (9/5)) + 32;
         kelvin = temp + 273.15;
         return `${temp}C = ${farenheit}F = ${kelvin}K. ` + weather(temp);
 
     } else if (unit.toLowerCase() === 'kelvin') {
-        secondInput = false;
+        secondInput = 2;
         farenheit = (temp - 273.15) * (9/5) + 32;
         celsius = temp - 273.15;
         return `${temp}K = ${farenheit}F = ${celsius}C. ` + weather(celsius);
@@ -73,7 +78,7 @@ var weather = function(celsius) {
     }
 }
 
-/*var clothing = function(celsius) {
+var clothing = function(name, celsius) {
     if (celsius < -10) {
         return `Don't go outside if you want to live, ${name}.`;
     } else if (celsius < -5 && celsius >= -10) {
@@ -93,4 +98,4 @@ var weather = function(celsius) {
     } else {
         return `Don't go outside if you want to live, ${name}.`;
     }
-}*/
+}
