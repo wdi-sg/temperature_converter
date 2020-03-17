@@ -4,7 +4,7 @@ const FtoC = tempInF => (tempInF - 32) * 5 / 9;
 const FtoK = tempInF => 273.5 + ((tempInF - 32) * (5/9));
 const convertTemp = (temp, formula) => formula(temp);
 
-const inputHappened = function(currentInput) {
+const getConvertedTemperatures = function(currentInput) {
   const tempInF = currentInput;
 
   let msg = null;
@@ -21,3 +21,5 @@ const inputHappened = function(currentInput) {
 
   return msg;
 };
+
+

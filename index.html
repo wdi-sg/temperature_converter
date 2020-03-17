@@ -1,25 +1,34 @@
 <html>
-  <head>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <p>temperature converter</p>
-    <input class="starter" id="input" placeholder="input"/>
-    <h2>output:</h2>
-    <p class="starter" id="output"></p>
 
-    <script>
-      document.querySelector('#input').addEventListener('change', function(event){
-        var currentInput = event.target.value;
-        var output = inputHappened(currentInput);
-        display( output );
-      });
+<head>
+  <link rel="stylesheet" href="style.css">
+</head>
 
-      var display = function( data ){
-        var output = document.querySelector('#output');
-        output.innerText = data;
-      }
-    </script>
-    <script src="script.js"></script>
-  </body>
+<body>
+  <h1>Temperature Converter</h1>
+  <form>
+    <h2>Which temperature unit do you wish to convert from?</h2>
+    <input type="radio" id="unit_f" name="temp_unit" value="f" checked=checked>
+    <label for="unit_fah">Fahrenheit</label>
+    <input type="radio" id="unit_c" name="temp_unit" value="c">
+    <label for="unit_c">Celsius</label>
+    <input type="radio" id="unit_k" name="temp_unit" value="k">
+    <label for="unit_k">Kelvin</label>
+    <p>Please enter temperature in :</p>
+    <input type="text" id ="in_temp">
+    <br>
+    <div id="out_temp"></div>
+  </form>
+  <script>
+    const inputElem = document.getElementById('in_temp');
+    const outputElem = document.getElementById('out_temp');
+
+    const displayResult = text => outputElem.innerText = text;
+    const inputEventHandler = e => displayResult(getConvertedTemperatures(e.target.value));
+    inputElem.addEventListener('keyup', inputEventHandler);
+
+  </script>
+  <script src="script.js"></script>
+</body>
+
 </html>
