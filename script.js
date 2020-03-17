@@ -1,5 +1,6 @@
 var getUnitNext = false;
-var temperature, temperatureunit;
+var temperature, temperatureUnit;
+const standardUnits = ["celsius", "fahrenheit", "kelvin", "c", "f", "k"];
 
 document.addEventListener("DOMContentLoaded", (event) => {
   document.getElementById("output").innerText = "Enter a number!";
@@ -16,7 +17,14 @@ var inputHappened = function(currentInput){
   }
 
   temperatureUnit = currentInput.toLowerCase();
-  document.getElementById("input").value = "";
+  if (standardUnits.indexOf(temperatureUnit) === -1) {
+    getUnitNext = true;
+    clear();
+    return `Can't convert from ${temperature} "${temperatureUnit}", try again: (C)elsius/(F)ahrenheit/(K)elvin`;
+  }
+
+  temperatureUnit = temperatureUnit[0];
+  clear();
   getUnitNext = false;
 
   var convertResult = convertTemp(temperature, temperatureUnit);
@@ -31,15 +39,12 @@ var inputHappened = function(currentInput){
 }
 
 var displayUnits = function (unit) {
-  var unitsTo = {
-    "celsius": ["Celsius", "Fahrenheit", "Kelvin"],
-    "fahrenheit": ["Fahrenheit", "Celsius", "Kelvin"],
-    "kelvin": ["Kelvin", "Celsius", "Fahrenheit"],
+  var showUnits = {
     "c": ["Celsius", "Fahrenheit", "Kelvin"],
     "f": ["Fahrenheit", "Celsius", "Kelvin"],
     "k": ["Kelvin", "Celsius", "Fahrenheit"]
   };
-  return unitsTo[unit];
+  return showUnits[unit];
 }
 
 var convertTemp = function (deg, unit) {
@@ -48,13 +53,14 @@ var convertTemp = function (deg, unit) {
   }
 
   var deg = Number(deg);
-  if (unit === "c" || unit === "celsius") {
-    return [c2f(deg), c2k(deg)];
-  } else if (unit === "f" || unit === "fahrenheit") {
-    return [f2c(deg), f2k(deg)];
-  } else if (unit === "k" || unit === "kelvin") {
-    return [k2c(deg), k2f(deg)];
-  } else {
+  switch (unit) {
+  case "c":
+    return [deg, c2f(deg), c2k(deg)];
+  case "f":
+    return [deg, f2c(deg), f2k(deg)];
+  case "k":
+    return [deg, k2c(deg), k2f(deg)];
+  default:
     return `Can't convert from ${deg} ${unit}`;
   }
 }
