@@ -20,43 +20,38 @@ function resetValues() {
 //What happens everytime a new input is detected.
 var inputHappened = function(currentInput) {
     //Add the newest value given into the userInput array.
+    clearInput();
     userInput.push(currentInput);
 
     //If user has input only the first value, prompt for second value.
     if (userInput.length === 1) {
-      //1 values has been given.
-        clearInput();
-
+        //1 values has been given.
         //Check if first input was a number.
-        if (isNaN(userInput[0])){
-          userInput.pop();
-          return output = `Sorry, that was not a number. Please try again by inputting only a number.`
+        if (isNaN(userInput[0])) {
+            userInput.pop();
+            output = `Sorry, that was not a number. Please try again by inputting only a number.`
         } else {
-          output = `Nice! The value you gave is ${userInput[0]}. Next, what's the unit of the temperature you have given? Please input one of the three: C (for Celsius), K (for Kelvin) or F (for Fahrenheit). Then, press enter or click anywhere outside the input box.`
+            output = `Nice! The value you gave is ${userInput[0]}. Next, what's the unit of the temperature you have given? Please input one of the three: C (for Celsius), K (for Kelvin) or F (for Fahrenheit). Then, press enter or click anywhere outside the input box.`
         }
     } else if (userInput.length === 2) {
-      //2 values have been given.
-        clearInput();
+        //2 values have been given.
         var unit = userInput[1];
         //If value given is not K or C or F, remove the most recent value and give error message. If not, ask for name.
-        if (unit!=="K" && unit!=="C" && unit!=="F"){
-          userInput.pop();
-          return output = `Sorry, we cannot process that unit. Please try again by inputting only C, F or K above.`
+        if (unit !== "K" && unit !== "C" && unit !== "F") {
+            userInput.pop();
+            output = `Sorry, we cannot process that unit. Please try again by inputting only C, F or K above.`
         } else {
-        output = `Alright! You're trying to convert ${userInput[0]}${userInput[1]}. Before I give you the results, can I get your name?`
-    }
-  }else if (userInput.length === 3) {
-    //3 values have been given.
-
-        clearInput();
-
+            output = `Alright! You're trying to convert ${userInput[0]}${unit}. Before I give you the results, can I get your name?`
+        }
+    } else if (userInput.length === 3) {
+        //3 values have been given.
         //Naming the user inputs for easier reference & readability.
-        var msg = "";
         var name = userInput[2];
         var unit = userInput[1];
+        var temp = parseInt(userInput[0]);
+
 
         //Convert temperatures.
-        var temp = parseInt(userInput[0]);
         var cToK = (temp + 273.15).toFixed(2);
         var cToF = (temp * (9 / 5) + 32).toFixed(2);
         var fToC = ((temp - 32) * (5 / 9)).toFixed(2)
@@ -65,6 +60,7 @@ var inputHappened = function(currentInput) {
         var kToF = ((temp - 273.15) * (9 / 5) + 32).toFixed(2);
 
         //Part 3: Generate personalised message according to tempature and name.
+        var msg = "";
         if ((unit === "C" && temp < 0) || (unit === "F" && fToC < 0) || (unit === "K" && kToC < 0)) {
             msg = `Damn it's cold. ${name}, I suggest wearing a really heavy jacket.`
         } else if ((unit === "C" && temp > 100) || (unit === "F" && fToC > 100) || (unit === "K" && kToC > 100)) {
@@ -87,13 +83,12 @@ var inputHappened = function(currentInput) {
             resetValues();
         } else {
             //There was an error. Reset values and give error message.
-            userInput = [];
+            resetValues();
             output = "Sorry, there was an error. Please ensure your second input is one of the following three units: C, F or K. Try again by inputting the value of your temperature!"
         }
     } else {
         //General error out of given scope. Reset everything.
-        clearInput();
-        userInput = [];
+        resetValues();
         output = "Sorry, there was an error. Try again by inputting the value of your temperature!"
     }
     return output;
