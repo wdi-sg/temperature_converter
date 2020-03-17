@@ -1,19 +1,96 @@
-console.log("hello script js");
+var temp, unit
 
-var alertFunction = function () {alert('Please input a temperature below in Farenheit.');
+var alertTemp = function () {
+    alert('Please enter a temperature below.');
 }
 
-alertFunction();
+var alertUnit = function () {
+    alert('Next, enter a temperature unit (i.e. Farenheit/ Celsius/ Kelvin).');
+}
 
-var inputHappened = function(currentInput){
+/*var alertName = function () {
+    alert('Lastly, enter your name.');
+}*/
+
+alertTemp();
+
+var secondInput = false;
+var temp, unit;
+
+var inputHappened = function(currentInput) {
     var notInteger = isNaN(parseInt(currentInput))
 
-    if (!notInteger) {
-        var celsius = (currentInput - 32)*(5/9);
-        var kelvin = celsius + 273.15;
-        var output = 'The temperature is ' + celsius + 'C ' + 'or ' + kelvin + 'K';
+    if (secondInput === false) {
+        if(notInteger) {
+            return "Please enter a valid number.";
+        } else {
+            secondInput = true;
+            temp = currentInput;
+            alertUnit();
+        }
+
     } else {
-        return "Please enter a valid number."
+        unit = currentInput;
+        //alertName();
+        return calcTemp(temp, unit);
     }
-    return output;
 };
+
+var calcTemp = function (temp, unit) {
+    var farenheit, celsius, kelvin;
+
+    if (unit.toLowerCase() === 'farenheit') {
+        secondInput = false;
+        celsius = (temp - 32) * (5/9);
+        kelvin = (temp - 32) * (5/9) + 273.15;
+        return `${temp}F = ${celsius}C = ${kelvin}K. ` + weather(celsius);
+
+    } else if (unit.toLowerCase() === 'celsius') {
+        secondInput = false;
+        farenheit = (temp * (9/5)) + 32;
+        kelvin = temp + 273.15;
+        return `${temp}C = ${farenheit}F = ${kelvin}K. ` + weather(temp);
+
+    } else if (unit.toLowerCase() === 'kelvin') {
+        secondInput = false;
+        farenheit = (temp - 273.15) * (9/5) + 32;
+        celsius = temp - 273.15;
+        return `${temp}K = ${farenheit}F = ${celsius}C. ` + weather(celsius);
+    } else {
+        return 'Please enter a valid temperature unit.';
+    }
+}
+
+var weather = function(celsius) {
+    if (celsius < 0) {
+        return "Ooh it's cold out.";
+    } else if (celsius > 40 && celsius <= 100) {
+        return "Ooh it's hot out.";
+    } else if (celsius > 100) {
+        return "You're literally boiling!";
+    } else {
+        return "It's fine out!";
+    }
+}
+
+/*var clothing = function(celsius) {
+    if (celsius < -10) {
+        return `Don't go outside if you want to live, ${name}.`;
+    } else if (celsius < -5 && celsius >= -10) {
+        return `Put on a heavy jacket and toe warmers, ${name}.`
+    } else if (celsius < 0 && celsius >= -5) {
+        return `Put on a heavy jacket, ${name}.`;
+    } else if (celsius >= 0 && celsius < 10) {
+        return `Put on a sweater and jacket, ${name}.`;
+    } else if (celsius >= 10 && celsius < 20) {
+        return `Put on sweater, ${name}.`;
+    } else if (celsius >= 20 && celsius <= 40) {
+        return `Put on shorts and a shirt, ${name}.`;
+    } else if (celsius > 40 && celsius <= 50) {
+        return `Put on a swimsuit, ${name}.`;
+    } else if (celsius > 50 && celsius <= 100) {
+        return `Put on nothing, ${name}.`
+    } else {
+        return `Don't go outside if you want to live, ${name}.`;
+    }
+}*/
