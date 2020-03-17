@@ -46,6 +46,8 @@ var generateOutput = function (temp, unit, name) {
   if (typeof temps === "string") {
     return temps;
   }
+
+  temps.unshift(temperature);
   var units = displayUnits(unit);
   var refTemp = temps[units.indexOf("Celsius")];
 
@@ -66,28 +68,24 @@ var displayUnits = function (unit) {
 }
 
 var convertTemp = function (deg, unit) {
+  var c2f = degC => (degC * 9 / 5 + 32);
+  var c2k = degC => degC + 273.15;
 
-  var deg = Number(deg);
+  var f2c = degF => (degF - 32) * 5 / 9;
+  var f2k = degF => (degF + 459.67) * 5 / 9;
+
+  var k2c = degK => degK - 273.15;
+  var k2f = degK => degK * 9 / 5 - 459.67;
+
   switch (unit) {
   case "c":
-    return [deg, c2f(deg), c2k(deg)];
+    return [c2f(deg), c2k(deg)];
   case "f":
-    return [deg, f2c(deg), f2k(deg)];
+    return [f2c(deg), f2k(deg)];
   case "k":
-    return [deg, k2c(deg), k2f(deg)];
-  default:
-    return `Can't convert from ${deg} ${unit}`;
+    return [k2c(deg), k2f(deg)];
   }
 }
-
-var c2f = degC => (degC * 9 / 5 + 32);
-var c2k = degC => degC + 273.15;
-
-var f2c = degF => (degF - 32) * 5 / 9;
-var f2k = degF => (degF + 459.67) * 5 / 9;
-
-var k2c = degK => degK - 273.15;
-var k2f = degK => degK * 9 / 5 - 459.67;
 
 var describeWeather = function (deg) {
   if (deg > 100) {
