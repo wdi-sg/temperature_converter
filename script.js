@@ -5,6 +5,9 @@ document.querySelector('#output').innerText = "Please provide starting temperatu
 var status = "getting temperature";
 var temperature;
 var temperatureUnit;
+var celsius;
+var fahrenheit;
+var kelvin;
 
 var inputHappened = function(currentInput){
   console.log( currentInput );
@@ -35,38 +38,72 @@ var inputHappened = function(currentInput){
   }
 
   //getting temp unit, if correct
+
+
   if(status === "getting temperature unit" && tempUnitCorrect){
     var output;
+
     if (temperatureUnit.includes("fahrenheit")){
-        var celsius = (temperature - 32) / 1.8;
-        var kelvin = celsius + 273.15;
+        celsius = (temperature - 32) / 1.8;
+        kelvin = celsius + 273.15;
         output = `${temperature} Fahrenheit = ${celsius} Celsius = ${kelvin} Kelvin`;
     } else if (temperatureUnit.includes("celsius")){
-        var fahrenheit = (temperature * 1.8) + 32;
-        var kelvin = temperature + 273.15;
+        celsius = temperature;
+        fahrenheit = (temperature * 1.8) + 32;
+        kelvin = temperature + 273.15;
         output =`${temperature} Celsius = ${fahrenheit} Fahrenheit = ${kelvin} Kelvin`;
     } else {
-        var celsius = temperature - 273.15;
-        var fahrenheit = (celsius - 32) / 1.8;
+        celsius = temperature - 273.15;
+        fahrenheit = (celsius - 32) / 1.8;
         output = `${temperature} Kelvin = ${fahrenheit} Fahrenheit = ${celsius} Celsius`;
     }
 
     var tempComment;
-    if (temperatureUnit.includes("celsius") && temperature < 0){
-        tempComment = "ooh its cold out\n";
+    if (celsius < 0){
+        tempComment = "ooh its cold out\n\n";
     }
-    if (temperatureUnit.includes("celsius") && temperature > 40 && temperature < 100){
-        tempComment = "ooh its hot out\n";
+    else if (celsius > 40 && celsius < 100){
+        tempComment = "ooh its hot out\n\n";
     }
-    if (temperatureUnit.includes("celsius") && temperature > 100){
-        tempComment = "you're literally boiling\n";
+    else if (celsius > 100){
+        tempComment = "you're literally boiling\n\n";
+    } else {
+        tempComment = "";
     }
 
-    return tempComment + output;
+    status = "getting name";
+    return tempComment + output + "\n\n What's your name?";
   }
   //reprompt if temp unit is wrong
   if (status === "getting temperature unit" && !tempUnitCorrect){
     var output = "Please choose: fahrenheit, celsius or kelvin";
     return output;
+  }
+
+  //getting name, returning clothes recommendation
+  if (status === "getting name") {
+    var clothes;
+    var output;
+    if (celsius > 50) {
+        clothes = "nothing";
+    } else if (celsius <= 50 && celsius > 40){
+        clothes = "a swimsuit";
+    } else if (celsius <= 40 && celsius > 30){
+        clothes = "shorts";
+    } else if (celsius <= 30 && celsius > 20){
+        clothes = "a sweater";
+    } else if (celsius <= 20 && celsius > 10){
+        clothes = "sweater + jacket";
+    } else if (celsius <= 10 && celsius > 0){
+        clothes = "a heavy jacket";
+    } else if (celsius <= 0 && celsius > -10){
+        clothes = "a heavy jacket + toewarmers";
+    } else {
+        clothes = ".... hm actually, don't go out if you want to live";
+    }
+
+    var output = `Hey ${currentInput}, you should wear ${clothes}`;
+    return output;
+
   }
 };
