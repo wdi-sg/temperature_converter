@@ -9,10 +9,14 @@ document.addEventListener("DOMContentLoaded", (event) => {
 var inputHappened = function(currentInput){
 
   if (!getUnitNext) {
-    temperature = currentInput;
-    document.getElementById("input").value = "";
-    getUnitNext = true;
+    if (isNaN(Number(currentInput))) {
+      clear();
+      return `Can't convert from ${currentInput}, try entering another number`;
+    }
 
+    temperature = Number(currentInput);
+    clear();
+    getUnitNext = true;
     return "Now enter a unit: (C)elsius/(F)ahrenheit/(K)elvin"
   }
 
@@ -48,9 +52,6 @@ var displayUnits = function (unit) {
 }
 
 var convertTemp = function (deg, unit) {
-  if (isNaN(Number(deg))) {
-    return `Can't convert from ${deg} ${unit}`;
-  }
 
   var deg = Number(deg);
   switch (unit) {
