@@ -11,7 +11,7 @@ var inputHappened = function(currentInput){
   if (inputStep === 0) {
     if (isNaN(Number(currentInput))) {
       clear();
-      return `Can't convert from ${currentInput}, try entering another number`;
+      return `Can't convert from ${currentInput}, try entering a number`;
     }
 
     temperature = Number(currentInput);
@@ -23,7 +23,7 @@ var inputHappened = function(currentInput){
 
     if (standardUnits.indexOf(temperatureUnit) === -1) {
       clear();
-      return `Can't convert from ${temperature} "${temperatureUnit}", try again: (C)elsius/(F)ahrenheit/(K)elvin`;
+      return `Can't convert from ${temperature} "${currentInput}", try again: (C)elsius/(F)ahrenheit/(K)elvin`;
     }
 
     temperatureUnit = temperatureUnit[0];
@@ -54,7 +54,7 @@ var generateOutput = function (temp, unit, name) {
   var weatherComment = describeWeather(refTemp);
   var outfitRec = recommendClothes(refTemp, name);
 
-  return `${tempConversion}\n${weatherComment}\n${outfitRec}`;
+  return `${tempConversion}\n${weatherComment}\n${outfitRec}\n\nEnter a number to start over.`;
 }
 
 var displayUnits = function (unit) {
