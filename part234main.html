@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Temperature Converter</h1>
+    <input class="starter" id="inputtemp" placeholder="input temperature" />
+    <input
+      class="starter"
+      id="inputtempunit"
+      placeholder="input unit: C, F or K"
+    />
+    <input class="starter" id="inputname" placeholder="input name" />
+    <h2>Output:</h2>
+    <p class="starter" id="output"></p>
+    <script src="scriptpart234.js"></script>
+    <script>
+      var inputTemp;
+      var inputTempUnit;
+      var inputName;
+      document
+        .querySelector("#inputtemp")
+        .addEventListener("change", function(event) {
+          inputTemp = parseInt(event.target.value);
+        });
+      document
+        .querySelector("#inputtempunit")
+        .addEventListener("change", function(event) {
+          inputTempUnit = event.target.value;
+        });
+      document
+        .querySelector("#inputname")
+        .addEventListener("change", function(event) {
+          inputName = event.target.value;
+          var output = inputHappened(inputTemp, inputTempUnit, inputName);
+          display(output);
+        });
+
+      var display = function(data) {
+        var output = document.querySelector("#output");
+        output.innerText = data;
+      };
+    </script>
+  </body>
+</html>
