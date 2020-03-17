@@ -12,7 +12,7 @@ var inputHappened = function(currentInput){
     document.getElementById("input").value = "";
     getUnitNext = true;
 
-    return "Now enter a unit! (Celsius/Fahrenheit/Kelvin)"
+    return "Now enter a unit: (C)elsius/(F)ahrenheit/(K)elvin"
   }
 
   temperatureUnit = currentInput.toLowerCase();
@@ -30,36 +30,33 @@ var inputHappened = function(currentInput){
   }
 }
 
-//TODO: factor out unit return
-var tempConversion = function (deg, unit) {
+var displayUnits = function (unit) {
+  var unitsTo = {
+    "celsius": ["Celsius", "Fahrenheit", "Kelvin"],
+    "fahrenheit": ["Fahrenheit", "Celsius", "Kelvin"],
+    "kelvin": ["Kelvin", "Celsius", "Fahrenheit"],
+    "c": ["Celsius", "Fahrenheit", "Kelvin"],
+    "f": ["Fahrenheit", "Celsius", "Kelvin"],
+    "k": ["Kelvin", "Celsius", "Fahrenheit"]
+  };
+  return unitsTo[unit];
+}
+
+var convertTemp = function (deg, unit) {
   if (isNaN(Number(deg))) {
     return `Can't convert from ${deg} ${unit}`;
   }
 
   var deg = Number(deg);
-  var tempsTo = [];
-  var unitsTo =
-      { "celsius": ["C", "F", "K"],
-        "fahrenheit": ["F", "C", "K"],
-        "kelvin": ["K", "C", "F"]
-      };
-
-  switch (unit) {
-  case "celsius":
-    tempsTo.push(+c2f(deg).toFixed(2), +c2k(deg).toFixed(2));
-    break;
-  case "fahrenheit":
-    tempsTo.push(+f2c(deg).toFixed(2), +f2k(deg).toFixed(2));
-    break;
-  case "kelvin":
-    tempsTo.push(+k2c(deg).toFixed(2), +k2f(deg).toFixed(2));
-    break;
-  default:
+  if (unit === "c" || unit === "celsius") {
+    return [c2f(deg), c2k(deg)];
+  } else if (unit === "f" || unit === "fahrenheit") {
+    return [f2c(deg), f2k(deg)];
+  } else if (unit === "k" || unit === "kelvin") {
+    return [k2c(deg), k2f(deg)];
+  } else {
     return `Can't convert from ${deg} ${unit}`;
   }
-
-  var tempResult = [tempsTo, unitsTo[unit]];
-  return tempResult;
 }
 
 var c2f = degC => (degC * 9 / 5 + 32);
