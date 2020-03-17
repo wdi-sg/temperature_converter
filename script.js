@@ -3,7 +3,7 @@ console.log("hello script js");
 var temp;
 var type = false;
 var typename;
-
+document.querySelector('#output').innerText = 'Please input temperature value.';
 var inputHappened = function(currentInput) {
     if(!type) {
     //check for valid number
