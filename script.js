@@ -1,6 +1,10 @@
 var getUnitNext = false;
 var deg, unit;
 
+document.addEventListener("DOMContentLoaded", (event) => {
+  document.getElementById("output").innerText = "Enter a number!";
+});
+
 var inputHappened = function(currentInput){
 
   if (!getUnitNext) {
