@@ -14,7 +14,7 @@ var inputHappened = function (currentInput) {
 
     var tempratureKelvin = tempratureCelsius + 237.15
 
-    var output = ( tempratureFahrenheit + " Fahrenheit converts to " + tempratureCelsius + " Celsius or " + tempratureKelvin +   " Kelvin");
+    var output = ( tempratureFahrenheit + "\u00B0F is " + tempratureCelsius + "\u00B0C or " + tempratureKelvin +   " K");
 
     return output;
 
