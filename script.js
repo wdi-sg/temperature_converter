@@ -39,12 +39,6 @@ inputField.addEventListener("click", userPrompt);
 
     //Fahrenheit and Kelvins conversion
 
-var celsius
-
-var fahren
-
-var kelvins
-
 var fahrenToCelsius = fah => (fah - 32) * 5 / 9;
 
 var fahrenToKelvins = fah => celsiusToKelvins(fahrenToCelsius(fah));
@@ -55,20 +49,25 @@ var kelvinsToFahren = kel => celsiusToFahren(kelvinsToCelsius(kel));
 
     //Input Handler
 
-var output = ""
+
 
 var inputHappened = function(currentInput) {
     //Check input is in correct format
     if (currentInput.includes(" kelvins") ||
         currentInput.includes(" fahrenheit") ||
         currentInput.includes(" celsius")) {
-    var tempNum = parseInt(currentInput.split(" ")[0])
+    var tempNum = parseFloat(currentInput.split(" ")[0])
     var tempType = currentInput.split(" ")[1].toLowerCase()
     } else {
         console.log("Not valid input")
         return "Please enter a number followed by celsius/kelvins/fahrenheit. eg. 15 celsius"
     }
     //Converter
+    var output = ""
+    var celsius
+    var fahren
+    var kelvins
+
     if (isNaN(tempNum)) {
         console.log("Number not entered");
         return "Please enter a number followed by celsius/kelvins/fahrenheit. eg. 15 celsius"
