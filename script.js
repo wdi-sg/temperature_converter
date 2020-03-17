@@ -85,3 +85,15 @@ var f2k = degF => (degF + 459.67) * 5 / 9;
 
 var k2c = degK => degK - 273.15;
 var k2f = degK => degK * 9 / 5 - 459.67;
+
+var describeWeather = function (deg) {
+  if (deg > 100) {
+    return "You are literally boiling.";
+  } else if (deg > 40) {
+    return "It's very hot out there!";
+  } else if (deg < 0) {
+    return "It's very, very cold. It's literally freezing.";
+  } else {
+    return "";
+  }
+}
