@@ -2,26 +2,17 @@ console.log("Insert numerical value of degrees in farenheit into white box");
 
 var temperature = null;
 
-var tempComment = function(celcius){
-    if(celcius < 0){
-        return "ooh it's cold out";
 
-    }else if(celcius > 40){
-        return "ooh it's hot out";
-
-    }else if(celcius > 100){
-        return "you're literally boiling";
-    }
-}
 
 var inputHappened = function(currentInput){
   var comment = null;
   console.log(currentInput);
 
+
   if (!isNaN(currentInput)){
     var output = "input celcius, kelvin or farenheit";
 
-    temperature = currentInput;
+    temperature = parseInt(currentInput);
 
     return output;
 
@@ -68,3 +59,18 @@ var inputHappened = function(currentInput){
     console.log("please input temperature first followed by either kelvin, farenheit or celcius")
   }
 };
+
+
+var tempComment = function(celcius){
+    if(celcius < 0){
+        return " ooh it's cold out";
+
+    }else if(celcius > 40){
+        return " ooh it's hot out";
+
+    }else if(celcius > 100){
+        return " you're literally boiling";
+    }else {
+        return " ok temperature";
+    }
+}
