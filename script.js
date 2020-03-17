@@ -1,4 +1,4 @@
-var getUnitNext = false;
+var inputStep = 0;
 var temperature, temperatureUnit;
 const standardUnits = ["celsius", "fahrenheit", "kelvin", "c", "f", "k"];
 
@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
 var inputHappened = function(currentInput){
 
-  if (!getUnitNext) {
+  if (inputStep === 0) {
     if (isNaN(Number(currentInput))) {
       clear();
       return `Can't convert from ${currentInput}, try entering another number`;
@@ -16,41 +16,45 @@ var inputHappened = function(currentInput){
 
     temperature = Number(currentInput);
     clear();
-    getUnitNext = true;
+    inputStep += 1;
     return "Now enter a unit: (C)elsius/(F)ahrenheit/(K)elvin"
-  }
+  } else if (inputStep === 1) {
+    temperatureUnit = currentInput.toLowerCase();
 
-  temperatureUnit = currentInput.toLowerCase();
-  if (standardUnits.indexOf(temperatureUnit) === -1) {
-    getUnitNext = true;
+    if (standardUnits.indexOf(temperatureUnit) === -1) {
+      clear();
+      return `Can't convert from ${temperature} "${temperatureUnit}", try again: (C)elsius/(F)ahrenheit/(K)elvin`;
+    }
+
+    temperatureUnit = temperatureUnit[0];
     clear();
-    return `Can't convert from ${temperature} "${temperatureUnit}", try again: (C)elsius/(F)ahrenheit/(K)elvin`;
+    inputStep += 1;
+    return "What's your name?"
+  } else {
+    name = currentInput;
+    inputStep = 0;
+    return generateOutput(temperature, temperatureUnit, name);
   }
-
-  temperatureUnit = temperatureUnit[0];
-  clear();
-  getUnitNext = false;
-
-  return generateOutput(temperature, temperatureUnit);
 }
 
 var clear = function () {
   document.getElementById("input").value = "";
 }
 
-var generateOutput = function (temp, unit) {
+var generateOutput = function (temp, unit, name) {
 
-  var convertResult = convertTemp(temp, unit);
-  if (typeof convertResult === "string") {
-    return convertResult;
+  var temps = convertTemp(temp, unit);
+  if (typeof temps === "string") {
+    return temps;
   }
-
-  var temps = convertResult;
   var units = displayUnits(unit);
-  var resultStr = `${temps[0]} ${units[0]} is ${temps[1].toFixed(2)} ${units[1]}, or ${temps[2].toFixed(2)} ${units[2]}`;
-  var weatherComment = describeWeather(temps[units.indexOf("Celsius")]);
+  var refTemp = temps[units.indexOf("Celsius")];
 
-  return `${resultStr}\n${weatherComment}`;
+  var tempConversion = `${temps[0]} ${units[0]} is ${temps[1].toFixed(2)} ${units[1]}, or ${temps[2].toFixed(2)} ${units[2]}.`;
+  var weatherComment = describeWeather(refTemp);
+  var outfitRec = recommendClothes(refTemp, name);
+
+  return `${tempConversion}\n${weatherComment}\n${outfitRec}`;
 }
 
 var displayUnits = function (unit) {
@@ -97,5 +101,29 @@ var describeWeather = function (deg) {
     return "Seems like a decent day out.";
   }
 }
+
+var recommendClothes = function (deg, name) {
+  var outfit;
+
+  if (deg < 0 || deg > 50) {
+    return "Don't go outside if you want to live.";
+  } else if (deg > 40) {
+    outfit = "nothing";
+  } else if (deg > 35) {
+    outfit = "swimsuit";
+  } else if (deg > 30) {
+    outfit = "shorts and a shirt";
+  } else if (deg > 25) {
+    outfit = "jeans and a shirt";
+  } else if (deg > 20) {
+    outfit = "a sweater";
+  } else if (deg > 15) {
+    outfit = "sweater and a jacket";
+  } else if (deg > 10) {
+    outfit = "a heavy jacket";
+  } else {
+    outfit = "a heavy jacket and toe warmers";
   }
+
+  return `Today's personalised outfit recommendation for ${name} is: ${outfit}. Have a nice day!`;
 }
