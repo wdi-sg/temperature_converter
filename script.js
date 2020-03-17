@@ -51,11 +51,11 @@ var inputHappened = function (currentInput) {
         }
 
     //Part 3 Temperature check
-    if(temperature<40) {
+    if(tempCelsius<40) {
         var tempMsg = "Ooh it's cold out.";
-    } else if (temperature>=40 && temperature<=100) {
+    } else if (tempCelsius>=40 && temperature<=100) {
         var tempMsg = "Ooh it's hot out.";
-    } else if (temperature>100) {
+    } else if (tempCelsius>100) {
         var tempMsg = "You're literally boiling.";
     }
 
