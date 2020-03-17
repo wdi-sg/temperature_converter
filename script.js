@@ -30,11 +30,10 @@ var inputHappened = function(currentInput){
     clear();
     inputStep += 1;
     return "What's your name?"
-  } else {
-    name = currentInput;
-    inputStep = 0;
-    return generateOutput(temperature, temperatureUnit, name);
   }
+  name = currentInput;
+  inputStep = 0;
+  return generateOutput(temperature, temperatureUnit, name);
 }
 
 var clear = function () {
@@ -97,9 +96,8 @@ var describeWeather = function (deg) {
     return "It's very hot out there!";
   } else if (deg < 0) {
     return "It's very, very cold. It's literally freezing.";
-  } else {
-    return "Seems like a decent day out.";
   }
+  return "Seems like a decent day out.";
 }
 
 var recommendClothes = function (deg, name) {
