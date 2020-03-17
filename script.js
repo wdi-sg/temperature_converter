@@ -110,7 +110,7 @@ var recommendClothes = function (deg, name) {
   } else if (deg > 40) {
     outfit = "nothing";
   } else if (deg > 35) {
-    outfit = "swimsuit";
+    outfit = "a swimsuit";
   } else if (deg > 30) {
     outfit = "shorts and a shirt";
   } else if (deg > 25) {
@@ -118,7 +118,7 @@ var recommendClothes = function (deg, name) {
   } else if (deg > 20) {
     outfit = "a sweater";
   } else if (deg > 15) {
-    outfit = "sweater and a jacket";
+    outfit = "a sweater and jacket";
   } else if (deg > 10) {
     outfit = "a heavy jacket";
   } else {
