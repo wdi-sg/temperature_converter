@@ -94,6 +94,8 @@ var describeWeather = function (deg) {
   } else if (deg < 0) {
     return "It's very, very cold. It's literally freezing.";
   } else {
-    return "";
+    return "Seems like a decent day out.";
+  }
+}
   }
 }
