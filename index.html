@@ -4,19 +4,42 @@
   </head>
   <body>
     <p>temperature converter</p>
-    <input class="starter" id="input" placeholder="input"/>
+    <input class="starter" id="input" placeholder="Temperature"/>
     <h2>output:</h2>
     <p class="starter" id="output"></p>
+    <p class="starter" id="output2"></p>
     <script>
+
+
       document.querySelector('#input').addEventListener('change', function(event){
         var currentInput = event.target.value;
+        var intInput = inputConvert(currentInput);
         var output = inputHappened(currentInput);
+        if(intInput <= 0){
+            displayMessage("ooh it's cold out");
+        }else if(intInput > 40 && intInput < 100){
+            displayMessage("ooh it's hot out");
+        } else if(intInput > 100){
+            displayMessage("you're literally boiling");
+        }else if(intInput <= 40 && intInput > 0) {
+            displayMessage("The weather is good");
+        }
         display( output );
+
       });
+
+      var displayMessage = function( data ){
+        var output = document.querySelector('#output2');
+        output.innerText = data;
+      }
+
+
 
       var display = function( data ){
         var output = document.querySelector('#output');
         output.innerText = data;
+
+
       }
     </script>
     <script src="script.js"></script>
