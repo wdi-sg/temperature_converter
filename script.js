@@ -50,7 +50,19 @@ var inputHappened = function(currentInput){
         var fahrenheit = (celsius - 32) / 1.8;
         output = `${temperature} Kelvin = ${fahrenheit} Fahrenheit = ${celsius} Celsius`;
     }
-    return output;
+
+    var tempComment;
+    if (temperatureUnit.includes("celsius") && temperature < 0){
+        tempComment = "ooh its cold out\n";
+    }
+    if (temperatureUnit.includes("celsius") && temperature > 40 && temperature < 100){
+        tempComment = "ooh its hot out\n";
+    }
+    if (temperatureUnit.includes("celsius") && temperature > 100){
+        tempComment = "you're literally boiling\n";
+    }
+
+    return tempComment + output;
   }
   //reprompt if temp unit is wrong
   if (status === "getting temperature unit" && !tempUnitCorrect){
