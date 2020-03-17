@@ -31,15 +31,26 @@ var inputHappened = function(currentInput){
   clear();
   getUnitNext = false;
 
-  var convertResult = convertTemp(temperature, temperatureUnit);
+  return generateOutput(temperature, temperatureUnit);
+}
+
+var clear = function () {
+  document.getElementById("input").value = "";
+}
+
+var generateOutput = function (temp, unit) {
+
+  var convertResult = convertTemp(temp, unit);
   if (typeof convertResult === "string") {
     return convertResult;
-  } else {
-    temps = convertResult;
-    units = displayUnits(temperatureUnit);
-    output = `${temperature} ${units[0]} is ${temps[0].toFixed(2)} ${units[1]}, or ${temps[1].toFixed(2)} ${units[2]}`
-    return output;
   }
+
+  var temps = convertResult;
+  var units = displayUnits(unit);
+  var resultStr = `${temps[0]} ${units[0]} is ${temps[1].toFixed(2)} ${units[1]}, or ${temps[2].toFixed(2)} ${units[2]}`;
+  var weatherComment = describeWeather(temps[units.indexOf("Celsius")]);
+
+  return `${resultStr}\n${weatherComment}`;
 }
 
 var displayUnits = function (unit) {
