@@ -120,6 +120,5 @@ var recommendClothes = function (deg, name) {
   } else {
     outfit = "a heavy jacket and toe warmers";
   }
-
   return `Today's personalised outfit recommendation for ${name} is: ${outfit}. Have a nice day!`;
 }
