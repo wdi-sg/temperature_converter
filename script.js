@@ -1,5 +1,5 @@
 var getUnitNext = false;
-var deg, unit;
+var temperature, temperatureunit;
 
 document.addEventListener("DOMContentLoaded", (event) => {
   document.getElementById("output").innerText = "Enter a number!";
@@ -8,27 +8,24 @@ document.addEventListener("DOMContentLoaded", (event) => {
 var inputHappened = function(currentInput){
 
   if (!getUnitNext) {
-    deg = currentInput;
-
+    temperature = currentInput;
     document.getElementById("input").value = "";
     getUnitNext = true;
 
     return "Now enter a unit! (Celsius/Fahrenheit/Kelvin)"
   }
 
-  unit = currentInput.toLowerCase();
+  temperatureUnit = currentInput.toLowerCase();
   document.getElementById("input").value = "";
   getUnitNext = false;
 
-  var convertResults = tempConversion(deg, unit);
-  if (typeof convertResults === "string") {
-    console.log("help");
-    return convertResults;
+  var convertResult = convertTemp(temperature, temperatureUnit);
+  if (typeof convertResult === "string") {
+    return convertResult;
   } else {
-    console.log("okay");
-    temps = convertResults[0];
-    units = convertResults[1];
-    output = `${deg}${units[0]} is ${temps[0]}${units[1]}, or ${temps[1]}${units[2]}`
+    temps = convertResult;
+    units = displayUnits(temperatureUnit);
+    output = `${temperature} ${units[0]} is ${temps[0].toFixed(2)} ${units[1]}, or ${temps[1].toFixed(2)} ${units[2]}`
     return output;
   }
 }
