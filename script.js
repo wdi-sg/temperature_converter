@@ -28,44 +28,48 @@ var inputHappened = function(currentInput) {
             case 'cel' :
             changeCelcius(temp);
             console.log('test4');
+            return output;
             break;
 
             case 'fah' :
             changeFahrenheit(temp);
+            return output;
             break;
 
             case 'kel' :
             changeKelvin(temp);
+            return output;
             break;
 
             default:
             return output = 'Please enter valid temperature type.';
         }
-    }
+    }       /*return output;*/
 };
 //need to assign temp in global scope!@$!@£!@£12
 
 var changeCelcius = function(temp) {
     var celToKel = temp + 273;
     var celToFah = temp * 9 / 5 + 32;
+
     console.log('test5');
     console.log(celToKel);
     console.log(celToFah);
-    return output = celToKel + 'K = ' + celToFah + 'F';
+    output = temp + 'C = ' + celToKel + 'K = ' + celToFah + 'F';
 };
 var changeKelvin = function(temp) {
     var kelToCel = temp - 273;
     var kelToFah = (temp - 273) * (9 / 5) + 32;
     console.log(kelToCel);
     console.log(kelToFah);
-    return output = kelToCel + 'C = ' + kelToFah + 'F';
+    output = temp + 'K = ' + kelToCel + 'C = ' + kelToFah + 'F';
 };
 var changeFahrenheit = function(temp) {
     var fahToCel = (temp - 32) * (5 / 9);
     var fahToKel = (temp - 32) * (5 / 9) + 273;
     console.log(fahToCel);
     console.log(fahToKel);
-    return output = fahToCel + 'C = ' + fahToKel + 'K';
+    output = temp + 'F = ' + fahToCel + 'C = ' + fahToKel + 'K';
 };
 
 //part 3
@@ -81,6 +85,9 @@ var changeFahrenheit = function(temp) {
     return output = "You're literally boiling!";
    }
 } */
+
+
+
 
     //fahrenheit to celcius
   /*var degreeCelcius = (currentInput - 32) * 5 / 9 ;
