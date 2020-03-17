@@ -68,6 +68,20 @@ var changeFahrenheit = function(temp) {
     return output = fahToCel + 'C = ' + fahToKel + 'K';
 };
 
+//part 3
+/* var inputHappened = function(currentInput) {
+   var tempInput = currentInput;
+   if (tempInput < 0) {
+    return output = "Ooh it's cold out!"
+   }
+   else if (tempInput > 40 && tempInput < 100) {
+    return output = "Ooh it's hot out!";
+   }
+   else if(tempInput >=100){
+    return output = "You're literally boiling!";
+   }
+} */
+
     //fahrenheit to celcius
   /*var degreeCelcius = (currentInput - 32) * 5 / 9 ;
   //fahrenheit to kelvin
