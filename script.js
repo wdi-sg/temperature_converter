@@ -102,7 +102,7 @@ var recommendClothes = function (deg, name) {
   var outfit;
 
   if (deg < 0 || deg > 50) {
-    return "Don't go outside if you want to live.";
+    return `Don't go outside if you want to live, ${name}.`;
   } else if (deg > 40) {
     outfit = "nothing";
   } else if (deg > 35) {
