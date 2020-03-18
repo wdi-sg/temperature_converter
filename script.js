@@ -27,8 +27,9 @@ document.querySelector('#output').innerText = 'Please enter your temperature val
         switch(typename) {
 
             case 'cel' :
-            return changeCelcius(temp);
             console.log('test4');
+            console.log(output);
+            return changeCelcius(temp);
             break;
 
             case 'fah' :
@@ -42,7 +43,7 @@ document.querySelector('#output').innerText = 'Please enter your temperature val
             default:
             return output = 'Please enter valid temperature type.';
         }
-    }       return output;
+    }
 };
 //need to assign temp in global scope!@$!@£!@£12
 
@@ -52,21 +53,21 @@ var changeCelcius = function(temp) {
     console.log('test5');
     console.log(celToKel);
     console.log(celToFah);
-    output = temp + 'C = ' + celToKel + 'K = ' + celToFah + 'F';
+    return output = temp + 'C = ' + celToKel + 'K = ' + celToFah + 'F';
 };
 var changeKelvin = function(temp) {
     var kelToCel = temp - 273;
     var kelToFah = (temp - 273) * (9 / 5) + 32;
     console.log(kelToCel);
     console.log(kelToFah);
-    output = temp + 'K = ' + kelToCel + 'C = ' + kelToFah + 'F';
+    return output = temp + 'K = ' + kelToCel + 'C = ' + kelToFah + 'F';
 };
 var changeFahrenheit = function(temp) {
     var fahToCel = (temp - 32) * (5 / 9);
     var fahToKel = (temp - 32) * (5 / 9) + 273;
     console.log(fahToCel);
     console.log(fahToKel);
-    output = temp + 'F = ' + fahToCel + 'C = ' + fahToKel + 'K';
+    return output = temp + 'F = ' + fahToCel + 'C = ' + fahToKel + 'K';
 };
 
 /*//part 3
