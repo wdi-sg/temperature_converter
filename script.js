@@ -1,5 +1,5 @@
 var inputStep = 0;
-var temperature, temperatureUnit;
+var temperature, temperatureUnit, name;
 const standardUnits = ["celsius", "fahrenheit", "kelvin", "c", "f", "k"];
 
 document.addEventListener("DOMContentLoaded", (event) => {
