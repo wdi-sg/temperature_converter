@@ -51,7 +51,7 @@ var generateOutput = function (temp, unit, name) {
   var units = displayUnits(unit);
   var refTemp = temps[units.indexOf("Celsius")];
 
-  var tempConversion = `${temps[0]} ${units[0]} is ${temps[1].toFixed(2)} ${units[1]}, or ${temps[2].toFixed(2)} ${units[2]}.`;
+  var tempConversion = `${temps[0]} ${units[0]} is ${+temps[1].toFixed(2)} ${units[1]}, or ${+temps[2].toFixed(2)} ${units[2]}.`;
   var weatherComment = describeWeather(refTemp);
   var outfitRec = recommendClothes(refTemp, name);
 
