@@ -1,78 +1,54 @@
-// Function to overwrite text
+// button.onclick function(x) is all the way at the bottom
+
+// Purpose: overwrites output with 'text' parameter
 function overwrite(text) {
   const output = document.getElementById('output');
   output.innerHTML = text;
 }
 
-function append(text) { // Appending text
+// Purpose: appends text with 'text' in parameter
+function append(text) {
   const output = document.getElementById('output');
   output.innerHTML = output.innerHTML + " " + text;
 }
 
-function resultsForFah(degree, kelvin) {
-  const output = document.getElementById('output');
-  output.innerHTML = degree + " degrees, " + kelvin + " kelvin";
+// Purpose: returns temperature input
+function getInputValue() {
+  return document.getElementById('input').value;
 }
 
-function resultsForDegrees(fahrenheit, kelvin) {
-  const output = document.getElementById('output');
-  output.innerHTML = fahrenheit + " fahrenheit, " + kelvin + " kelvin";
+// Purpose: takes in Fahrenheit, calculates and displays degrees and Kelvin
+function fahrenheitCalculator() {
+  var fahrenheit = getInputValue();
+  const degree = (parseInt(fahrenheit) - 32) * 5/9;
+  const kelvin = (parseInt(fahrenheit) - 32) * 5/9 + 273.15;
+  overwrite(degree + " degrees, " + kelvin + " kelvin");
+  return degree;
 }
 
-function resultsForKelvin(fahrenheit, degrees) {
-  const output = document.getElementById('output');
-  output.innerHTML = fahrenheit + " fahrenheit, " + degrees + " degrees";
-}
-
-// MATH!
-function fahToKelvinAndDegrees() {
-  const input = document.getElementById('input');
-  var fahrenheit = input.value;
-  if (parseInt(fahrenheit) + 0 == parseInt(fahrenheit)) {
-    const degree = (parseInt(fahrenheit) - 32) * 5/9;
-    const kelvin = (parseInt(fahrenheit) - 32) * 5/9 + 273.15;
-    resultsForFah(degree, kelvin);
-    fahrenheit = degree;
-  }
-  else {
-    overwrite("Please ensure that you have entered a numerical number!");
-  }
-  return fahrenheit;
-}
-
-function degreesToFahAndKelvin() {
-  const input = document.getElementById('input');
-  const degrees = input.value;
-  if (parseInt(degrees) + 0 == parseInt(degrees)) {
-    const fahrenheit = parseInt(degrees) * 9/5 + 32;
-    const kelvin = parseInt(degrees) + 273;
-    resultsForDegrees(fahrenheit, kelvin);
-  }
-  else {
-    overwrite("Please ensure that you have entered a numerical number!");
-  }
+// Purpose: takes in degrees, calculates and displays Fahrenheit and Kelvin
+function degreesCalculator() {
+  var degrees = getInputValue();
+  const fahrenheit = parseInt(degrees) * 9/5 + 32;
+  const kelvin = parseInt(degrees) + 273;
+  overwrite(fahrenheit + " fahrenheit, " + kelvin + " kelvin");
   return degrees;
 }
 
-function kelToDegreesAndFah() {
-  const input = document.getElementById('input');
-  var kelvin = input.value;
-  if (parseInt(kelvin) + 0 == parseInt(kelvin)) {
-    const degrees = parseInt(kelvin) - 273;
-    const fahrenheit = 9/5 * (parseInt(kelvin) - 273) + 32;
-    resultsForKelvin(fahrenheit, degrees);
-    kelvin = degrees;
-  }
-  else {
-    overwrite("Please ensure that you have entered a numerical number!");
-  }
-  return kelvin;
+// Purpose: takes in Kelvin, calculates and displays degrees and Kelvin
+function kelvinCalculator() {
+  var kelvin = getInputValue();
+  const degrees = parseInt(kelvin) - 273;
+  const fahrenheit = 9/5 * (parseInt(kelvin) - 273) + 32;
+  overwrite(fahrenheit + " fahrenheit, " + degrees + " degrees");
+  return degrees;
 }
 
-function printWeatherStatus(degree) {
+// Purpose: appends weather into output, based on degree
+function appendWeather(degree) {
   if (degree <= 0) {
     append("Ooh, it's really cold!");
-    append("Seriously, don't go outside if you want to live.");
+    append("Don't go outside if you want to live.");
   }
   else if (degree <= 5) {
     append("Heavy jacket and toe warmers please!");
@@ -96,49 +72,47 @@ function printWeatherStatus(degree) {
   else if (degree > 100 || degree > 50)  {
     append("You're literally boiling! Please wear NOTHING!");
   }
+  // For any invalid characters, however, 12ABC is still accepted
   else {
-    overwrite("Oops! An error occured!");
+    overwrite("Please enter a valid number!");
   }
 }
 
-// Action after button
-function checkedRadio() {
+// Purpose: action after 'convert' button is clicked, based on radio button checked
+function conversionSystem() {
   let degree = 0;
-  if(document.getElementById('degrees').checked) {
-    degree = degreesToFahAndKelvin();
+  if (document.getElementById('degrees').checked) { // degree r.button is checked
+    degree = degreesCalculator();
   }
-  else if(document.getElementById('fahrenheit').checked) {
-    degree = fahToKelvinAndDegrees();
+  else if (document.getElementById('fahrenheit').checked) { // Fahrenheit r.button is checked
+    degree = fahrenheitCalculator();
   }
-  else if (document.getElementById('kelvin').checked) {
-    degree = kelToDegreesAndFah();
+  else if (document.getElementById('kelvin').checked) { // kelvin r.button is checked
+    degree = kelvinCalculator();
   }
-  printWeatherStatus(degree);
+  appendWeather(degree);
 }
 
-// Button
-const button = document.getElementById('button');
-button.onclick = checkedRadio;
-
-// Changing name upon submit
+// Purpose: updates header with the name based on input (just for fun)
 function updateHeader() {
-  const nameHeaderExist = document.getElementById("header-name");
-  const fullName = document.getElementById('full-name');
-  // If the nameHeader exists
-  if (nameHeaderExist) {
-    nameHeaderExist.innerHTML = "Hey " + fullName.value + "!";
-  }
-  // Name header does not exist.. Proceed to create
-  else {
-    const header = document.getElementById('header-h1');
-    const nameHeader = document.createElement('h2');
-    nameHeader.innerHTML = "Hey " + fullName.value + "!";
-    nameHeader.id = "header-name";
-    document.body.insertBefore(nameHeader, header);
-  }
+  const nameHeaderExist = document.getElementById("header-name"); // get current header
+  const fullName = document.getElementById('full-name'); // get name input
 
-  fullname.value = null;
+  if (nameHeaderExist) { // If the nameHeader exists -> "Hey XX" already exist
+    nameHeaderExist.innerHTML = "Hey " + fullName.value + "!"; // Update with new value of name input
+  }
+  else { // Name header does not exist.. Proceed to create
+    const header = document.getElementById('header-h1'); // Get parent node
+    const nameHeader = document.createElement('h2'); // Create h2 element
+    nameHeader.innerHTML = "Hey " + fullName.value + "!"; // Put "Hey " + input .. into h2 element
+    nameHeader.id = "header-name"; // Give an id to the new h2 element
+    document.body.insertBefore(nameHeader, header); // Insert with reference to parent node
+  }
+  fullname.value = null; // Clear name input
 }
+
+const button = document.getElementById('button');
+button.onclick = conversionSystem;
 
 const nameButton  = document.getElementById('name-button');
 nameButton.onclick = updateHeader;
