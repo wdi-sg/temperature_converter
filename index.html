@@ -3,14 +3,24 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <p>temperature converter</p>
-    <input class="starter" id="input" placeholder="input"/>
-    <h2>output:</h2>
+    <form action="/action_page.php">
+  <label for="unit">Choose a temperature unit:</label>
+  <select name="unit" id="tempUnit">
+    <option value="cel">°C</option>
+    <option value="fan">°F</option>
+    <option value="kel">K</option>
+  </select>
+</form>
+    <h2>Input:</h2>
+    <input class="tempInput" id="input1" placeholder="Temperature" type="number"/>
+    <input class="nameInput" id="input2" placeholder="Name" type="text"/>
+    <button type="button" id="btn" value="Submit">Submit</button>
+    <br>
+    <h2>Output:</h2>
     <p class="starter" id="output"></p>
     <script>
-      document.querySelector('#input').addEventListener('change', function(event){
-        var currentInput = event.target.value;
-        var output = inputHappened(currentInput);
+      document.querySelector('#btn').addEventListener('click', function(event){
+        var output = buttonClicked();
         display( output );
       });
 
