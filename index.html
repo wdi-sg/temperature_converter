@@ -3,22 +3,23 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <p>temperature converter</p>
-    <input class="starter" id="input" placeholder="input"/>
-    <h2>output:</h2>
-    <p class="starter" id="output"></p>
-    <script>
-      document.querySelector('#input').addEventListener('change', function(event){
-        var currentInput = event.target.value;
-        var output = inputHappened(currentInput);
-        display( output );
-      });
+    <h1>temperature converter</h1>
+    <div>
+        <input class="starter" id="inputFahrenheit" type="number" size="20" placeholder="Enter number in Fahrenheit" oninput="temperatureConverter(this.value)" onchange="temperatureConverter(this.value)" />
+        <span><p class="tempConverter" id="outputKevin"></p>   &deg;K</span>
+        <span><p class="tempConverter" id="outputCelsius"></p>   &deg;C</span>
+    </div>
+    <div>
+        <input class="starter" id="inputKevin" type="number" size="20" placeholder="Enter number in Kevin" oninput="temperatureConverterFromKevin(this.value)" onchange="temperatureConverterFromKevin(this.value)" />
+        <span><p class="tempConverter2" id="outputKevinToCelsius"></p>   &deg;C</span>
+        <span><p class="tempConverter2" id="outputKevinToFahrenheit"></p>   &deg;F</span>
+    </div>
+    <div>
+        <input class="starter" id="inputCelsius" type="number" size="20" placeholder="Enter number in Celsius" oninput="temperatureConverterFromCelsius(this.value)" onchange="temperatureConverterFromCelsius(this.value)" />
+        <span><p class="tempConverter3" id="outputCelsiusToFahrenheit"></p>   &deg;F</span>
+        <span><p class="tempConverter3" id="outputCelsiusToKevin"></p>   &deg;K</span>
+    </div>
 
-      var display = function( data ){
-        var output = document.querySelector('#output');
-        output.innerText = data;
-      }
-    </script>
     <script src="script.js"></script>
   </body>
 </html>
