@@ -3,20 +3,37 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <p>temperature converter</p>
-    <input class="starter" id="input" placeholder="input"/>
-    <h2>output:</h2>
-    <p class="starter" id="output"></p>
-    <script>
-      document.querySelector('#input').addEventListener('change', function(event){
-        var currentInput = event.target.value;
-        var output = inputHappened(currentInput);
-        display( output );
-      });
+    <h1>Temperature Unit Converter</h1>
+    <input class="starter" id="inputFahrenheit" placeholder="Fahrenheit">
 
-      var display = function( data ){
-        var output = document.querySelector('#output');
-        output.innerText = data;
+    <h2>Temperature Unit: Kelvin</h2>
+    <p class="starter" id="outputKelvin">K</p>
+
+    <h2>Temperature Unit: Celcius</h2>
+    <p class="starter" id="outputCelcius">ºC</p>
+
+    <script>
+      document.querySelector('#inputFahrenheit').addEventListener('change', function(event)){
+        var currentInput = event.target.value;
+        var kelvin = convertKelvin(currentInput);
+        var celcius = convertCelcius(currentInput);
+        var fahreinheit = enteredFahreinheit("message");
+        displayKelvin(kelvin + "K");
+        displayCelcius(celcius + "ºC");
+        dislayFahreinheit("message");
+      };
+
+      var displayKelvin = function( data ){
+        var outputKelvin = document.querySelector('#outputKelvin');
+        outputKelvin.innerText = data;
+      }
+      var displayCelcius = function( data ){
+        var outputCelcius = document.querySelector('#outputCelcius');
+        outputCelcius.innerText = data;
+    }
+          var dislayFahreinheit = function( data ){
+        var outputFahreinheit = document.querySelector('#outputFahreinheit');
+        outputFahreinheit.innerText = data;
       }
     </script>
     <script src="script.js"></script>
