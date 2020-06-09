@@ -3,27 +3,37 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
+    <!-- Heading block -->
+    <h1>Welcome to temperature converter!</h1>
+    <div id="row1">
+      <label for="name">Please enter your name </label>
+      <input type="text" id="full-name" placeholder="Full name"/>
+      <button>Submit</button>
+    </div>
 
-    <label for="name">Please enter your name </label>
-    <input type="text" id="name-input" placeholder="Full name"/>
+    <!-- Input block -->
+    <div id="row2">
+      <h2>Please enter temperature: </h2>
+      <form>
+        <input class="starter" id="input" placeholder="Input"/>
 
-    <h1>Please enter temperature: </h1>
-    <form>
-      <input class="starter" id="input" placeholder="input"/>
+        <input type="radio" id="degrees" name="temperature" value="degrees">
+        <label for="degrees">Degrees</label>
 
-      <input type="radio" id="degrees" name="temperature" value="degrees">
-      <label for="degrees">Degrees</label>
+        <input type="radio" id="fahrenheit" name="temperature" value="fahrenheit">
+        <label for="fahrenheit">Fahrenheit</label>
 
-      <input type="radio" id="fahrenheit" name="temperature" value="fahrenheit">
-      <label for="fahrenheit">Fahrenheit</label>
+        <input type="radio" id="kelvin" name="temperature" value="Kelvin">
+        <label for="kelvin">Kelvin</label>
+      </form>
+      <button id="button">Convert!</button>
+    </div>
 
-      <input type="radio" id="kelvin" name="temperature" value="Kelvin">
-      <label for="kelvin">Kelvin</label>
-    </form>
-    <button id="button">Convert!</button>
+    <div id="row3">
+      <h2>Output:</h2>
+      <p class="starter" id="output"></p>
+    </div>
 
-    <h2>Output:</h2>
-    <p class="starter" id="output"></p>
     <script src="script.js"></script>
   </body>
 </html>
