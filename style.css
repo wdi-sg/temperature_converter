@@ -1,11 +1,55 @@
-.starter{
-  font-size:30px;
-  padding:10px;
-  display:block;
-  margin:40px;
-  border:3px solid blue;
+body {
+	background-color: #222222;
+	text-align: center;
 }
 
-#output{
-  background-color:pink;
+h1 {
+	color: white;
+	margin: 30px auto;
+}
+
+.starter {
+	display: inline-block;
+	border: 1px solid gray;
+	border-radius: 12px;
+	margin: 10px auto;
+	height: 80px;
+	width: 300px;
+	padding: 30px;
+	font-size: 20px;
+}
+
+input[type="number"] {
+	width: 360px;
+}
+
+::placeholder {
+	font-style: italic;
+}
+
+span {
+	background-color: #DCDCDC;
+	display: inline;
+	border: 1px solid black;
+	border-radius: 12px;
+	padding: 27px 50px 27px 50px;
+	height:80px;
+	width: 200px;
+	font-size: 20px;
+	color: black;
+}
+
+.tempConverter {
+	display: inline-block;
+	color: gray;
+}
+
+.tempConverter2 {
+	display: inline-block;
+	color: gray;
+}
+
+.tempConverter3 {
+	display: inline-block;
+	color: gray;
 }
