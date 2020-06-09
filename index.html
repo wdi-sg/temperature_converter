@@ -4,22 +4,51 @@
   </head>
   <body>
     <p>temperature converter</p>
-    <h1>Please enter temp (numerical value) in Fahrenheit</h1>
+    <h1>Please enter starting temperature</h1>
     <input class="starter" id="input" placeholder="input" type="numerical"/>
+    <h1>Please choose temperature unit</h1>
+    <form>
+  <input type="radio" id="fahrenheit" name="unit" value="fahrenheit">
+  <label for="fahrenheit">Fahrenheit</label><br>
+  <input type="radio" id="celsius" name="unit" value="celsius">
+  <label for="celsius">Celsius</label><br>
+  <input type="radio" id="kelvin" name="unit" value="kelvin">
+  <label for="kelvin">Kelvin</label>
+  <br >
+ <input type="button" id="btn" value="Submit">
+</form>
     <h2>output:</h2>
     <p class="starter" id="output"></p>
+    <script src="script.js"></script>
     <script>
-      document.querySelector('#input').addEventListener('change', function(event){
-        var currentInput = event.target.value;
-        var totalOutput = inputHappened(currentInput);
-        display( totalOutput );
-      });
+      const btn = document.querySelector('#btn');
+        // handle click button
+        btn.onclick = function () {
+            console.log('hello');
+            const rbs = document.querySelectorAll('input[name="unit"]');
+            let selectedValue;
+            var output;
+            var input = document.getElementById("input").value;
+            for (const rb of rbs) {
+                if (rb.checked) {
+                    selectedValue = rb.value;
+                    if (rb.value == "fahrenheit") {
+                        console.log(input);
+                        output = convertFahrenheit(input);
+                    } else if (rb.value == "celsius"){
+                        output = convertCelsius(input);
+                    } else if (rb.value == "kelvin"){
+                        output = convertKelvin(input);
+                    }
+                }
+            }
+            display(output);
+        };
 
       var display = function( data ){
-        var totalOoutput = document.querySelector('#output');
+        var totalOutput = document.querySelector('#output');
         output.innerText = data;
       }
     </script>
-    <script src="script.js"></script>
   </body>
 </html>
