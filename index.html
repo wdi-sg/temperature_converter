@@ -3,22 +3,11 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <p>temperature converter</p>
+    <h1>Please enter temperature (farenheit): </h1>
     <input class="starter" id="input" placeholder="input"/>
+    <button id="button">Convert!</button>
     <h2>output:</h2>
     <p class="starter" id="output"></p>
-    <script>
-      document.querySelector('#input').addEventListener('change', function(event){
-        var currentInput = event.target.value;
-        var output = inputHappened(currentInput);
-        display( output );
-      });
-
-      var display = function( data ){
-        var output = document.querySelector('#output');
-        output.innerText = data;
-      }
-    </script>
     <script src="script.js"></script>
   </body>
 </html>
