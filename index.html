@@ -1,24 +1,32 @@
 <html>
   <head>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <p>temperature converter</p>
-    <input class="starter" id="input" placeholder="input"/>
-    <h2>output:</h2>
-    <p class="starter" id="output"></p>
-    <script>
-      document.querySelector('#input').addEventListener('change', function(event){
-        var currentInput = event.target.value;
-        var output = inputHappened(currentInput);
-        display( output );
-      });
+    <div class="name">Please input your name
 
-      var display = function( data ){
-        var output = document.querySelector('#output');
-        output.innerText = data;
-      }
-    </script>
+      <input type="text" id ="username"><br>
+
+    </div>
+    <div class="unit">
+      <p>Please select the temperature Unit</p>
+      <input type="radio" id="kelvin" name="temperatureUnit" value="kelvin" />
+      <label for="kelvin">kelvin</label><br />
+      <input
+        type="radio"
+        id="farenheit"
+        name="temperatureUnit"
+        value="farenheit"
+      />
+      <label for="farenheit">Farenheit</label><br />
+      <input type="radio" id="celcius" name="temperatureUnit" value="celcius" />
+      <label for="celcius">Celcius</label><br />
+    </div>
+    <div class="temperatureNumber">
+      <p>Plase insert the temperature</p>
+      <input type="number" id="temperatureNumber" name="temperatureNumber" />
+    </div>
+    <div class="output"></div>
     <script src="script.js"></script>
   </body>
 </html>
