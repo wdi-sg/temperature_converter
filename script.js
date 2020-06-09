@@ -1,4 +1,5 @@
-function overwrite(text) { // Overwriting the text
+// Function to overwrite text
+function overwrite(text) {
   const output = document.getElementById('output');
   output.innerHTML = text;
 }
@@ -71,7 +72,7 @@ function kelToDegreesAndFah() {
 function printWeatherStatus(degree) {
   if (degree <= 0) {
     append("Ooh, it's really cold!");
-    append("Don't go outside if you want to live.");
+    append("Seriously, don't go outside if you want to live.");
   }
   else if (degree <= 5) {
     append("Heavy jacket and toe warmers please!");

@@ -18,6 +18,21 @@ h1, h2, #row2, #row1, #full-name, .starter {
   text-align: center;
 }
 
+h1, #row1 {
+    padding-top: 0px;
+    margin-top: 0px;
+}
+
+#row2 {
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
+#row3 {
+    margin-top: 0px;
+    padding-top: 0px;
+}
+
 #input {
   margin-top: 0px;
 }
@@ -26,11 +41,17 @@ h1, h2, #row2, #row1, #full-name, .starter {
   border: 3px solid hotpink;
 }
 
+#output-header, #row2-header {
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
 #output {
   margin-left: 20px;
   margin-right: 20px;
-  padding: 40px;
+  padding: 25px;
   font-size: 20px;
+  margin-top: 0px;
 }
 
 .starter{
