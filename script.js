@@ -69,14 +69,34 @@ function kelToDegreesAndFah() {
 }
 
 function printWeatherStatus(degree) {
-  if (degree < 0) {
+  if (degree <= 0) {
     append("Ooh, it's really cold!");
+    append("Don't go outside if you want to live.");
   }
-  else if (degree > 100) {
-    append("You're literally boiling!");
+  else if (degree <= 5) {
+    append("Heavy jacket and toe warmers please!");
   }
-  else if (degree > 40) {
-    append("Ooh, it's hot out!");
+  else if (degree <= 10) {
+    append("Heavy jacket please! (no toe warmers)");
+  }
+  else if (degree <= 20) {
+    append("Sweater and jacket please!");
+  }
+  else if (degree <= 25) {
+    append("Just sweater will do!");
+  }
+  else if (degree < 40) {
+    append("Shorts and shirts only please..");
+  }
+  else if (degree < 50) {
+    append("Ooh, it's hot outside!");
+    append("Swimsuit will do!");
+  }
+  else if (degree > 100 || degree > 50)  {
+    append("You're literally boiling! Please wear NOTHING!");
+  }
+  else {
+    overwrite("Oops! An error occured!");
   }
 }
 
