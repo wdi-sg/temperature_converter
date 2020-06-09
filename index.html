@@ -3,14 +3,24 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <p>temperature converter</p>
-    <input class="starter" id="input" placeholder="input"/>
+    <h1>Basic Temperature Converter beta 1</h1>
+    <p>Please select a unit:</p>
+    <select name="tempUnits" id="tempUnits">
+      <option value="kelvin">kelvin</option>
+      <option value="fahrenheit">fahrenheit</option>
+      <option value="celcius">celcius</option>
+    </select>
+    <input class="starter" id="input" placeholder="temperature"/>
+    <input class="starter" id="nameInput" placeholder="name"/>
     <h2>output:</h2>
     <p class="starter" id="output"></p>
     <script>
+      var currentTemp = alert("Please enter current temperature and name.");
       document.querySelector('#input').addEventListener('change', function(event){
         var currentInput = event.target.value;
-        var output = inputHappened(currentInput);
+        var currentUnit = document.getElementById('tempUnits').value;
+        var currentName = document.getElementById('nameInput').value;
+        var output = inputHappened(currentInput, currentUnit, currentName);
         display( output );
       });
 
