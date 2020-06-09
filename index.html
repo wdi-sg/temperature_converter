@@ -3,10 +3,23 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <h1>Please enter temperature (farenheit): </h1>
-    <input class="starter" id="input" placeholder="input"/>
+
+    <h1>Please enter temperature: </h1>
+    <form>
+      <input class="starter" id="input" placeholder="input"/>
+
+      <input type="radio" id="degrees" name="temperature" value="degrees">
+      <label for="degrees">Degrees</label>
+
+      <input type="radio" id="fahrenheit" name="temperature" value="fahrenheit">
+      <label for="fahrenheit">Fahrenheit</label>
+
+      <input type="radio" id="kelvin" name="temperature" value="Kelvin">
+      <label for="kelvin">Kelvin</label>
+    </form>
     <button id="button">Convert!</button>
-    <h2>output:</h2>
+
+    <h2>Output:</h2>
     <p class="starter" id="output"></p>
     <script src="script.js"></script>
   </body>
