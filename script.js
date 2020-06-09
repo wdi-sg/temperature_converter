@@ -1,7 +1,11 @@
-// Printing out
-function append(text) {
+function overwrite(text) { // Overwriting the text
   const output = document.getElementById('output');
   output.innerHTML = text;
+}
+
+function append(text) { // Appending text
+  const output = document.getElementById('output');
+  output.innerHTML = output.innerHTML + text;
 }
 
 function resultsForFah(degree, kelvin) {
@@ -19,18 +23,20 @@ function resultsForKelvin(fahrenheit, degrees) {
   output.innerHTML = fahrenheit + " fahrenheit " + degrees + " degrees";
 }
 
-// Mathematical
+// MATH!
 function fahToKelvinAndDegrees() {
   const input = document.getElementById('input');
-  const fahrenheit = input.value;
+  var fahrenheit = input.value;
   if (parseInt(fahrenheit) + 0 == parseInt(fahrenheit)) {
     const degree = (parseInt(fahrenheit) - 32) * 5/9;
     const kelvin = (parseInt(fahrenheit) - 32) * 5/9 + 273.15;
     resultsForFah(degree, kelvin);
+    fahrenheit = degree;
   }
   else {
-    append("Please ensure that you have entered a numerical number!");
+    overwrite("Please ensure that you have entered a numerical number!");
   }
+  return fahrenheit;
 }
 
 function degreesToFahAndKelvin() {
@@ -42,34 +48,51 @@ function degreesToFahAndKelvin() {
     resultsForDegrees(fahrenheit, kelvin);
   }
   else {
-    append("Please ensure that you have entered a numerical number!");
+    overwrite("Please ensure that you have entered a numerical number!");
   }
+  return degrees;
 }
 
 function kelToDegreesAndFah() {
   const input = document.getElementById('input');
-  const kelvin = input.value;
+  var kelvin = input.value;
   if (parseInt(kelvin) + 0 == parseInt(kelvin)) {
     const degrees = parseInt(kelvin) - 273;
     const fahrenheit = 9/5 * (parseInt(kelvin) - 273) + 32;
     resultsForKelvin(fahrenheit, degrees);
+    kelvin = degrees;
   }
   else {
-    append("Please ensure that you have entered a numerical number!");
+    overwrite("Please ensure that you have entered a numerical number!");
+  }
+  return kelvin;
+}
+
+function printWeatherStatus(degree) {
+  if (degree < 0) {
+    append("Ooh, it's really cold!");
+  }
+  else if (degree > 100) {
+    append("You're literally boiling!");
+  }
+  else if (degree > 40) {
+    append("Ooh, it's hot out!");
   }
 }
 
 // Action after button
 function checkedRadio() {
+  let degree = 0;
   if(document.getElementById('degrees').checked) {
-    degreesToFahAndKelvin();
+    degree = degreesToFahAndKelvin();
   }
   else if(document.getElementById('fahrenheit').checked) {
-    fahToKelvinAndDegrees();
+    degree = fahToKelvinAndDegrees();
   }
   else if (document.getElementById('kelvin').checked) {
-    kelToDegreesAndFah();
+    degree = kelToDegreesAndFah();
   }
+  printWeatherStatus(degree);
 }
 
 // Button
