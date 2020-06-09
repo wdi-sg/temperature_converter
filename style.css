@@ -18,11 +18,26 @@ h1, h2, #row2, #row1, #full-name, .starter {
   text-align: center;
 }
 
+#input {
+  margin-top: 0px;
+}
+
+#full-name {
+  border: 3px solid hotpink;
+}
+
+#output {
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 40px;
+  font-size: 20px;
+}
+
 .starter{
   font-size:30px;
-  padding:10px;
-  display:block;
+  padding: 10px;
+  display: block;
   margin: 0 auto;
-  border:3px solid blue;
+  border:3px solid hotpink;
   border-radius: 10px;
 }

@@ -5,22 +5,22 @@ function overwrite(text) { // Overwriting the text
 
 function append(text) { // Appending text
   const output = document.getElementById('output');
-  output.innerHTML = output.innerHTML + text;
+  output.innerHTML = output.innerHTML + " " + text;
 }
 
 function resultsForFah(degree, kelvin) {
   const output = document.getElementById('output');
-  output.innerHTML = degree + " degrees " + kelvin + " kelvin";
+  output.innerHTML = degree + " degrees, " + kelvin + " kelvin";
 }
 
 function resultsForDegrees(fahrenheit, kelvin) {
   const output = document.getElementById('output');
-  output.innerHTML = fahrenheit + " fahrenheit " + kelvin + " kelvin";
+  output.innerHTML = fahrenheit + " fahrenheit, " + kelvin + " kelvin";
 }
 
 function resultsForKelvin(fahrenheit, degrees) {
   const output = document.getElementById('output');
-  output.innerHTML = fahrenheit + " fahrenheit " + degrees + " degrees";
+  output.innerHTML = fahrenheit + " fahrenheit, " + degrees + " degrees";
 }
 
 // MATH!
@@ -118,3 +118,26 @@ function checkedRadio() {
 // Button
 const button = document.getElementById('button');
 button.onclick = checkedRadio;
+
+// Changing name upon submit
+function updateHeader() {
+  const nameHeaderExist = document.getElementById("header-name");
+  const fullName = document.getElementById('full-name');
+  // If the nameHeader exists
+  if (nameHeaderExist) {
+    nameHeaderExist.innerHTML = "Hey " + fullName.value + "!";
+  }
+  // Name header does not exist.. Proceed to create
+  else {
+    const header = document.getElementById('header-h1');
+    const nameHeader = document.createElement('h2');
+    nameHeader.innerHTML = "Hey " + fullName.value + "!";
+    nameHeader.id = "header-name";
+    document.body.insertBefore(nameHeader, header);
+  }
+
+  fullname.value = null;
+}
+
+const nameButton  = document.getElementById('name-button');
+nameButton.onclick = updateHeader;
