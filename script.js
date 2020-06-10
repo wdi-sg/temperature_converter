@@ -80,6 +80,11 @@ function appendWeather(degree) {
 
 // Purpose: action after 'convert' button is clicked, based on radio button checked
 function conversionSystem() {
+  if (isNaN(getInputValue()) || getInputValue == "") {
+    overwrite("Please enter a valid number!");
+    return;
+  }
+
   let degree = 0;
   if (document.getElementById('degrees').checked) { // degree r.button is checked
     degree = degreesCalculator();
