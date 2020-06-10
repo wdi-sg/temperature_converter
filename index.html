@@ -4,21 +4,18 @@
   </head>
   <body>
     <p>temperature converter</p>
-    <input class="starter" id="input" placeholder="input"/>
+    <input class="starter" id="input" placeholder="Enter temperature here"/>
+    <div id="unitSelector">
+        <input id="selectF" type="radio" name="temperature" value="fahrenheit">
+            <label for="temperatureUnit">Fahrenheit</label>
+        <input id="selectC" type="radio" name="temperature" value="celsius" checked>
+            <label for="temperatureUnit">Celsius</label>
+        <input id="selectK" type="radio" name="temperature" value="kelvin">
+            <label for="temperatureUnit">Kelvin</label>
+    </div>
     <h2>output:</h2>
-    <p class="starter" id="output"></p>
-    <script>
-      document.querySelector('#input').addEventListener('change', function(event){
-        var currentInput = event.target.value;
-        var output = inputHappened(currentInput);
-        display( output );
-      });
-
-      var display = function( data ){
-        var output = document.querySelector('#output');
-        output.innerText = data;
-      }
-    </script>
+    <p class="starter" id="output"></p><br>
+    <p class="starter" id="weatherMessage"></p>
     <script src="script.js"></script>
   </body>
 </html>
