@@ -1,11 +1,30 @@
+body {
+	text-align: center;
+}
+
 .starter{
   font-size:30px;
   padding:10px;
   display:block;
-  margin:40px;
+  margin: 10px auto;
   border:3px solid blue;
 }
 
-#output{
-  background-color:pink;
+.inputs {
+	font-size: 30px;
+	margin: 10px auto;
+}
+
+.outputs{
+  /*background-color: #91f2dd;*/
+  display: inline-block;
+}
+
+#output1, #output2 {
+	background-color:#91f2dd;
+	border: 5px;
+}
+
+h1 {
+	margin: 30px auto;
 }
