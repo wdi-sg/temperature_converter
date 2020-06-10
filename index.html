@@ -3,22 +3,27 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <p>temperature converter</p>
-    <input class="starter" id="input" placeholder="input"/>
-    <h2>output:</h2>
+    <h1>Temperature Converter</h1>
+    <h2>What's your name?</h2>
+    <input class="starter" type="text" id="yourname" placeholder="Your Name"/>
+    <h2>Please enter starting temperature</h2>
+    <input class="starter" id="input" placeholder="Temperature" type="numerical"/>
+    <h2>Please choose temperature unit</h2>
+    <form>
+  <input type="radio" id="fahrenheit" name="unit" value="fahrenheit">
+  <label for="fahrenheit">Fahrenheit</label><br>
+  <input type="radio" id="celsius" name="unit" value="celsius">
+  <label for="celsius">Celsius</label><br>
+  <input type="radio" id="kelvin" name="unit" value="kelvin">
+  <label for="kelvin">Kelvin</label>
+  <br >
+  <br >
+ <input type="button" id="btn" value="Submit">
+</form>
+    <h2>Output:</h2>
     <p class="starter" id="output"></p>
-    <script>
-      document.querySelector('#input').addEventListener('change', function(event){
-        var currentInput = event.target.value;
-        var output = inputHappened(currentInput);
-        display( output );
-      });
-
-      var display = function( data ){
-        var output = document.querySelector('#output');
-        output.innerText = data;
-      }
-    </script>
+    <h2>Friendly Advice:</h2>
+    <p class="starter" id="output2"></p>
     <script src="script.js"></script>
   </body>
 </html>
