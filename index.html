@@ -3,20 +3,33 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <p>temperature converter</p>
-    <input class="starter" id="input" placeholder="input"/>
-    <h2>output:</h2>
+    <p class="heading">Temperature Converter </p>
+  <input class="starter" id="input" placeholder="Input deg F"/>
+  <input class="starter" id="input2" placeholder="Input deg C"/>
+  <input class="starter" id="input3" placeholder="Input Kelvin "/>
+  <input type="radio" name="Deg" value="Farenheit"  /> Farenheit </>
+  <input type="radio" name="Deg" value="Celcius" /> Celcius </>
+  <input type="radio" name="Deg" value="Kelvin" /> Kelvins </>
+    <h2 class="heading">Output:</h2>
+
     <p class="starter" id="output"></p>
     <script>
       document.querySelector('#input').addEventListener('change', function(event){
         var currentInput = event.target.value;
-        var output = inputHappened(currentInput);
+        var output = inputHappened(currentInput) ;
         display( output );
       });
 
+    // <p class="starter" id="output2"></p>
+    //  document.querySelector('#input2').addEventListener('change', function(event){
+    //    var currentInput2 = event.target.value;
+    //    var output = inputHappened2(currentInput2) ;
+    //    display( output );
+    //  });
+
       var display = function( data ){
         var output = document.querySelector('#output');
-        output.innerText = data;
+        output.innerText = data ;
       }
     </script>
     <script src="script.js"></script>
