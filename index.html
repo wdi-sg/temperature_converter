@@ -3,22 +3,26 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <p>temperature converter</p>
-    <input class="starter" id="input" placeholder="input"/>
+    <p>Temperature converter</p>
+    <input class="starter" id="tempInput" placeholder="Temp" type="number"/>
+    <p>Temprature unit</p>
+    <input class="starter" id="tempUnit" placeholder="Unit: F, K or C"/>
+    <p>Your Name</p>
+    <input class="starter" id="inputName" placeholder="Name"/>
+
+<!--     <label>Choose the unit:
+  <select class="tempUnit" name="tempUnit">
+    <option value="">Select One …</option>
+    <option value="Kelvin">Kelvin</option>
+    <option value="Celcius">Celcius</option>
+    <option value="Fahrenheit">Fahrenheit</option>
+  </select>
+</label>
+<div class="result"></div> -->
     <h2>output:</h2>
     <p class="starter" id="output"></p>
-    <script>
-      document.querySelector('#input').addEventListener('change', function(event){
-        var currentInput = event.target.value;
-        var output = inputHappened(currentInput);
-        display( output );
-      });
-
-      var display = function( data ){
-        var output = document.querySelector('#output');
-        output.innerText = data;
-      }
-    </script>
+<!--     <p class="starter" id="part3msg"></p>
+    <p class="starter" id="part4msg"></p> -->
     <script src="script.js"></script>
   </body>
 </html>
