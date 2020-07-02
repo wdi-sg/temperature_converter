@@ -4,19 +4,67 @@
   </head>
   <body>
     <p>temperature converter</p>
-    <input class="starter" id="input" placeholder="input"/>
+    <input class="starter" id="input" placeholder="What is your name"/>
     <h2>output:</h2>
     <p class="starter" id="output"></p>
     <script>
+    	var degrees;
+    	var types;
+    	var name;
+    	var tempInC;
+    	var tempInF;
+    	var tempInK;
+
       document.querySelector('#input').addEventListener('change', function(event){
-        var currentInput = event.target.value;
-        var output = inputHappened(currentInput);
-        display( output );
+ 			
+		switch(state.current){
+        case state.inputName:
+        	name = event.target.value;
+        	event.target.value = "";
+        	document.querySelector('#input').placeholder = "please key numeric value";
+        	state.current = state.inputDegrees;
+        	break;
+
+        case state.inputDegrees:
+        	degrees = event.target.value;
+            state.current = state.inputType;
+            event.target.value = "";
+            document.querySelector('#input').placeholder = "C,F or K";
+
+            break;
+
+        case state.inputType:
+            types = event.target.value.toLowerCase();
+
+            if (types === 'f'){
+            var output = fromF(degrees);
+            console.log(output);
+        	display( output );
+            }
+
+            if (types === 'c'){
+			var output = fromC(degrees);
+            console.log(output);
+        	display( output );
+            }
+
+            if (types === 'k'){
+            var output = fromK(degrees);
+            console.log(output);
+        	display( output );
+            }
+
+            event.target.value = "";
+            document.querySelector('#input').placeholder = "What is your name";
+            state.current = state.inputName; 
+            break;
+        }
       });
 
       var display = function( data ){
         var output = document.querySelector('#output');
         output.innerText = data;
+        alert("Hi "+name+". "+checkWeather(tempInC)+". You should wear "+attire(tempInC)+". See output for other temperature conversions.")
       }
     </script>
     <script src="script.js"></script>

@@ -9,3 +9,6 @@
 #output{
   background-color:pink;
 }
+input {
+	width: 80%;
+}
