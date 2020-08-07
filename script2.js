@@ -1,6 +1,13 @@
-console.log("hello script js");
+console.log("hello script2 js");
 
-var convertTemp = function(currentInput){
+
+
+
+
+
+
+
+var convertTemp2 = function(currentInput){
   console.log( currentInput );
   
   var tempInCelcius = (currentInput -32) * (5/9);

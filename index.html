@@ -4,13 +4,13 @@
   </head>
   <body>
     <p>temperature converter</p>
-    <input class="starter" id="input" placeholder="input"/>
+    <input class="starter" id="input" placeholder="input a starting temperature"/>
     <h2>output:</h2>
     <p class="starter" id="output"></p>
     <script>
       document.querySelector('#input').addEventListener('change', function(event){
         var currentInput = event.target.value;
-        var output = inputHappened(currentInput);
+        var output = convertTemp(currentInput);
         display( output );
       });
 
