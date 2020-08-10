@@ -4,6 +4,7 @@
   </head>
   <body>
     <p>temperature converter</p>
+    <input class="starter" id="nameInput" placeholder="name"/>
     <input class="starter" id="input" placeholder="starting temperature"/>
     <p>Please select a unit:</p>
     <select name="userUnits" id="userUnits">
@@ -12,15 +13,16 @@
       <option value="celcius">celcius</option>
     </select>
     <br/>
-    <button id="submit">submit!</button>
+    <button id="submit">convert!</button>
+   
     <h2>output:</h2>
-    <p class="starter"></p> id="output"></p>
+    <p class="starter"id="output"></p></p>
     <script>
       document.querySelector('#submit').addEventListener('click', function(event){
-        var currentInput = event.target.value;
-        var userUnit = document.getElementById("userUnits");
-        var output = convert2(currentInput, userUnit, currentName);
-
+        var currentInput =  document.getElementById('input').value;
+        var userUnit = document.getElementById('userUnits').value;
+        var userName = document.getElementById('nameInput').value;
+        var output = convertTemp2 (currentInput, userUnit, userName);
         display( output );
       });
 
@@ -28,6 +30,7 @@
         var output = document.querySelector('#output');
         output.innerText = data;
       }
+
     </script>
     <script src="script2.js"></script>
   </body>
