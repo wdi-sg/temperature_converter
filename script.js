@@ -1,6 +1,5 @@
 var state = -1;
-var initialTemp;
-var name;
+var initialTemp, name;
 var inputHappened = function(currentInput){
     if(currentInput == "r") {
         state = 0;
@@ -11,7 +10,7 @@ var inputHappened = function(currentInput){
             case -1: state++; name = currentInput; return "Input Temperature"; break;
             case 0: state++; initialTemp = currentInput; return "Input Temperature unit"; break;
             case 1: {
-                state++;
+                 state++;
                 if(currentInput.toLowerCase() == "fahrenheit"){
                     return initialTemp + circle() + "F = " + farenToKelvinCelsius(0,initialTemp) + " " + circle() + "C = " + farenToKelvinCelsius(1, initialTemp) + "K " + "\n" + tempCheck(farenToKelvinCelsius(0, initialTemp)) + "\n" + "[ Type 'r' to reset ]";
                 }
@@ -23,7 +22,7 @@ var inputHappened = function(currentInput){
                 }
                 else {
                     state = 1;
-                    return "Input valid Temperature unit.";
+                    return "Input valid Temperature unit (Fahrenheit, Celsius or Kelvin).";
                 }
             }
             default: return "Type 'r' and hit 'enter' to restart"; break;
@@ -31,7 +30,6 @@ var inputHappened = function(currentInput){
     }
     return "Please input a valid Temperature.";
 };
-
 function farenToKelvinCelsius(x, y) {
     var k = (y - 32) * 5/9;
     return x == 1 ? (k + 273.15).toFixed(2) : k.toFixed(2);
