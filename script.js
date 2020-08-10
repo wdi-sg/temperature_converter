@@ -18,7 +18,7 @@ var inputHappened = function(currentInput){
                     return initialTemp + " " + circle() + "C = " + celsiusToKelvinFaren(1, initialTemp) + "K = " +  celsiusToKelvinFaren(0, initialTemp) + circle() + "F. " + "\n" + tempCheck(initialTemp) + "\n" + "[ Type 'r' to reset ]";
                 }
                 else if(currentInput.toLowerCase() == "kelvin"){
-                    return initialTemp + "K = " + kelvinToCelsiusFaren(1, initialTemp) + circle() + "C = " + kelvinToCelsiusFaren(0, initialTemp) + " " + circle() + "F " + "\n" + tempCheck(kelvinToCelsiusFaren(1, initialTemp)) + "\n" + "[ Type 'r' to reset ]";
+                    return initialTemp + "K = " + kelvinToCelsiusFaren(1, initialTemp) + " " + circle() + "C = " + kelvinToCelsiusFaren(0, initialTemp) + " " + circle() + "F " + "\n" + tempCheck(kelvinToCelsiusFaren(1, initialTemp)) + "\n" + "[ Type 'r' to reset ]";
                 }
                 else {
                     state = 1;
