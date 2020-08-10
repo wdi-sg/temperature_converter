@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <p>temperature converter</p>
+    <input class="starter" id="nameInput" placeholder="name"/>
+    <input class="starter" id="input" placeholder="starting temperature"/>
+    <p>Please select a unit:</p>
+    <select name="userUnits" id="userUnits">
+      <option value="kelvin">kelvin</option>
+      <option value="fahrenheit">fahrenheit</option>
+      <option value="celcius">celcius</option>
+    </select>
+    <br/>
+    <button id="submit">convert!</button>
+   
+    <h2>output:</h2>
+    <p class="starter"id="output"></p></p>
+    <script>
+      document.querySelector('#submit').addEventListener('click', function(event){
+        var currentInput =  document.getElementById('input').value;
+        var userUnit = document.getElementById('userUnits').value;
+        var userName = document.getElementById('nameInput').value;
+        var output = convertTemp2 (currentInput, userUnit, userName);
+        display( output );
+      });
+
+      var display = function( data ){
+        var output = document.querySelector('#output');
+        output.innerText = data;
+      }
+
+    </script>
+    <script src="script2.js"></script>
+  </body>
+</html>
