@@ -5,7 +5,7 @@ let tempInCel;
 let tempInKel;
 let tempInFar;
  // Global variables for temp conversion: for eg; farKel is converting from farenheit to kelvin
- 
+
  let kelCel =  function(inputTemp){
   var celcOut = inputTemp - 273;
   return celcOut} ;
@@ -28,7 +28,7 @@ let tempInFar;
  let farCel=  function(inputTemp){
   var celcOut = (5/9) * (inputTemp - 32);
   return celcOut;
-}; 
+};
  let farKel = function(inputTemp){
     let kelvOut = (5/9) * (inputTemp - 32) + 273;
   return kelvOut;
@@ -56,13 +56,16 @@ let output = "It is " + tempInCel + "C " + tempInKel + "K " + tempInFar + "F now
   if(tempInCel > 100){
     output +=  " Don't go outside if you want to live";
   } else if (tempInCel >= 40) {
-    output += " ooh it's hot out there.. might be a goodtime for a swim!";
+    output += " ooh it's hot out there.. time to wear a swimsuit!";
   } else if (tempInCel > 28 && tempInCel < 40) {
-    output += " ooh it's hot out there.. wear some shorts and a shirt!";
+    output += " ooh it's hot out there.. put on some shorts and a shirt!";
+  }else if (tempInCel < 27 && tempInCel > 20) {
+    output += " ooh it's hot out there.. wear a summer dress!!";
+
   } else if (tempInCel < 20  && tempInCel > 0) {
-    output += " ooh it's really cold out there.. bring a sweater and a jacket!";
+    output += " its abit chilly! bring a sweater and a jacket!";
   } else if (tempInCel < 0 ){
-    output += "  ooh it's freezing.. might want to grab a heavy jacket!";
+    output += "  oMG it's freezing.. might want to grab a heavy jacket! and toe warmers!";
   }
   return `Hello there ${userName}! ${output} `;
 };
@@ -75,7 +78,7 @@ let output = "It is " + tempInCel + "C " + tempInKel + "K " + tempInFar + "F now
 
 // var convertTemp2 = function(currentInput){
 //   console.log( currentInput );
-  
+
 //   var tempInCelcius = (currentInput -32) * (5/9);
 //   var tempInKel = tempInCelcius + 273.15;
 //   let output = `${currentInput} farenheit is ${tempInCelcius} celcius and ${tempInKel} Kelvin`;
