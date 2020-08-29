@@ -3,22 +3,16 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <p>temperature converter</p>
-    <input class="starter" id="input" placeholder="input"/>
+    <p>° temperature converter</p>
+    <input type = "text" class="starter" id="input" value="100"/>
+    <select id="tempUnit">
+      <option>Farenheit</option>
+      <option>Celcius</option>
+      <option>Kelvin</option>  
+    </select>
+    <button type="button" onclick="tempConvert()">"Convert Temperature"</button>
     <h2>output:</h2>
     <p class="starter" id="output"></p>
-    <script>
-      document.querySelector('#input').addEventListener('change', function(event){
-        var currentInput = event.target.value;
-        var output = inputHappened(currentInput);
-        display( output );
-      });
-
-      var display = function( data ){
-        var output = document.querySelector('#output');
-        output.innerText = data;
-      }
-    </script>
     <script src="script.js"></script>
   </body>
 </html>
