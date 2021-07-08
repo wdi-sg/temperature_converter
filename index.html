@@ -1,24 +1,59 @@
 <html>
-  <head>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <p>temperature converter</p>
-    <input class="starter" id="input" placeholder="input"/>
-    <h2>output:</h2>
-    <p class="starter" id="output"></p>
-    <script>
-      document.querySelector('#input').addEventListener('change', function(event){
-        var currentInput = event.target.value;
-        var output = inputHappened(currentInput);
-        display( output );
-      });
 
-      var display = function( data ){
-        var output = document.querySelector('#output');
-        output.innerText = data;
-      }
-    </script>
-    <script src="script.js"></script>
-  </body>
+<head>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>Temperature Converter</h1>
+  <form>
+     <p>Please enter your name:</p>
+    <input type="text" id="in_name">
+    <h2>Which temperature unit do you wish to convert from?</h2>
+    <input type="radio" id="unit_f" name="temp_unit" value="f" checked=checked>
+    <label for="unit_f">Fahrenheit</label>
+    <input type="radio" id="unit_c" name="temp_unit" value="c">
+    <label for="unit_c">Celsius</label>
+    <input type="radio" id="unit_k" name="temp_unit" value="k">
+    <label for="unit_k">Kelvin</label>
+    <p id="user_prompt"></p>
+    <input type="text" id ="in_temp">
+    <br>
+
+    <br>
+    <div id="out_msg"></div>
+  </form>
+  <script>
+    const promptMsgTemplate = "Please enter temperature in ";
+    const form = document.forms[0];
+    const user_prompt_elem = document.getElementById('user_prompt');
+    const inputUnitElem = form.elements['temp_unit'];
+    let inputUnit = inputUnitElem.value;
+    const inputTempElem = document.getElementById('in_temp');
+    const outputTempElem = document.getElementById('out_msg');
+    const userNameElem = document.getElementById('in_name');
+
+    const resetText = (el) => el.textContent = "";
+    const setUserPrompt = (el) => el.textContent = `${promptMsgTemplate} ${inputUnit} :`;
+    const displayResult = text => outputTempElem.innerText = text;
+    const inputEventHandler = e => {
+      let userName = userNameElem.value || "friend";
+      setUserPrompt(user_prompt_elem);
+      displayResult(getConvertedTemperatures(e.target.value, inputUnit, userName));
+    }
+    const inputUnitChangeEventHandler = e => {
+      inputUnit = e.target.value;
+      setUserPrompt(user_prompt_elem);
+      inputTempElem.value = "";
+      resetText(outputTempElem);
+    }
+
+    setUserPrompt(user_prompt_elem);
+    inputUnitElem.forEach(radio => radio.addEventListener('change',inputUnitChangeEventHandler));
+    inputTempElem.addEventListener('keyup', inputEventHandler);
+
+  </script>
+  <script src="script.js"></script>
+</body>
+
 </html>
